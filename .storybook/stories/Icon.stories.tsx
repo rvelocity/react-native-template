@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type {Meta, StoryObj} from '@storybook/react';
 import React from 'react';
 import Icon from '../../src/ui/elements/media-icons/Icon';
 
-import { decorators } from '../decorators';
+import {decorators} from '../decorators';
 const options = [
-  0, 1, 2, 4, 6, 7, 8, 10, 12, 14, 16, 18, 20, 22, 24, 28, 32, 40, 42, 48, 50, 52, 56, 64, 68, 70,
-  72, 80, 88, 96, 156,
+  0, 1, 2, 4, 6, 7, 8, 10, 12, 14, 16, 18, 20, 22, 24, 28, 32, 40, 42, 48, 50,
+  52, 56, 64, 68, 70, 72, 80, 88, 96, 156,
 ];
 
 const meta = {
@@ -13,17 +13,17 @@ const meta = {
   component: Icon,
   argTypes: {
     variant: {
-      control: { type: 'select' },
+      control: {type: 'select'},
       options: ['vector', 'image', 'svg'],
     },
     icon: {
-      control: { type: 'text' },
+      control: {type: 'text'},
     },
     color: {
-      control: { type: 'text' },
+      control: {type: 'text'},
     },
     size: {
-      control: { type: 'select' },
+      control: {type: 'select'},
       options,
     },
   },
@@ -37,10 +37,9 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof Icon>;
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const IconTemplate: Story = {
-  render: ({ ...args }) => {
+  render: ({...args}) => {
     return <Icon {...args} />;
   },
 };
@@ -57,7 +56,7 @@ export const Vector: Story = {
   ...IconTemplate,
   argTypes: {
     type: {
-      control: { type: 'select' },
+      control: {type: 'select'},
       options: [
         'ant',
         'entypo',
