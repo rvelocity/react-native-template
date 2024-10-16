@@ -9,6 +9,7 @@ const lightColors = {
   gray: '#838C95',
   darkGray: '#939393',
   white: '#FFFFFF',
+  transparent: 'transparent',
 };
 
 export default lightColors;

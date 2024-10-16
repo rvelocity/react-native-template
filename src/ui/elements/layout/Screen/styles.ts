@@ -1,9 +1,14 @@
-import { StyleSheet } from 'react-native';
+import {createStyleSheet} from 'react-native-unistyles';
 
-export default StyleSheet.create({
-  container: {
+const stylesheet = createStyleSheet(theme => ({
+  outerStyle: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    height: '100%',
+    width: '100%',
   },
-});
+  bottomSpacing: {
+    height: 80,
+  },
+}));
+
+export default stylesheet;
