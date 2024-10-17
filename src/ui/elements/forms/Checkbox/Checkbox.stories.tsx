@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import React, { useState } from 'react';
-import Checkbox from '../../src/ui/elements/forms/Checkbox';
-import { decorators } from '../decorators';
+import type {Meta, StoryObj} from '@storybook/react';
+import React, {useState} from 'react';
+import Checkbox from '.';
+import {decorators} from '@.storybook/decorators';
 
 const meta = {
   title: 'Elements/Forms/Checkbox',
   component: Checkbox,
   argTypes: {
     value: {
-      control: { type: 'boolean' },
+      control: {type: 'boolean'},
     },
     onValueChange: {
       action: 'changed',

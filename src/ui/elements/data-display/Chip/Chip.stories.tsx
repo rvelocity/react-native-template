@@ -1,7 +1,7 @@
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
-import Chip from '../../src/ui/elements/data-display/Chip/Chip.tsx';
-import { decorators } from '../decorators.tsx';
+import {Meta, StoryObj} from '@storybook/react';
+import Chip from './Chip.tsx';
+import {decorators} from '../../../../../.storybook/decorators.tsx';
 
 const meta = {
   title: 'Elements/Data Display/Chip',

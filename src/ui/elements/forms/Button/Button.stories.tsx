@@ -1,22 +1,22 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type {Meta, StoryObj} from '@storybook/react';
 import React from 'react';
-import Button from '../../src/ui/elements/forms/Button';
-import { decorators } from '../decorators';
+import Button from '.';
+import {decorators} from '@.storybook/decorators';
 
 const meta = {
   title: 'Elements/Forms/Button',
   component: Button,
   argTypes: {
     variant: {
-      control: { type: 'radio' },
+      control: {type: 'radio'},
       options: ['primary', 'secondary'],
     },
     type: {
-      control: { type: 'radio' },
+      control: {type: 'radio'},
       options: ['contained', 'outlined', 'text'],
     },
     size: {
-      control: { type: 'radio' },
+      control: {type: 'radio'},
       options: ['sm', 'md', 'lg'],
     },
     disabled: {
@@ -29,7 +29,10 @@ const meta = {
       description: 'Shows loading spinner when true',
       defaultValue: false,
     },
-    onPress: { action: 'pressed', description: 'Triggered when the button is pressed' },
+    onPress: {
+      action: 'pressed',
+      description: 'Triggered when the button is pressed',
+    },
   },
   args: {},
   decorators: decorators,
@@ -40,7 +43,7 @@ export default meta;
 type Story = StoryObj<typeof Button>;
 
 const ButtonTemplate: Story = {
-  render: ({ children, ...args }) => (
+  render: ({children, ...args}) => (
     <Button {...args}>
       <Button.Text title="Button" />
     </Button>

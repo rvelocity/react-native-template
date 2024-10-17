@@ -1,13 +1,13 @@
-import { Meta, StoryObj } from '@storybook/react';
+import {Meta, StoryObj} from '@storybook/react';
 import React from 'react';
-import { Button, Text, View } from 'react-native';
-import Modal from '../../src/ui/elements/overlay/Modal';
+import {Button, Text, View} from 'react-native';
+import Modal from '.';
 
 const meta = {
   title: 'Elements/Overlay/Modal',
   component: Modal,
   argTypes: {
-    visible: { control: 'boolean' },
+    visible: {control: 'boolean'},
   },
 } satisfies Meta<typeof Modal>;
 
@@ -17,14 +17,16 @@ type Story = StoryObj<typeof Modal>;
 
 export const Basic: Story = {
   render: args => {
-    const [modalVisible, setModalVisible] = React.useState<boolean>(args.visible);
+    const [modalVisible, setModalVisible] = React.useState<boolean>(
+      args.visible,
+    );
 
     const toggleModal = () => {
       setModalVisible(!modalVisible);
     };
 
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
         <Button title="Open Modal" onPress={toggleModal} />
         <Modal visible={modalVisible} onRequestClose={toggleModal}>
           <Modal.Container>

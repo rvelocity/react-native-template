@@ -1,7 +1,7 @@
 import {Meta, StoryObj} from '@storybook/react';
 import React from 'react';
 import {Button, View} from 'react-native';
-import Loader from '../../src/ui/elements/feedback/Loader';
+import Loader from '.';
 
 const meta = {
   title: 'Elements/Feedback/Loader',

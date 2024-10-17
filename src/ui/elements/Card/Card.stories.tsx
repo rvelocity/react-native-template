@@ -1,15 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type {Meta, StoryObj} from '@storybook/react';
 import React from 'react';
-import Card from '../../src/ui/elements/Card/Card';
-import { decorators } from '../decorators';
-import { Text } from 'react-native';
+import Card from './Card';
+import {decorators} from '@.storybook/decorators';
+import {Text} from 'react-native';
 
 const meta = {
   title: 'Elements/Card',
   component: Card,
   argTypes: {
     variant: {
-      control: { type: 'select' },
+      control: {type: 'select'},
       options: ['contained', 'outlined', 'elevated', 'transparent'],
     },
   },

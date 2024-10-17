@@ -1,7 +1,7 @@
 import {Meta, StoryObj} from '@storybook/react';
 import React from 'react';
 import {Button, View} from 'react-native';
-import AlertDialog from '../../src/ui/elements/overlay/AlertDialog';
+import AlertDialog from '.';
 
 const meta = {
   title: 'Elements/Overlay/AlertDialog',

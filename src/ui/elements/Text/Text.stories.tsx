@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type {Meta, StoryObj} from '@storybook/react';
 import React from 'react';
-import Text from '../../src/ui/elements/Text';
-import { decorators } from '../decorators';
+import Text from '.';
+import {decorators} from '@.storybook/decorators';
 
 const variants = [
   'displayLarge',
@@ -43,7 +43,7 @@ export default meta;
 type Story = StoryObj<typeof Text>;
 
 const TextTemplate: Story = {
-  render: ({ children, ...args }) => {
+  render: ({children, ...args}) => {
     return (
       <>
         {variants.map((item: string, index: number) => {

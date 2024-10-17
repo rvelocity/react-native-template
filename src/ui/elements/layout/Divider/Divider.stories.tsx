@@ -1,15 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import React, { useState } from 'react';
-import Divider from '../../src/ui/elements/layout/Divider';
-import { decorators } from '../decorators';
+import {decorators} from '@.storybook/decorators';
+import type {Meta, StoryObj} from '@storybook/react';
+import React from 'react';
+import Divider from '.';
 
 const meta = {
   title: 'Elements/Layout/Divider',
   component: Divider,
   argTypes: {
-    variant: { control: { type: 'select' }, options: ['line', 'dotted', 'dashed'] },
+    variant: {control: {type: 'select'}, options: ['line', 'dotted', 'dashed']},
     height: {
-      control: { type: 'text' },
+      control: {type: 'text'},
     },
   },
   args: {

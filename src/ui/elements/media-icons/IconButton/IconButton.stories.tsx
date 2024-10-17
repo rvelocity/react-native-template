@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type {Meta, StoryObj} from '@storybook/react';
 import React from 'react';
-import { decorators } from '../decorators';
-import IconMeta from './Icon.stories.tsx';
-import IconButton from '../../src/ui/elements/media-icons/IconButton/IconButton.tsx';
+import {decorators} from '../../../../../.storybook/decorators.tsx';
+import IconMeta from '../Icon/Icon.stories.tsx';
+import IconButton from './IconButton.tsx';
 
 const variants = ['contained', 'outlined', 'defaults'];
 
@@ -12,11 +12,11 @@ const meta = {
   argTypes: {
     ...IconMeta.argTypes,
     iconStyle: {
-      control: { type: 'radio' },
+      control: {type: 'radio'},
       options: variants,
     },
     disabled: {
-      control: { type: 'boolean' },
+      control: {type: 'boolean'},
     },
   },
   args: {
@@ -30,7 +30,7 @@ export default meta;
 type Story = StoryObj<typeof IconButton>;
 
 const IconButtonTemplate: Story = {
-  render: ({ ...args }) => {
+  render: ({...args}) => {
     return <IconButton {...args} />;
   },
 };
@@ -47,7 +47,7 @@ export const Vector: Story = {
   ...IconButtonTemplate,
   argTypes: {
     type: {
-      control: { type: 'select' },
+      control: {type: 'select'},
       options: [
         'ant',
         'entypo',
