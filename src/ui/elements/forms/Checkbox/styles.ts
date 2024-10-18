@@ -1,4 +1,4 @@
-import { createStyleSheet } from 'react-native-unistyles';
+import {createStyleSheet} from 'react-native-unistyles';
 
 export default createStyleSheet(theme => ({
   container: {
@@ -9,7 +9,9 @@ export default createStyleSheet(theme => ({
     width: theme.spacing['24'],
     height: theme.spacing['24'],
     borderRadius: theme.spacing['4'],
-    backgroundColor: theme.colors.textPrimary,
+    backgroundColor: theme.colors.primary,
+    borderColor: theme.colors.primary,
+    borderWidth: theme.spacing['2'],
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -17,7 +19,7 @@ export default createStyleSheet(theme => ({
     width: theme.spacing['24'],
     height: theme.spacing['24'],
     borderRadius: theme.spacing['4'],
-    borderColor: theme.colors.textSecondary,
+    borderColor: theme.colors.primary,
     borderWidth: theme.spacing['2'],
     justifyContent: 'center',
     alignItems: 'center',
