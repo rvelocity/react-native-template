@@ -43,7 +43,7 @@ export default meta;
 type Story = StoryObj<typeof Button>;
 
 const ButtonTemplate: Story = {
-  render: ({children, ...args}) => (
+  render: ({...args}) => (
     <Button {...args}>
       <Button.Text title="Button" />
     </Button>
@@ -66,7 +66,7 @@ export const SecondaryOutlined: Story = {
   args: {
     variant: 'secondary',
     type: 'outlined',
-    size: 'lg',
+    size: 'md',
     disabled: false,
     loading: false,
   },
@@ -77,7 +77,7 @@ export const Text: Story = {
   args: {
     variant: 'primary',
     type: 'text',
-    size: 'lg',
+    size: 'md',
     disabled: false,
     loading: false,
   },
