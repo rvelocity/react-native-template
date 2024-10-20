@@ -1,11 +1,16 @@
-import { QueryCache, QueryClient, onlineManager, Query } from '@tanstack/react-query';
-import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
-import React, { FC, PropsWithChildren, useEffect } from 'react';
-import { addEventListener } from '@react-native-community/netinfo';
-import { createSyncStoragePersister } from '@tanstack/query-sync-storage-persister';
-import { Platform } from 'react-native';
-import { Storage } from '@/types/reactQueryConfig';
-import { zustandStorage } from './storageManager';
+import {
+  QueryCache,
+  QueryClient,
+  onlineManager,
+  Query,
+} from '@tanstack/react-query';
+import {PersistQueryClientProvider} from '@tanstack/react-query-persist-client';
+import React, {FC, PropsWithChildren, useEffect} from 'react';
+import {addEventListener} from '@react-native-community/netinfo';
+import {createSyncStoragePersister} from '@tanstack/query-sync-storage-persister';
+import {Platform} from 'react-native';
+import {Storage} from '@/types/reactQueryConfig';
+import {zustandStorage} from './storageManager';
 
 export const clientPersister = createSyncStoragePersister({
   storage: zustandStorage as Storage,
@@ -34,7 +39,7 @@ export const clearQueryCache = () => {
   queryClient.clear();
 };
 
-export const APIProvider: FC<PropsWithChildren> = ({ children }) => {
+export const APIProvider: FC<PropsWithChildren> = ({children}) => {
   /*  Use of the onlineManager to correctly set the network state
   and according define default mutation which needs to be run when device comes online */
   useEffect(() => {
@@ -77,7 +82,7 @@ export const APIProvider: FC<PropsWithChildren> = ({ children }) => {
     <PersistQueryClientProvider
       persistOptions={{
         persister: clientPersister,
-        dehydrateOptions: { shouldDehydrateQuery: persistFilter },
+        dehydrateOptions: {shouldDehydrateQuery: persistFilter},
       }}
       client={queryClient}>
       {children}

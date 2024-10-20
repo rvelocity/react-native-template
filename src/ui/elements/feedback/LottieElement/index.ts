@@ -1,1 +1,1 @@
-export { default } from './LottieElement';
+export {default} from './LottieElement';

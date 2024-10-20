@@ -1,1 +1,1 @@
-export { default } from './Clickable';
+export {default} from './Clickable';

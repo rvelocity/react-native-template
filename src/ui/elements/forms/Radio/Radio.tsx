@@ -6,10 +6,10 @@ import React, {
   useEffect,
   useRef,
 } from 'react';
-import { Animated, ViewStyle } from 'react-native';
+import {Animated, ViewStyle} from 'react-native';
 
-import { type Theme } from '@/theme';
-import { useStyles } from 'react-native-unistyles';
+import {type Theme} from '@/theme';
+import {useStyles} from 'react-native-unistyles';
 import Clickable from '../../Clickable';
 
 type RadioContextType = {
@@ -38,8 +38,16 @@ const RadioContext = createContext<RadioContextType>({
   onValueChange: () => {},
 });
 
-export const Radio = ({ value, onValueChange, children }: RadioProps): ReactElement => {
-  return <RadioContext.Provider value={{ value, onValueChange }}>{children}</RadioContext.Provider>;
+export const Radio = ({
+  value,
+  onValueChange,
+  children,
+}: RadioProps): ReactElement => {
+  return (
+    <RadioContext.Provider value={{value, onValueChange}}>
+      {children}
+    </RadioContext.Provider>
+  );
 };
 
 const RadioButton = ({
@@ -49,18 +57,24 @@ const RadioButton = ({
   status = StatusType.UNCHECKED,
   ...rest
 }: RadioButtonProps): ReactElement => {
-  const { theme } = useStyles();
+  const {theme} = useStyles();
   const borderWidth = theme.spacing[2];
 
   const context = useContext<RadioContextType>(RadioContext);
-  const borderAnim = useRef<Animated.Value>(new Animated.Value(borderWidth)).current;
+  const borderAnim = useRef<Animated.Value>(
+    new Animated.Value(borderWidth),
+  ).current;
   const isFirstRendering = useRef<boolean>(true);
 
   const getBorderColor = (
     isChecked: boolean,
     isDisabled: boolean = false,
   ): keyof Theme['colors'] => {
-    return isDisabled && isChecked ? 'secondary' : isChecked ? 'primary' : 'secondary';
+    return isDisabled && isChecked
+      ? 'secondary'
+      : isChecked
+      ? 'primary'
+      : 'secondary';
   };
 
   useEffect(() => {
@@ -79,7 +93,9 @@ const RadioButton = ({
   }, [status, borderAnim, borderWidth]);
 
   const handlePress = (eventValue: string): void => {
-    context.onValueChange ? context.onValueChange(eventValue) : onPress?.(eventValue);
+    context.onValueChange
+      ? context.onValueChange(eventValue)
+      : onPress?.(eventValue);
   };
 
   const isChecked = (): StatusType => {
@@ -105,7 +121,7 @@ const RadioButton = ({
         onPress: () => handlePress(value),
       })}
       accessibilityRole="radio"
-      accessibilityState={{ disabled, checked }}
+      accessibilityState={{disabled, checked}}
       accessibilityLiveRegion="polite"
       {...rest}>
       <Animated.View style={animatedStyle} />

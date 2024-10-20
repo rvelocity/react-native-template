@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { AppState, AppStateStatus } from 'react-native';
+import {useEffect} from 'react';
+import {AppState, AppStateStatus} from 'react-native';
 
 type AppStateCallback = () => void;
 
@@ -14,7 +14,10 @@ const useAppState = (
       }
     };
 
-    const subscription = AppState.addEventListener('change', handleAppStateChange);
+    const subscription = AppState.addEventListener(
+      'change',
+      handleAppStateChange,
+    );
 
     return () => {
       subscription.remove();

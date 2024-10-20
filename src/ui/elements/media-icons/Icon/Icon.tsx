@@ -21,7 +21,7 @@ export interface IconProps extends Omit<VectorIconProps, 'name'> {
 const Icon: FC<IconProps> = ({
   icon,
   variant,
-  size = 7,
+  size = 24,
   color = 'primary',
   autoPlay = true,
   loop = false,

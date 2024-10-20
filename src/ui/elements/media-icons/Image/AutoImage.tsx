@@ -1,5 +1,5 @@
-import React, { type ReactElement, useLayoutEffect, useState } from 'react';
-import { Image, type ImageProps, type ImageURISource } from 'react-native';
+import React, {type ReactElement, useLayoutEffect, useState} from 'react';
+import {Image, type ImageProps, type ImageURISource} from 'react-native';
 
 export interface AutoImageProps extends ImageProps {
   /**
@@ -26,16 +26,21 @@ function useAutoImage(
   source: ImageURISource | number,
   dimensions?: [maxWidth: number, maxHeight: number],
 ): [width: number, height: number] {
-  const [[remoteWidth, remoteHeight], setRemoteImageDimensions] = useState([0, 0]);
+  const [[remoteWidth, remoteHeight], setRemoteImageDimensions] = useState([
+    0, 0,
+  ]);
   const remoteAspectRatio = remoteWidth / remoteHeight;
   const [maxWidth, maxHeight] = dimensions ?? [0, 0];
 
   useLayoutEffect(() => {
     if (typeof source === 'number') {
       // Local image
-      const { width, height } = Image.resolveAssetSource(source);
+      const {width, height} = Image.resolveAssetSource(source);
       setRemoteImageDimensions([width, height]);
-    } else if (typeof source?.uri === 'string' && source.uri.trim().length > 0) {
+    } else if (
+      typeof source?.uri === 'string' &&
+      source.uri.trim().length > 0
+    ) {
       // Remote image
       Image.getSize(source.uri, (w, h) => {
         setRemoteImageDimensions([w, h]);
@@ -46,7 +51,10 @@ function useAutoImage(
   if (Number.isNaN(remoteAspectRatio)) return [0, 0];
 
   if (Boolean(maxWidth) && Boolean(maxHeight)) {
-    const aspectRatio = Math.min(maxWidth / remoteWidth, maxHeight / remoteHeight);
+    const aspectRatio = Math.min(
+      maxWidth / remoteWidth,
+      maxHeight / remoteHeight,
+    );
     return [remoteWidth * aspectRatio, remoteHeight * aspectRatio];
   } else if (!Number.isNaN(maxWidth)) {
     return [maxWidth, maxWidth / remoteAspectRatio];
@@ -63,12 +71,27 @@ function useAutoImage(
  * - [Documentation and Examples](https://github.com/infinitered/ignite/blob/master/docs/Components-AutoImage.md)
  */
 const AutoImage = (props: AutoImageProps): ReactElement => {
-  const { maxWidth = 0, maxHeight = 0, onError, style, source, ...imageProps } = props;
+  const {
+    maxWidth = 0,
+    maxHeight = 0,
+    onError,
+    style,
+    source,
+    ...imageProps
+  } = props;
 
-  const [width, height] = useAutoImage(source as ImageURISource | number, [maxWidth, maxHeight]);
+  const [width, height] = useAutoImage(source as ImageURISource | number, [
+    maxWidth,
+    maxHeight,
+  ]);
 
   return (
-    <Image {...imageProps} source={source} style={[{ width, height }, style]} onError={onError} />
+    <Image
+      {...imageProps}
+      source={source}
+      style={[{width, height}, style]}
+      onError={onError}
+    />
   );
 };
 

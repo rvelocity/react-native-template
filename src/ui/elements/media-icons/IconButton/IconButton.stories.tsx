@@ -4,8 +4,6 @@ import {decorators} from '../../../../../.storybook/decorators.tsx';
 import IconMeta from '../Icon/Icon.stories.tsx';
 import IconButton from './IconButton.tsx';
 
-const variants = ['contained', 'outlined', 'defaults'];
-
 const meta = {
   title: 'Elements/Media Icons/IconButton',
   component: IconButton,
@@ -13,7 +11,7 @@ const meta = {
     ...IconMeta.argTypes,
     iconStyle: {
       control: {type: 'radio'},
-      options: variants,
+      options: ['contained', 'outlined', 'defaults'],
     },
     disabled: {
       control: {type: 'boolean'},

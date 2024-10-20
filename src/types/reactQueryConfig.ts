@@ -4,8 +4,8 @@ import {
   QueryKey,
   UseInfiniteQueryOptions,
 } from '@tanstack/react-query';
-import { AxiosError } from 'axios';
-import { ErrorResponse } from './api';
+import {AxiosError} from 'axios';
+import {ErrorResponse} from './api';
 
 export interface ReactQueryConfig {
   url: string;
@@ -47,10 +47,20 @@ export interface ReactQueryUseInfiniteQueryConfig<
   TQueryKey extends QueryKey = QueryKey,
   TPageParam = unknown,
 > extends ReactQueryConfig,
-    UseInfiniteQueryOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey, TPageParam> {}
+    UseInfiniteQueryOptions<
+      TQueryFnData,
+      TError,
+      TData,
+      TQueryData,
+      TQueryKey,
+      TPageParam
+    > {}
 
 export interface IApiConfig {
-  [key: string]: ReactQueryConfig | ReactQueryGetConfig | ReactQueryUseInfiniteQueryConfig;
+  [key: string]:
+    | ReactQueryConfig
+    | ReactQueryGetConfig
+    | ReactQueryUseInfiniteQueryConfig;
 }
 
 export interface Storage {

@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import {Meta, StoryObj} from '@storybook/react';
 import React from 'react';
 import {Button, View} from 'react-native';
-import AlertDialog from '.';
+import AlertDialog from './AlertDialog';
 
 const meta = {
   title: 'Elements/Overlay/AlertDialog',
@@ -26,7 +27,7 @@ export const Basic: Story = {
     };
 
     return (
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <View>
         <Button title="Open Alert" onPress={toggleModal} />
         <AlertDialog
           visible={modalVisible}

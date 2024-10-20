@@ -1,7 +1,7 @@
-import { Theme } from '@/theme';
+import {Theme} from '@/theme';
 import React from 'react';
-import { StyleProp, View, ViewStyle } from 'react-native';
-import { useStyles } from 'react-native-unistyles';
+import {StyleProp, View, ViewStyle} from 'react-native';
+import {useStyles} from 'react-native-unistyles';
 import stylesheet from './styles';
 
 type DividerProps = {
@@ -10,10 +10,20 @@ type DividerProps = {
   style?: StyleProp<ViewStyle>;
 };
 
-const Divider: React.FC<DividerProps> = ({ variant = 'line', height = 1, style, ...rest }) => {
-  const { styles } = useStyles(stylesheet);
+const Divider: React.FC<DividerProps> = ({
+  variant = 'line',
+  height = 1,
+  style,
+  ...rest
+}) => {
+  const {styles} = useStyles(stylesheet);
 
-  return <View style={[styles.container, styles[variant], { height: height }, style]} {...rest} />;
+  return (
+    <View
+      style={[styles.container, styles[variant], {height: height}, style]}
+      {...rest}
+    />
+  );
 };
 
 export default Divider;

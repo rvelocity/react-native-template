@@ -1,7 +1,9 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+import {decorators} from '@.storybook/decorators';
 import {Meta, StoryObj} from '@storybook/react';
 import React from 'react';
 import {Button, Text, View} from 'react-native';
-import Modal from '.';
+import Modal from './Modal';
 
 const meta = {
   title: 'Elements/Overlay/Modal',
@@ -9,6 +11,7 @@ const meta = {
   argTypes: {
     visible: {control: 'boolean'},
   },
+  decorators: decorators,
 } satisfies Meta<typeof Modal>;
 
 export default meta;
@@ -26,7 +29,7 @@ export const Basic: Story = {
     };
 
     return (
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <View>
         <Button title="Open Modal" onPress={toggleModal} />
         <Modal visible={modalVisible} onRequestClose={toggleModal}>
           <Modal.Container>

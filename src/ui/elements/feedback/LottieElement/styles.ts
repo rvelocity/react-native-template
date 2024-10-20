@@ -1,7 +1,7 @@
-import { createStyleSheet } from 'react-native-unistyles';
+import {createStyleSheet} from 'react-native-unistyles';
 
 const stylesheet = createStyleSheet(theme => ({
-  animation: { height: theme.spacing[156], width: theme.spacing[156] },
+  animation: {height: theme.spacing[156], width: theme.spacing[156]},
   container: {
     alignItems: 'center',
     justifyContent: 'center',

@@ -1,4 +1,4 @@
-import { createStyleSheet } from 'react-native-unistyles';
+import {createStyleSheet} from 'react-native-unistyles';
 
 const stylesheet = createStyleSheet(theme => ({
   cardBase: {
@@ -20,7 +20,7 @@ const stylesheet = createStyleSheet(theme => ({
   elevated: {
     backgroundColor: theme.colors.white,
     shadowColor: theme.colors.primary,
-    shadowOffset: { width: 0, height: 4 },
+    shadowOffset: {width: 0, height: 4},
     shadowOpacity: 0.3,
     shadowRadius: 6,
     elevation: 5,
