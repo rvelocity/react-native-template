@@ -39,7 +39,7 @@ export const Default: Story = {
 };
 
 export const WithIcon: Story = {
-  render: args => <Chip {...args} icon="home" />,
+  render: args => <Chip {...args} icon="menu" />,
   args: {
     icon: 'menu',
     content: 'With Icon',

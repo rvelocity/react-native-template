@@ -9,7 +9,7 @@ const stylesheet = createStyleSheet(theme => ({
     backgroundColor: theme.colors.white,
     borderColor: theme.colors.darkGray,
     paddingHorizontal: 4,
-    color: theme.colors.secondary,
+    color: theme.colors.darkGray,
     overflow: 'hidden',
     flexDirection: 'row',
     justifyContent: 'space-between',

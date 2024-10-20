@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import TextField from '.';
-
 import { decorators } from '@.storybook/decorators';
+import { type Icon as IconType } from '@assets/constants/icons';
 
 const meta = {
   title: 'Elements/Forms/Text Field',
@@ -23,6 +23,12 @@ const meta = {
       control: { type: 'select' },
       options: ['primary', 'secondary', 'danger', 'warning']
     },
+    startIcon: {
+      control: { type: 'text' }
+    },
+    endIcon: {
+      control: { type: 'text' }
+    },
     onChange: { action: 'change' },
     onBlur: { action: 'blur' }
   },
@@ -30,7 +36,9 @@ const meta = {
     variant: 'default',
     size: 'md',
     color: 'secondary',
-    placeholder: 'Placeholder'
+    placeholder: 'Placeholder',
+    startIcon: '' as IconType,
+    endIcon: '' as IconType
   },
   decorators: decorators
 } satisfies Meta<typeof TextField>;
@@ -47,4 +55,27 @@ const TextFieldTemplate: Story = {
 
 export const Default: Story = {
   ...TextFieldTemplate
+};
+
+export const WithStartIcon: Story = {
+  ...TextFieldTemplate,
+  args: {
+    ...TextFieldTemplate.args,
+    startIcon: 'menu' // Replace with actual icon component
+  }
+};
+
+export const WithEndIcon: Story = {
+  ...TextFieldTemplate,
+  args: {
+    ...TextFieldTemplate.args,
+    endIcon: 'menu' // Replace with actual icon component
+  }
+};
+
+export const WithoutIcon: Story = {
+  ...TextFieldTemplate,
+  args: {
+    ...TextFieldTemplate.args
+  }
 };
