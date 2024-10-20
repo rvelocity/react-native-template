@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import type {Meta, StoryObj} from '@storybook/react';
-import React, {useState} from 'react';
-import {decorators} from '@.storybook/decorators';
+import type { Meta, StoryObj } from '@storybook/react';
+import React, { useState } from 'react';
+import { decorators } from '@.storybook/decorators';
 import OTPField from './OtpField';
 
 const meta: Meta<typeof OTPField> = {
@@ -11,13 +11,13 @@ const meta: Meta<typeof OTPField> = {
   argTypes: {
     maximumCodeLength: {
       control: {
-        type: 'number',
-      },
-    },
+        type: 'number'
+      }
+    }
   },
   args: {
-    maximumCodeLength: 4,
-  },
+    maximumCodeLength: 4
+  }
 };
 
 export default meta;
@@ -37,7 +37,7 @@ export const Basic: Story = {
         setCode={setCode}
       />
     );
-  },
+  }
 };
 
 export const CodeComplete: Story = {
@@ -46,12 +46,7 @@ export const CodeComplete: Story = {
     const [isPinReady, setIsPinReady] = useState(true);
 
     return (
-      <OTPField
-        setIsPinReady={setIsPinReady}
-        maximumCodeLength={6}
-        code={code}
-        setCode={setCode}
-      />
+      <OTPField setIsPinReady={setIsPinReady} maximumCodeLength={6} code={code} setCode={setCode} />
     );
-  },
+  }
 };

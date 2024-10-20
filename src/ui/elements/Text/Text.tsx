@@ -1,13 +1,7 @@
-import {Theme} from '@/theme';
+import { Theme } from '@/theme';
 import React from 'react';
-import {
-  Text as RnText,
-  TextProps as RnTextProps,
-  StyleProp,
-  TextStyle,
-  View,
-} from 'react-native';
-import {useStyles} from 'react-native-unistyles';
+import { Text as RnText, TextProps as RnTextProps, StyleProp, TextStyle, View } from 'react-native';
+import { useStyles } from 'react-native-unistyles';
 
 interface TextProps extends RnTextProps {
   variant?: keyof Theme['typeFaces'];
@@ -25,22 +19,18 @@ const Text: React.FC<TextProps> = ({
   style,
   ...rest
 }) => {
-  const {theme} = useStyles();
+  const { theme } = useStyles();
 
   const textStyle: StyleProp<TextStyle> = {
     color: theme.colors[color as keyof typeof theme.colors],
     textAlign: align,
-    letterSpacing: theme.spacing[spacing] || 0,
+    letterSpacing: theme.spacing[spacing] || 0
   };
 
   return (
     <View>
       <RnText
-        style={[
-          theme.typeFaces[variant] as StyleProp<TextStyle>,
-          textStyle,
-          style,
-        ]}
+        style={[theme.typeFaces[variant] as StyleProp<TextStyle>, textStyle, style]}
         {...rest}>
         {children}
       </RnText>

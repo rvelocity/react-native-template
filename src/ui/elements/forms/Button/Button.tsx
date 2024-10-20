@@ -1,19 +1,14 @@
-import React, {createContext, ReactElement, useContext, useMemo} from 'react';
-import {
-  ActivityIndicator,
-  Text,
-  TouchableOpacityProps,
-  View,
-} from 'react-native';
-import {useStyles} from 'react-native-unistyles';
+import React, { createContext, ReactElement, useContext, useMemo } from 'react';
+import { ActivityIndicator, Text, TouchableOpacityProps, View } from 'react-native';
+import { useStyles } from 'react-native-unistyles';
 import Clickable from '../../Clickable';
-import {IconProps} from '../../media-icons/Icon';
+import { IconProps } from '../../media-icons/Icon';
 import stylesheet from './styles';
 
 const ButtonTypes = {
   contained: 'Contained',
   outlined: 'Outlined',
-  text: 'Text',
+  text: 'Text'
 };
 
 type ButtonProps = TouchableOpacityProps & {
@@ -40,26 +35,19 @@ const ButtonContext = createContext<ButtonContextType>({
   variant: 'primary',
   type: 'contained',
   size: 'md',
-  disabled: false,
+  disabled: false
 });
 
-const {Provider} = ButtonContext;
+const { Provider } = ButtonContext;
 
-const ButtonText = ({title}: ButtonTextProps): ReactElement => {
-  const {styles} = useStyles(stylesheet);
-  const {variant, type, disabled, size} =
-    useContext<ButtonContextType>(ButtonContext);
+const ButtonText = ({ title }: ButtonTextProps): ReactElement => {
+  const { styles } = useStyles(stylesheet);
+  const { variant, type, disabled, size } = useContext<ButtonContextType>(ButtonContext);
 
   const textVariant = (variant + ButtonTypes[type]) as keyof typeof styles;
   const textSize = (size + 'Text') as keyof typeof styles;
   return (
-    <Text
-      style={[
-        styles[disabled ? 'disabledText' : textVariant],
-        styles[textSize],
-      ]}>
-      {title}
-    </Text>
+    <Text style={[styles[disabled ? 'disabledText' : textVariant], styles[textSize]]}>{title}</Text>
   );
 };
 
@@ -81,16 +69,16 @@ const Button = ({
   loading = false,
   ...rest
 }: ButtonProps): ReactElement => {
-  const {styles} = useStyles(stylesheet);
+  const { styles } = useStyles(stylesheet);
 
   const memorizedValue = useMemo(
     () => ({
       variant,
       type,
       disabled,
-      size,
+      size
     }),
-    [variant, type, disabled, size],
+    [variant, type, disabled, size]
   );
 
   return (
@@ -103,8 +91,8 @@ const Button = ({
           styles[variant],
           styles[type],
           styles[size],
-          {...(disabled && styles[`${type}Disabled`])},
-          rest.style,
+          { ...(disabled && styles[`${type}Disabled`]) },
+          rest.style
         ]}>
         {/* Use custom activity indictor which can adopt styling of button variant */}
         {loading ? <ActivityIndicator /> : children}

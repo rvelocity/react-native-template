@@ -1,4 +1,4 @@
-import {createStyleSheet} from 'react-native-unistyles';
+import { createStyleSheet } from 'react-native-unistyles';
 
 export default createStyleSheet(theme => ({
   container: {
@@ -6,12 +6,12 @@ export default createStyleSheet(theme => ({
     height: theme.spacing['28'],
     borderRadius: theme.spacing['14'],
     justifyContent: 'center',
-    padding: theme.spacing['2'],
+    padding: theme.spacing['2']
   },
   circle: {
     height: 24,
     width: 24,
     borderRadius: 12,
-    backgroundColor: theme.colors.background,
-  },
+    backgroundColor: theme.colors.background
+  }
 }));

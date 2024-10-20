@@ -1,16 +1,7 @@
-import {Theme} from '@/theme';
-import React, {
-  type FC,
-  type PropsWithChildren,
-  type ReactElement,
-  type ReactNode,
-} from 'react';
-import {
-  TextInput as RNTextInput,
-  View,
-  type TextInputProps,
-} from 'react-native';
-import {useStyles} from 'react-native-unistyles';
+import { Theme } from '@/theme';
+import React, { type FC, type PropsWithChildren, type ReactElement, type ReactNode } from 'react';
+import { TextInput as RNTextInput, View, type TextInputProps } from 'react-native';
+import { useStyles } from 'react-native-unistyles';
 import stylesheet from './styles';
 
 type InputVariantType = 'default' | 'outlined' | 'underlined';
@@ -35,7 +26,7 @@ const TextField: FC<InputProps> = ({
   color = 'secondary',
   ...rest
 }): ReactElement => {
-  const {styles, theme} = useStyles(stylesheet);
+  const { styles, theme } = useStyles(stylesheet);
 
   return (
     <View style={[styles.default, styles[variant], styles[size]]}>
@@ -44,7 +35,7 @@ const TextField: FC<InputProps> = ({
         {...rest}
         placeholder={placeholder}
         placeholderTextColor={theme.colors[color]}
-        style={{flex: 1}}
+        style={{ flex: 1 }}
       />
       {right ? <View>{right()}</View> : null}
     </View>

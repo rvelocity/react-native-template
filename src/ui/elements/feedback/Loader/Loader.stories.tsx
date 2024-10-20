@@ -1,12 +1,12 @@
-import {Meta, StoryObj} from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import {Button, View} from 'react-native';
+import { Button, View } from 'react-native';
 import Loader from '.';
 
 const meta = {
   title: 'Elements/Feedback/Loader',
   component: Loader,
-  argTypes: {},
+  argTypes: {}
 } satisfies Meta<typeof Loader>;
 
 export default meta;
@@ -14,11 +14,11 @@ export default meta;
 type Story = StoryObj<typeof Loader>;
 
 const LoaderTemplate: Story = {
-  render: ({...args}) => {
+  render: ({ ...args }) => {
     return <Loader {...args} />;
-  },
+  }
 };
 
 export const Default: Story = {
-  ...LoaderTemplate,
+  ...LoaderTemplate
 };

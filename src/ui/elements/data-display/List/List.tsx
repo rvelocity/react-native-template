@@ -1,20 +1,15 @@
-import React, {
-  type PropsWithChildren,
-  type ReactElement,
-  type ReactNode,
-  useState,
-} from 'react';
-import {LayoutAnimation, StyleProp, Text, TextStyle, View} from 'react-native';
-import {useStyles} from 'react-native-unistyles';
+import React, { type PropsWithChildren, type ReactElement, type ReactNode, useState } from 'react';
+import { LayoutAnimation, StyleProp, Text, TextStyle, View } from 'react-native';
+import { useStyles } from 'react-native-unistyles';
 import Divider from '../../layout/Divider';
-import Icon, {IconProps} from '../../media-icons/Icon';
+import Icon, { IconProps } from '../../media-icons/Icon';
 import stylesheet from './styles';
 import Clickable from '../../Clickable';
 
 type ListProps = PropsWithChildren;
 
-const List = ({children}: ListProps): ReactElement => {
-  const {styles} = useStyles(stylesheet);
+const List = ({ children }: ListProps): ReactElement => {
+  const { styles } = useStyles(stylesheet);
 
   return <View style={styles.listContainer}>{children}</View>;
 };
@@ -26,20 +21,15 @@ type ListAccordionProps = PropsWithChildren & {
   left?: () => ReactNode;
 };
 
-const ListAccordion = ({
-  title,
-  subTitle,
-  children,
-  left,
-}: ListAccordionProps): ReactElement => {
-  const {styles} = useStyles(stylesheet);
+const ListAccordion = ({ title, subTitle, children, left }: ListAccordionProps): ReactElement => {
+  const { styles } = useStyles(stylesheet);
   const [opened, setOpened] = useState<boolean>(false);
 
   const toggleAccordion = (): void => {
     LayoutAnimation.configureNext({
       duration: 300,
-      create: {type: 'easeIn', property: 'opacity'},
-      update: {type: 'linear', springDamping: 0.3, duration: 250},
+      create: { type: 'easeIn', property: 'opacity' },
+      update: { type: 'linear', springDamping: 0.3, duration: 250 }
     });
     setOpened(!opened);
   };
@@ -52,9 +42,7 @@ const ListAccordion = ({
           <View style={styles.accordionContent}>
             <View>
               <Text style={styles.accordionTitle}>{title}</Text>
-              {subTitle ? (
-                <Text style={styles.accordionSubtitle}>{subTitle}</Text>
-              ) : null}
+              {subTitle ? <Text style={styles.accordionSubtitle}>{subTitle}</Text> : null}
             </View>
             <Icon
               variant="vector"
@@ -90,9 +78,9 @@ const ListItem = ({
   right,
   titleColor = 'black',
   descriptionColor = 'gray',
-  divider = false,
+  divider = false
 }: ListItemProps): ReactElement => {
-  const {styles} = useStyles(stylesheet);
+  const { styles } = useStyles(stylesheet);
 
   return (
     <View style={styles.listItemContainer}>
@@ -101,13 +89,10 @@ const ListItem = ({
         <View style={styles.listItemTextContainer}>
           <View>
             {title ? (
-              <Text style={[styles.listItemTitle, {color: titleColor}]}>
-                {title}
-              </Text>
+              <Text style={[styles.listItemTitle, { color: titleColor }]}>{title}</Text>
             ) : null}
             {description ? (
-              <Text
-                style={[styles.listItemDescription, {color: descriptionColor}]}>
+              <Text style={[styles.listItemDescription, { color: descriptionColor }]}>
                 {description}
               </Text>
             ) : null}
@@ -120,14 +105,14 @@ const ListItem = ({
   );
 };
 
-const ListIcon = ({variant, icon, ...rest}: IconProps): ReactElement => {
+const ListIcon = ({ variant, icon, ...rest }: IconProps): ReactElement => {
   return <Icon icon={icon} variant={variant} {...rest} />;
 };
 
 type ListSectionProps = PropsWithChildren;
 
-const ListSection = ({children}: ListSectionProps): ReactElement => {
-  const {styles} = useStyles(stylesheet);
+const ListSection = ({ children }: ListSectionProps): ReactElement => {
+  const { styles } = useStyles(stylesheet);
 
   return <View style={styles.listSection}>{children}</View>;
 };
@@ -136,8 +121,8 @@ type ListSubHeaderProps = {
   title: string | number;
 };
 
-const ListSubHeader = ({title}: ListSubHeaderProps): ReactElement => {
-  const {styles} = useStyles(stylesheet);
+const ListSubHeader = ({ title }: ListSubHeaderProps): ReactElement => {
+  const { styles } = useStyles(stylesheet);
 
   return (
     <View style={styles.listSubHeader}>

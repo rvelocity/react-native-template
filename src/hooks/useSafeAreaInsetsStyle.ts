@@ -1,4 +1,4 @@
-import {type Edge, useSafeAreaInsets} from 'react-native-safe-area-context';
+import { type Edge, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export type ExtendedEdge = Edge | 'start' | 'end';
 
@@ -8,17 +8,17 @@ const propertySuffixMap = {
   left: 'Start',
   right: 'End',
   start: 'Start',
-  end: 'End',
+  end: 'End'
 };
 
 const edgeInsetMap: Record<string, Edge> = {
   start: 'left',
-  end: 'right',
+  end: 'right'
 };
 
 export type SafeAreaInsetsStyle<
   Property extends 'padding' | 'margin' = 'padding',
-  Edges extends ExtendedEdge[] = ExtendedEdge[],
+  Edges extends ExtendedEdge[] = ExtendedEdge[]
 > = {
   [K in Edges[number] as `${Property}${Capitalize<K>}`]: number;
 };
@@ -32,15 +32,15 @@ export type SafeAreaInsetsStyle<
  */
 export function useSafeAreaInsetsStyle<
   Property extends 'padding' | 'margin' = 'padding',
-  Edges extends ExtendedEdge[] = [],
+  Edges extends ExtendedEdge[] = []
 >(
   safeAreaEdges: Edges = [] as unknown as Edges,
-  property: Property = 'padding' as Property,
+  property: Property = 'padding' as Property
 ): SafeAreaInsetsStyle<Property, Edges> {
   const insets = useSafeAreaInsets();
 
   return safeAreaEdges.reduce((acc, e) => {
     const value = edgeInsetMap[e] ?? e;
-    return {...acc, [`${property}${propertySuffixMap[e]}`]: insets[value]};
+    return { ...acc, [`${property}${propertySuffixMap[e]}`]: insets[value] };
   }, {}) as SafeAreaInsetsStyle<Property, Edges>;
 }

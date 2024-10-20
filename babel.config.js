@@ -7,10 +7,10 @@ module.exports = {
         alias: {
           '@': './src',
           '@assets': './assets',
-          '@.storybook': './.storybook',
-        },
-      },
+          '@.storybook': './.storybook'
+        }
+      }
     ],
-    'react-native-reanimated/plugin',
-  ],
+    'react-native-reanimated/plugin'
+  ]
 };

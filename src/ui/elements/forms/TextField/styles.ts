@@ -1,4 +1,4 @@
-import {createStyleSheet} from 'react-native-unistyles';
+import { createStyleSheet } from 'react-native-unistyles';
 
 const stylesheet = createStyleSheet(theme => ({
   // Text field variants
@@ -13,27 +13,27 @@ const stylesheet = createStyleSheet(theme => ({
     overflow: 'hidden',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   outlined: {
     borderWidth: 1,
     backgroundColor: 'transparent',
     borderColor: theme.colors.primary,
-    borderRadius: 4,
+    borderRadius: 4
   },
   underlined: {
-    borderBottomWidth: 1,
+    borderBottomWidth: 1
   },
   // Text Field Size
   lg: {
-    height: 56,
+    height: 56
   },
   md: {
-    height: 46,
+    height: 46
   },
   sm: {
-    height: 40,
-  },
+    height: 40
+  }
 }));
 
 export default stylesheet;

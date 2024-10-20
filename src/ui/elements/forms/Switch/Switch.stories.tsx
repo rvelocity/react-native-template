@@ -1,24 +1,24 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import type {Meta, StoryObj} from '@storybook/react';
-import React, {useState} from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
+import React, { useState } from 'react';
 import Switch from '.';
-import {decorators} from '@.storybook/decorators';
+import { decorators } from '@.storybook/decorators';
 
 const meta = {
   title: 'Elements/Forms/Switch',
   component: Switch,
   argTypes: {
     value: {
-      control: {type: 'boolean'},
+      control: { type: 'boolean' }
     },
     onValueChange: {
-      action: 'changed',
-    },
+      action: 'changed'
+    }
   },
   args: {
-    value: false,
+    value: false
   },
-  decorators: decorators,
+  decorators: decorators
 } satisfies Meta<typeof Switch>;
 
 export default meta;
@@ -35,16 +35,16 @@ const SwitchTemplate: Story = {
     };
 
     return <Switch value={isEnabled} onValueChange={handleValueChange} />;
-  },
+  }
 };
 
 export const Default = {
-  ...SwitchTemplate,
+  ...SwitchTemplate
 };
 
 export const Enabled: Story = {
   ...SwitchTemplate,
   args: {
-    value: true,
-  },
+    value: true
+  }
 };

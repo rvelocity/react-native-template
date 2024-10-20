@@ -1,9 +1,9 @@
-import type {Meta, StoryObj} from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import Avatar from '.';
-import {decorators} from '@.storybook/decorators';
-import {getImage} from '@assets/constants/images';
-import {ImageSource} from 'react-native-vector-icons/Icon';
+import { decorators } from '@.storybook/decorators';
+import { getImage } from '@assets/constants/images';
+import { ImageSource } from 'react-native-vector-icons/Icon';
 
 const meta: Meta<typeof Avatar> = {
   title: 'Elements/Data Display/Avatar',
@@ -11,13 +11,13 @@ const meta: Meta<typeof Avatar> = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['xs', 'sm', 'md', 'lg', 'xl', '2xl'],
-    },
+      options: ['xs', 'sm', 'md', 'lg', 'xl', '2xl']
+    }
   },
   args: {
-    variant: 'md',
+    variant: 'md'
   },
-  decorators: decorators,
+  decorators: decorators
 };
 
 export default meta;
@@ -30,7 +30,7 @@ export const Basic: Story = {
       <Avatar.Image source={getImage('avatar') as ImageSource} />
       <Avatar.Fallback>John Doe</Avatar.Fallback>
     </Avatar>
-  ),
+  )
 };
 
 export const Group: Story = {
@@ -49,5 +49,5 @@ export const Group: Story = {
         <Avatar.Fallback>Jim Brown</Avatar.Fallback>
       </Avatar>
     </Avatar.Group>
-  ),
+  )
 };

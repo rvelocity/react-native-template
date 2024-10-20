@@ -1,10 +1,5 @@
-import {
-  persist,
-  createJSONStorage,
-  create,
-  zustandStorage,
-} from '@/api/storageManager';
-import {User} from '@/types/user';
+import { persist, createJSONStorage, create, zustandStorage } from '@/api/storageManager';
+import { User } from '@/types/user';
 
 export interface AuthState {
   user: User;
@@ -16,14 +11,14 @@ export const useAuthStore = create<AuthState>()(
   persist(
     set => ({
       user: {} as User,
-      setUser: userData => set({user: userData}),
-      clearUser: () => set({user: {} as User}),
+      setUser: userData => set({ user: userData }),
+      clearUser: () => set({ user: {} as User })
     }),
     {
       name: 'auth',
-      storage: createJSONStorage(() => zustandStorage), // Assuming `zustandStorage` is just `localStorage`
-    },
-  ),
+      storage: createJSONStorage(() => zustandStorage) // Assuming `zustandStorage` is just `localStorage`
+    }
+  )
 );
 
 /* Usage example:

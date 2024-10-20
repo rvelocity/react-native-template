@@ -1,41 +1,41 @@
-import type {Meta, StoryObj} from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import Button from '.';
-import {decorators} from '@.storybook/decorators';
+import { decorators } from '@.storybook/decorators';
 
 const meta = {
   title: 'Elements/Forms/Button',
   component: Button,
   argTypes: {
     variant: {
-      control: {type: 'radio'},
-      options: ['primary', 'secondary'],
+      control: { type: 'radio' },
+      options: ['primary', 'secondary']
     },
     type: {
-      control: {type: 'radio'},
-      options: ['contained', 'outlined', 'text'],
+      control: { type: 'radio' },
+      options: ['contained', 'outlined', 'text']
     },
     size: {
-      control: {type: 'radio'},
-      options: ['sm', 'md', 'lg'],
+      control: { type: 'radio' },
+      options: ['sm', 'md', 'lg']
     },
     disabled: {
       control: 'boolean',
       description: 'Disables the button when true',
-      defaultValue: false,
+      defaultValue: false
     },
     loading: {
       control: 'boolean',
       description: 'Shows loading spinner when true',
-      defaultValue: false,
+      defaultValue: false
     },
     onPress: {
       action: 'pressed',
-      description: 'Triggered when the button is pressed',
-    },
+      description: 'Triggered when the button is pressed'
+    }
   },
   args: {},
-  decorators: decorators,
+  decorators: decorators
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -43,11 +43,11 @@ export default meta;
 type Story = StoryObj<typeof Button>;
 
 const ButtonTemplate: Story = {
-  render: ({...args}) => (
+  render: ({ ...args }) => (
     <Button {...args}>
       <Button.Text title="Button" />
     </Button>
-  ),
+  )
 };
 
 export const PrimaryContained: Story = {
@@ -57,8 +57,8 @@ export const PrimaryContained: Story = {
     type: 'contained',
     size: 'md',
     disabled: false,
-    loading: false,
-  },
+    loading: false
+  }
 };
 
 export const SecondaryOutlined: Story = {
@@ -68,8 +68,8 @@ export const SecondaryOutlined: Story = {
     type: 'outlined',
     size: 'md',
     disabled: false,
-    loading: false,
-  },
+    loading: false
+  }
 };
 
 export const Text: Story = {
@@ -79,6 +79,6 @@ export const Text: Story = {
     type: 'text',
     size: 'md',
     disabled: false,
-    loading: false,
-  },
+    loading: false
+  }
 };

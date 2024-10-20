@@ -1,4 +1,4 @@
-import {Theme} from '@/theme';
+import { Theme } from '@/theme';
 import React, {
   Children,
   cloneElement,
@@ -8,12 +8,12 @@ import React, {
   type ReactNode,
   useContext,
   useMemo,
-  useState,
+  useState
 } from 'react';
-import {ImageProps, View} from 'react-native';
-import {useStyles} from 'react-native-unistyles';
+import { ImageProps, View } from 'react-native';
+import { useStyles } from 'react-native-unistyles';
 import Text from '../../Text';
-import {AutoImage} from '../Image';
+import { AutoImage } from '../Image';
 import stylesheet from './styles';
 
 const avatarText = {
@@ -22,7 +22,7 @@ const avatarText = {
   md: 'bodyLarge',
   lg: 'bodyLarge',
   xl: 'bodyLarge',
-  '2xl': 'bodyLarge',
+  '2xl': 'bodyLarge'
 };
 
 type AvatarType = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
@@ -45,16 +45,16 @@ type AvatarProps = {
 // };
 
 const AvatarContext = createContext<AvatarContextType>({
-  variant: 'md',
+  variant: 'md'
 });
 
-const {Provider} = AvatarContext;
+const { Provider } = AvatarContext;
 
 const getAvatarGroupChildren = (
   children: ReactNode,
   max: number,
   variant: AvatarType,
-  styles: any,
+  styles: any
 ): [ReactElement[], ReactElement | null] => {
   let childrenArray = Children.toArray(children) as ReactElement[];
   let plusAvatars = 0;
@@ -66,16 +66,14 @@ const getAvatarGroupChildren = (
 
   const avatars = childrenArray.reverse().map((child, index) =>
     cloneElement(child, {
-      key: `avatar-group-child-${index}`,
-    }),
+      key: `avatar-group-child-${index}`
+    })
   );
 
   const plusAvatarComponent =
     plusAvatars > 0 ? (
       <View key="plus-avatars" style={[styles.plusAvatar, styles[variant]]}>
-        <Text
-          color="background"
-          variant={avatarText[variant] as keyof Theme['typeFaces']}>
+        <Text color="background" variant={avatarText[variant] as keyof Theme['typeFaces']}>
           +{plusAvatars}
         </Text>
       </View>
@@ -84,19 +82,10 @@ const getAvatarGroupChildren = (
   return [avatars, plusAvatarComponent];
 };
 
-const AvatarGroup = ({
-  children,
-  max,
-  variant = 'md',
-}: AvatarGroupProps): ReactElement => {
-  const memorizedValue = useMemo(() => ({variant}), [variant]);
-  const {styles} = useStyles(stylesheet);
-  const [avatars, plusAvatarComponent] = getAvatarGroupChildren(
-    children,
-    max,
-    variant,
-    styles,
-  );
+const AvatarGroup = ({ children, max, variant = 'md' }: AvatarGroupProps): ReactElement => {
+  const memorizedValue = useMemo(() => ({ variant }), [variant]);
+  const { styles } = useStyles(stylesheet);
+  const [avatars, plusAvatarComponent] = getAvatarGroupChildren(children, max, variant, styles);
 
   return (
     <Provider value={memorizedValue}>
@@ -108,10 +97,10 @@ const AvatarGroup = ({
   );
 };
 
-const AvatarImage = ({source, ...props}: AutoImageProps): ReactElement => {
-  const {variant} = useContext(AvatarContext);
+const AvatarImage = ({ source, ...props }: AutoImageProps): ReactElement => {
+  const { variant } = useContext(AvatarContext);
   const [imageError, setImageError] = useState(false);
-  const {styles} = useStyles(stylesheet);
+  const { styles } = useStyles(stylesheet);
 
   const handleImageError = (): void => {
     setImageError(true);
@@ -121,7 +110,7 @@ const AvatarImage = ({source, ...props}: AutoImageProps): ReactElement => {
     <View
       style={[
         styles.avatarImage,
-        {width: styles[variant].width, height: styles[variant].height},
+        { width: styles[variant].width, height: styles[variant].height }
       ]}>
       {!imageError ? (
         <AutoImage
@@ -136,8 +125,8 @@ const AvatarImage = ({source, ...props}: AutoImageProps): ReactElement => {
   );
 };
 
-const AvatarFallback = ({children}: AvatarFallbackProps): ReactElement => {
-  const {variant} = useContext(AvatarContext);
+const AvatarFallback = ({ children }: AvatarFallbackProps): ReactElement => {
+  const { variant } = useContext(AvatarContext);
 
   const fullName = children?.toString().split(' ') ?? [];
   const firstNameInitial = fullName[0]?.length > 0 ? fullName[0][0] : '';
@@ -157,20 +146,18 @@ const AvatarFallback = ({children}: AvatarFallbackProps): ReactElement => {
 //   return <View/>;
 // };
 
-const Avatar = ({children, variant = 'md'}: AvatarProps): ReactElement => {
-  const {variant: groupVariant} = useContext(AvatarContext);
+const Avatar = ({ children, variant = 'md' }: AvatarProps): ReactElement => {
+  const { variant: groupVariant } = useContext(AvatarContext);
 
   const memorizedValue = useMemo(
-    () => ({variant: groupVariant || variant}),
-    [groupVariant, variant],
+    () => ({ variant: groupVariant || variant }),
+    [groupVariant, variant]
   );
-  const {styles} = useStyles(stylesheet);
+  const { styles } = useStyles(stylesheet);
 
   return (
     <Provider value={memorizedValue}>
-      <View style={[styles.avatarContainer, styles[groupVariant || variant]]}>
-        {children}
-      </View>
+      <View style={[styles.avatarContainer, styles[groupVariant || variant]]}>{children}</View>
     </Provider>
   );
 };

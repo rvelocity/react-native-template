@@ -1,6 +1,6 @@
-import type {Meta, StoryObj} from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import {decorators} from '../../../../../.storybook/decorators.tsx';
+import { decorators } from '../../../../../.storybook/decorators.tsx';
 import IconMeta from '../Icon/Icon.stories.tsx';
 import IconButton from './IconButton.tsx';
 
@@ -10,17 +10,17 @@ const meta = {
   argTypes: {
     ...IconMeta.argTypes,
     iconStyle: {
-      control: {type: 'radio'},
-      options: ['contained', 'outlined', 'defaults'],
+      control: { type: 'radio' },
+      options: ['contained', 'outlined', 'defaults']
     },
     disabled: {
-      control: {type: 'boolean'},
-    },
+      control: { type: 'boolean' }
+    }
   },
   args: {
-    ...IconMeta.args,
+    ...IconMeta.args
   },
-  decorators: decorators,
+  decorators: decorators
 } satisfies Meta<typeof IconButton>;
 
 export default meta;
@@ -28,24 +28,24 @@ export default meta;
 type Story = StoryObj<typeof IconButton>;
 
 const IconButtonTemplate: Story = {
-  render: ({...args}) => {
+  render: ({ ...args }) => {
     return <IconButton {...args} />;
-  },
+  }
 };
 
 export const Image: Story = {
   ...IconButtonTemplate,
   args: {
     variant: 'image',
-    icon: 'avatar',
-  },
+    icon: 'avatar'
+  }
 };
 
 export const Vector: Story = {
   ...IconButtonTemplate,
   argTypes: {
     type: {
-      control: {type: 'select'},
+      control: { type: 'select' },
       options: [
         'ant',
         'entypo',
@@ -60,21 +60,21 @@ export const Vector: Story = {
         'materialCommunity',
         'octicon',
         'simpleLine',
-        'zocial',
-      ],
-    },
+        'zocial'
+      ]
+    }
   },
   args: {
     variant: 'vector',
     icon: 'arrowleft',
-    type: 'ant',
-  },
+    type: 'ant'
+  }
 };
 
 export const Svg: Story = {
   ...IconButtonTemplate,
   args: {
     variant: 'svg',
-    icon: 'menu',
-  },
+    icon: 'menu'
+  }
 };

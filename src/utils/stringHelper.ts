@@ -16,7 +16,7 @@ const camelize = (str: string): string => {
 
 export const stringHelper = {
   capitalFirstLetter,
-  camelize,
+  camelize
 } as stringHelperReturn;
 
 export default stringHelper;

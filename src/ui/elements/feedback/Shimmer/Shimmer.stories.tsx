@@ -1,12 +1,12 @@
-import type {Meta, StoryObj} from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import Shimmer from '.';
 
-import {decorators} from '@.storybook/decorators';
+import { decorators } from '@.storybook/decorators';
 
 const options = [
-  0, 1, 2, 4, 6, 7, 8, 10, 12, 14, 16, 18, 20, 22, 24, 28, 32, 40, 42, 48, 50,
-  52, 56, 64, 68, 70, 72, 80, 88, 96, 156,
+  0, 1, 2, 4, 6, 7, 8, 10, 12, 14, 16, 18, 20, 22, 24, 28, 32, 40, 42, 48, 50, 52, 56, 64, 68, 70,
+  72, 80, 88, 96, 156
 ];
 
 const meta = {
@@ -15,17 +15,17 @@ const meta = {
   argTypes: {
     width: {
       control: 'select',
-      options,
+      options
     },
-    height: {control: 'select', options},
-    borderRadius: {control: 'select', options},
+    height: { control: 'select', options },
+    borderRadius: { control: 'select', options }
   },
   args: {
     width: 80,
     height: 80,
-    borderRadius: 80,
+    borderRadius: 80
   },
-  decorators: decorators,
+  decorators: decorators
 } satisfies Meta<typeof Shimmer>;
 
 export default meta;
@@ -33,11 +33,11 @@ export default meta;
 type Story = StoryObj<typeof Shimmer>;
 
 const ShimmerTemplate: Story = {
-  render: ({...args}) => {
+  render: ({ ...args }) => {
     return <Shimmer {...args} />;
-  },
+  }
 };
 
 export const Default: Story = {
-  ...ShimmerTemplate,
+  ...ShimmerTemplate
 };

@@ -1,15 +1,15 @@
-import {useSafeAreaInsetsStyle} from '@/hooks/useSafeAreaInsetsStyle';
-import {useNavigation} from '@react-navigation/native';
-import React, {type PropsWithChildren, type ReactElement} from 'react';
-import {View} from 'react-native';
-import {useStyles} from 'react-native-unistyles';
+import { useSafeAreaInsetsStyle } from '@/hooks/useSafeAreaInsetsStyle';
+import { useNavigation } from '@react-navigation/native';
+import React, { type PropsWithChildren, type ReactElement } from 'react';
+import { View } from 'react-native';
+import { useStyles } from 'react-native-unistyles';
 import IconButton from '../../media-icons/IconButton';
-import {IconButtonProps} from '../../media-icons/IconButton/IconButton';
+import { IconButtonProps } from '../../media-icons/IconButton/IconButton';
 import stylesheet from './styles';
 import Text from '../../Text';
 
-export const Header = ({children}: PropsWithChildren): ReactElement => {
-  const {styles} = useStyles(stylesheet);
+export const Header = ({ children }: PropsWithChildren): ReactElement => {
+  const { styles } = useStyles(stylesheet);
 
   const containerInsets = useSafeAreaInsetsStyle(['top'], 'margin');
 
@@ -20,7 +20,7 @@ export const Header = ({children}: PropsWithChildren): ReactElement => {
   );
 };
 
-const BackAction = ({onPress}: {onPress?: () => void}): ReactElement => {
+const BackAction = ({ onPress }: { onPress?: () => void }): ReactElement => {
   const navigation = useNavigation();
 
   const navigateBack = (): void => {
@@ -43,7 +43,7 @@ type ContentProps = {
   subTitle?: string;
 };
 
-const Content = ({title, subTitle}: ContentProps): ReactElement => {
+const Content = ({ title, subTitle }: ContentProps): ReactElement => {
   return (
     <View>
       <Text variant="titleMedium">{title}</Text>
@@ -56,9 +56,7 @@ const Content = ({title, subTitle}: ContentProps): ReactElement => {
   );
 };
 
-const Action = (
-  props: {icon: string; onPress?: () => void} & IconButtonProps,
-): ReactElement => {
+const Action = (props: { icon: string; onPress?: () => void } & IconButtonProps): ReactElement => {
   return <IconButton size={24} {...props} />;
 };
 

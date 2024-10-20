@@ -1,15 +1,15 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import {Meta, StoryObj} from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import {Button, View} from 'react-native';
+import { Button, View } from 'react-native';
 import AlertDialog from './AlertDialog';
 
 const meta = {
   title: 'Elements/Overlay/AlertDialog',
   component: AlertDialog,
   argTypes: {
-    visible: {control: 'boolean'},
-  },
+    visible: { control: 'boolean' }
+  }
 } satisfies Meta<typeof AlertDialog>;
 
 export default meta;
@@ -18,9 +18,7 @@ type Story = StoryObj<typeof AlertDialog>;
 
 export const Basic: Story = {
   render: args => {
-    const [modalVisible, setModalVisible] = React.useState<boolean>(
-      args.visible,
-    );
+    const [modalVisible, setModalVisible] = React.useState<boolean>(args.visible);
 
     const toggleModal = () => {
       setModalVisible(!modalVisible);
@@ -42,6 +40,6 @@ export const Basic: Story = {
     );
   },
   args: {
-    visible: false,
-  },
+    visible: false
+  }
 };

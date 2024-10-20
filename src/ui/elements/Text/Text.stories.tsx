@@ -1,7 +1,7 @@
-import type {Meta, StoryObj} from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import Text from '.';
-import {decorators} from '@.storybook/decorators';
+import { decorators } from '@.storybook/decorators';
 
 const variants = [
   'displayLarge',
@@ -20,7 +20,7 @@ const variants = [
   'labelLargeProminent',
   'labelMedium',
   'labelMediumProminent',
-  'labelSmall',
+  'labelSmall'
 ];
 
 const meta = {
@@ -34,8 +34,8 @@ const meta = {
      # Here I can add some markdown
      
      Put a full new line between each element.
-    `,
-  },
+    `
+  }
 } satisfies Meta<typeof Text>;
 
 export default meta;
@@ -43,7 +43,7 @@ export default meta;
 type Story = StoryObj<typeof Text>;
 
 const TextTemplate: Story = {
-  render: ({children, ...args}) => {
+  render: ({ children, ...args }) => {
     return (
       <>
         {variants.map((item: string, index: number) => {
@@ -55,13 +55,13 @@ const TextTemplate: Story = {
         })}
       </>
     );
-  },
+  }
 };
 
 export const Default = {
-  ...TextTemplate,
+  ...TextTemplate
 };
 
 Default.args = {
-  children: '',
+  children: ''
 };

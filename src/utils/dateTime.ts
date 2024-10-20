@@ -1,4 +1,4 @@
-import {format, formatDistance, parseISO} from 'date-fns';
+import { format, formatDistance, parseISO } from 'date-fns';
 
 const formatDate = (date: Date, formatStr = 'dd-LLL-yyyy'): string => {
   return format(date, formatStr);
@@ -11,7 +11,7 @@ const formatDateTime = (date: Date, formatStr = 'dd-LLL-yyy HH:mm'): string => {
 const formatDateDistance = (date: Date): string => {
   return formatDistance(date, new Date(), {
     addSuffix: true,
-    includeSeconds: false,
+    includeSeconds: false
   });
 };
 
@@ -24,7 +24,7 @@ export const dateTimeUtils = {
   formatDate,
   formatDateTime,
   formatDateDistance,
-  formatDateTimeISO,
+  formatDateTimeISO
 };
 
 export default dateTimeUtils;

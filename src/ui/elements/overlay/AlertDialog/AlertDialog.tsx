@@ -1,10 +1,10 @@
-import React, {type FC, type ReactElement} from 'react';
+import React, { type FC, type ReactElement } from 'react';
 import Modal from '../Modal';
 import Text from '../../Text';
 import Button from '../../forms/Button';
-import {View} from 'react-native';
+import { View } from 'react-native';
 import stylesheet from './styles';
-import {useStyles} from 'react-native-unistyles';
+import { useStyles } from 'react-native-unistyles';
 
 interface AlertDialogProps {
   visible: boolean;
@@ -23,9 +23,9 @@ const AlertDialog: FC<AlertDialogProps> = ({
   primaryText,
   secondaryText,
   primaryAction,
-  secondaryAction,
+  secondaryAction
 }): ReactElement => {
-  const {styles} = useStyles(stylesheet);
+  const { styles } = useStyles(stylesheet);
 
   return (
     <Modal visible={visible}>
@@ -37,10 +37,7 @@ const AlertDialog: FC<AlertDialogProps> = ({
         </Modal.Body>
         <Modal.Footer>
           <View style={styles.footerContent}>
-            <Button
-              variant="secondary"
-              type="outlined"
-              onPress={secondaryAction}>
+            <Button variant="secondary" type="outlined" onPress={secondaryAction}>
               <Button.Text title={secondaryText} />
             </Button>
             <Button variant="primary" type="contained" onPress={primaryAction}>

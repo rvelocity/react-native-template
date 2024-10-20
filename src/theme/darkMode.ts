@@ -9,7 +9,7 @@ const darkColors = {
   gray: '#838C95',
   darkGray: '#939393',
   white: '#111111',
-  transparent: 'transparent',
+  transparent: 'transparent'
 };
 
 export default darkColors;

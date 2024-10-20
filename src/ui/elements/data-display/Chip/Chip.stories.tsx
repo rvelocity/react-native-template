@@ -1,7 +1,7 @@
 import React from 'react';
-import {Meta, StoryObj} from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import Chip from './Chip.tsx';
-import {decorators} from '../../../../../.storybook/decorators.tsx';
+import { decorators } from '../../../../../.storybook/decorators.tsx';
 
 const meta = {
   title: 'Elements/Data Display/Chip',
@@ -9,25 +9,25 @@ const meta = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['primary', 'secondary'],
+      options: ['primary', 'secondary']
     },
     type: {
       control: 'select',
-      options: ['contained', 'outlined'],
+      options: ['contained', 'outlined']
     },
     icon: {
-      control: 'text',
+      control: 'text'
     },
     content: {
-      control: 'text',
-    },
+      control: 'text'
+    }
   },
   args: {
     content: 'Chip Text',
     variant: 'primary',
-    type: 'contained',
+    type: 'contained'
   },
-  decorators: decorators,
+  decorators: decorators
 } satisfies Meta<typeof Chip>;
 
 export default meta;
@@ -35,7 +35,7 @@ export default meta;
 type Story = StoryObj<typeof Chip>;
 
 export const Default: Story = {
-  render: args => <Chip {...args} />,
+  render: args => <Chip {...args} />
 };
 
 export const WithIcon: Story = {
@@ -43,6 +43,6 @@ export const WithIcon: Story = {
   args: {
     icon: 'menu',
     content: 'With Icon',
-    type: 'contained',
-  },
+    type: 'contained'
+  }
 };

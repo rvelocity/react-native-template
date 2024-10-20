@@ -1,2 +1,2 @@
-export {default} from './Image';
-export {default as AutoImage} from './AutoImage';
+export { default } from './Image';
+export { default as AutoImage } from './AutoImage';
