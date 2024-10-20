@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Button, View } from 'react-native';
 import Loader from '.';
 
 const meta = {

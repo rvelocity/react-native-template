@@ -2,12 +2,14 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import List from '.';
 import IconButton from '../../media-icons/IconButton';
+import { decorators } from '@.storybook/decorators';
 
-const meta: Meta<typeof List> = {
+const meta = {
   title: 'Elements/Data display/List',
   component: List,
-  argTypes: {}
-};
+  argTypes: {},
+  decorators: decorators
+} satisfies Meta<typeof List>;
 
 export default meta;
 

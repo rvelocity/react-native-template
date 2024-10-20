@@ -9,13 +9,13 @@ type ContentSafeViewProps = PropsWithChildren & {
 
 const ContentSafeView: React.FC<ContentSafeViewProps> = ({ children, ...rest }) => {
   const { theme } = useStyles();
-  const dimensions = useDimensions('window');
+  const { width } = useDimensions('window');
 
   return (
     <View
       style={{
         marginHorizontal: theme.spacing[20],
-        width: dimensions.width - theme.spacing[20]
+        width: width - theme.spacing[40]
       }}
       {...rest}>
       {children}

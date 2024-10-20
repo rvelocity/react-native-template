@@ -7,7 +7,6 @@ import OTPField from './OtpField';
 const meta: Meta<typeof OTPField> = {
   title: 'Elements/Forms/OTPField',
   component: OTPField,
-  decorators: decorators,
   argTypes: {
     maximumCodeLength: {
       control: {
@@ -17,7 +16,8 @@ const meta: Meta<typeof OTPField> = {
   },
   args: {
     maximumCodeLength: 4
-  }
+  },
+  decorators: decorators
 };
 
 export default meta;

@@ -30,6 +30,7 @@ const IconButton: FC<IconButtonProps> = ({
       styles.container,
       {
         padding: padding || 10,
+        borderRadius: size,
         backgroundColor: iconStyle === 'contained' ? theme.colors.secondary : 'transparent',
         opacity: disabled ? 0.3 : 1,
         borderColor: iconStyle === 'outlined' ? theme.colors[color] : 'transparent',

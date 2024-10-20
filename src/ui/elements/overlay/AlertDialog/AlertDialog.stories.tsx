@@ -3,13 +3,15 @@ import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Button, View } from 'react-native';
 import AlertDialog from './AlertDialog';
+import { decorators } from '@.storybook/decorators.tsx';
 
 const meta = {
   title: 'Elements/Overlay/AlertDialog',
   component: AlertDialog,
   argTypes: {
     visible: { control: 'boolean' }
-  }
+  },
+  decorators: decorators
 } satisfies Meta<typeof AlertDialog>;
 
 export default meta;
