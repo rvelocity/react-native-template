@@ -8,13 +8,11 @@ const meta = {
   component: Divider,
   argTypes: {
     variant: { control: { type: 'select' }, options: ['line', 'dotted', 'dashed'] },
-    height: {
-      control: { type: 'text' }
-    }
+    align: { control: { type: 'select' }, options: ['horizontal', 'vertical'] }
   },
   args: {
     variant: 'line',
-    height: 1
+    align: 'horizontal'
   },
   decorators: decorators
 } satisfies Meta<typeof Divider>;
@@ -25,10 +23,26 @@ type Story = StoryObj<typeof Divider>;
 
 const DividerTemplate: Story = {
   render: args => {
-    return <Divider variant={args.variant} height={args.height} />;
+    return <Divider {...args} />;
   }
 };
 
 export const Default = {
   ...DividerTemplate
+};
+
+export const Horizontal = {
+  ...DividerTemplate,
+  args: {
+    variant: 'line',
+    align: 'horizontal'
+  }
+};
+
+export const Vertical = {
+  ...DividerTemplate,
+  args: {
+    variant: 'line',
+    align: 'vertical'
+  }
 };

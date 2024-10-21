@@ -6,14 +6,29 @@ import stylesheet from './styles';
 
 type DividerProps = {
   variant?: 'line' | 'dotted' | 'dashed';
-  height?: keyof Theme['spacing'];
+  align?: 'horizontal' | 'vertical';
   style?: StyleProp<ViewStyle>;
 };
 
-const Divider: React.FC<DividerProps> = ({ variant = 'line', height = 1, style, ...rest }) => {
+const Divider: React.FC<DividerProps> = ({
+  variant = 'line',
+  align = 'horizontal',
+  style,
+  ...rest
+}) => {
   const { styles } = useStyles(stylesheet);
 
-  return <View style={[styles.container, styles[variant], { height: height }, style]} {...rest} />;
+  return (
+    <View
+      style={[
+        styles.container,
+        styles[variant],
+        align === 'vertical' ? styles.vertical : styles.horizontal,
+        style
+      ]}
+      {...rest}
+    />
+  );
 };
 
 export default Divider;
