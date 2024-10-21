@@ -1,8 +1,7 @@
+import { decorators } from '@.storybook/decorators';
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import TextField from '.';
-
-import { decorators } from '@.storybook/decorators';
 
 const meta = {
   title: 'Elements/Forms/Text Field',
@@ -19,17 +18,12 @@ const meta = {
     placeholder: {
       control: { type: 'text' }
     },
-    color: {
-      control: { type: 'select' },
-      options: ['primary', 'secondary', 'danger', 'warning']
-    },
     onChange: { action: 'change' },
     onBlur: { action: 'blur' }
   },
   args: {
     variant: 'default',
     size: 'md',
-    color: 'secondary',
     placeholder: 'Placeholder'
   },
   decorators: decorators
@@ -47,4 +41,18 @@ const TextFieldTemplate: Story = {
 
 export const Default: Story = {
   ...TextFieldTemplate
+};
+
+export const WithStartIcon: Story = {
+  ...TextFieldTemplate,
+  args: {
+    ...TextFieldTemplate.args
+  }
+};
+
+export const WithEndIcon: Story = {
+  ...TextFieldTemplate,
+  args: {
+    ...TextFieldTemplate.args
+  }
 };

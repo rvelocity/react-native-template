@@ -1,43 +1,38 @@
-import { Theme } from '@/theme';
 import React, { type FC, type PropsWithChildren, type ReactElement, type ReactNode } from 'react';
 import { TextInput as RNTextInput, View, type TextInputProps } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
 import stylesheet from './styles';
 
-type InputVariantType = 'default' | 'outlined' | 'underlined';
-type InputSizeType = 'md' | 'sm' | 'lg';
+type TextFieldVariantType = 'default' | 'outlined' | 'underlined';
+type TextFieldSizeType = 'md' | 'sm' | 'lg';
 
-type InputProps = {
-  variant: InputVariantType;
-  size: InputSizeType;
-  color?: keyof Theme['colors'];
-} & PropsWithChildren &
-  TextInputProps & {
-    left?: () => ReactNode;
-    right?: () => ReactNode;
-  };
+export interface TextFieldProps extends PropsWithChildren, TextInputProps {
+  variant: TextFieldVariantType;
+  size: TextFieldSizeType;
+  left?: ReactNode;
+  right?: ReactNode;
+}
 
-const TextField: FC<InputProps> = ({
-  left,
-  right,
+const TextField: FC<TextFieldProps> = ({
   variant = 'default',
   size = 'md',
   placeholder = 'Placeholder',
-  color = 'secondary',
+  left,
+  right,
   ...rest
 }): ReactElement => {
   const { styles, theme } = useStyles(stylesheet);
 
   return (
     <View style={[styles.default, styles[variant], styles[size]]}>
-      {left ? <View>{left()}</View> : null}
+      {left && left}
       <RNTextInput
         {...rest}
         placeholder={placeholder}
-        placeholderTextColor={theme.colors[color]}
-        style={{ flex: 1 }}
+        placeholderTextColor={theme.colors.darkGray}
+        style={styles.textInput}
       />
-      {right ? <View>{right()}</View> : null}
+      {right && right}
     </View>
   );
 };

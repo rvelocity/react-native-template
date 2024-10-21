@@ -11,7 +11,7 @@ const meta = {
     ...IconMeta.argTypes,
     iconStyle: {
       control: { type: 'radio' },
-      options: ['contained', 'outlined', 'defaults']
+      options: ['default', 'contained', 'outlined']
     },
     disabled: {
       control: { type: 'boolean' }
