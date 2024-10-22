@@ -9,7 +9,7 @@ type ImageBannerProps = {
 } & PropsWithChildren &
   ImageProps;
 
-export const ImageBanner: FC<ImageBannerProps> = ({ variant = 'md', ...rest }): ReactElement => {
+export const ImageBanner: FC<ImageBannerProps> = ({ variant = 'sm', ...rest }): ReactElement => {
   const { styles } = useStyles(stylesheet);
   const variantStyles = styles[variant];
 
