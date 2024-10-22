@@ -32,7 +32,7 @@ export const Carousel = ({
   const { styles, theme } = useStyles(stylesheet);
 
   const dimensions = useDimensions('window');
-  const safeWidth = dimensions.width - 20 - 20;
+  const safeWidth = dimensions.width - theme.spacing[24];
 
   const childrenCount = React.Children.toArray(children).filter(child =>
     React.isValidElement(child)
@@ -154,9 +154,9 @@ type ItemProps = PropsWithChildren & {
 };
 
 const Item = ({ children, width }: ItemProps): ReactElement => {
-  const { styles } = useStyles(stylesheet);
+  const { styles, theme } = useStyles(stylesheet);
   const dimensions = useDimensions('window');
-  const safeWidth = dimensions.width - 20 - 20;
+  const safeWidth = dimensions.width - theme.spacing[28];
 
   return <View style={[styles.itemContainer, { width: width ?? safeWidth - 32 }]}>{children}</View>;
 };

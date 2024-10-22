@@ -7,8 +7,8 @@ type TextFieldVariantType = 'default' | 'outlined' | 'underlined';
 type TextFieldSizeType = 'md' | 'sm' | 'lg';
 
 export interface TextFieldProps extends PropsWithChildren, TextInputProps {
-  variant: TextFieldVariantType;
-  size: TextFieldSizeType;
+  variant?: TextFieldVariantType;
+  size?: TextFieldSizeType;
   left?: ReactNode;
   right?: ReactNode;
 }
