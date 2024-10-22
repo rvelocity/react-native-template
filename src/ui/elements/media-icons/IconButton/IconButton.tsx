@@ -8,7 +8,7 @@ import stylesheet from './styles';
 export interface IconButtonProps extends IconProps {
   onPress?: () => void;
   disabled?: boolean;
-  iconStyle?: 'outlined' | 'contained';
+  iconStyle?: 'default' | 'outlined' | 'contained';
   padding?: number;
 }
 
@@ -16,9 +16,9 @@ const IconButton: FC<IconButtonProps> = ({
   icon,
   onPress = null,
   variant = 'image',
-  size = 7,
-  color,
-  iconStyle = 'image',
+  size = 24,
+  color = 'primary',
+  iconStyle = 'default',
   disabled = false,
   padding,
   ...rest
@@ -30,11 +30,11 @@ const IconButton: FC<IconButtonProps> = ({
       styles.container,
       {
         padding: padding || 10,
-        backgroundColor: iconStyle === 'contained' ? theme.colors.secondary : 'transparent',
+        borderRadius: size,
         opacity: disabled ? 0.3 : 1,
-        borderColor: iconStyle === 'outlined' ? color : 'transparent',
-        borderWidth: iconStyle === 'outlined' ? 1 : 0,
-      },
+        ...(iconStyle === 'contained' && { backgroundColor: theme.colors.secondary }),
+        ...(iconStyle === 'outlined' && { borderColor: theme.colors[color], borderWidth: 1 })
+      }
     ];
 
     return (

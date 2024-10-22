@@ -5,35 +5,35 @@ const stylesheet = createStyleSheet(theme => ({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)'
   },
   modalContainer: {
     backgroundColor: 'white',
     borderRadius: 16,
     alignItems: 'center',
-    marginHorizontal: 16,
+    marginHorizontal: 16
   },
   modalHeader: {
     paddingTop: 16,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   modalTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    textAlign: 'center',
+    textAlign: 'center'
   },
   modalBody: {
     justifyContent: 'center',
     paddingHorizontal: 16,
-    minHeight: 100,
+    minHeight: 100
   },
   modalFooter: {
     paddingVertical: 16,
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
-  },
+    alignItems: 'center'
+  }
 }));
 
 export default stylesheet;

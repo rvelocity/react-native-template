@@ -6,8 +6,8 @@ const stylesheet = createStyleSheet(theme => ({
     alignItems: 'center',
     justifyContent: 'center',
     padding: theme.spacing[20],
-    zIndex: theme.spacing[50],
-  },
+    zIndex: theme.spacing[50]
+  }
 }));
 
 export default stylesheet;

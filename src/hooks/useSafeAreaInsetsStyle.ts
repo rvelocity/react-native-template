@@ -8,17 +8,17 @@ const propertySuffixMap = {
   left: 'Start',
   right: 'End',
   start: 'Start',
-  end: 'End',
+  end: 'End'
 };
 
 const edgeInsetMap: Record<string, Edge> = {
   start: 'left',
-  end: 'right',
+  end: 'right'
 };
 
 export type SafeAreaInsetsStyle<
   Property extends 'padding' | 'margin' = 'padding',
-  Edges extends ExtendedEdge[] = ExtendedEdge[],
+  Edges extends ExtendedEdge[] = ExtendedEdge[]
 > = {
   [K in Edges[number] as `${Property}${Capitalize<K>}`]: number;
 };
@@ -32,10 +32,10 @@ export type SafeAreaInsetsStyle<
  */
 export function useSafeAreaInsetsStyle<
   Property extends 'padding' | 'margin' = 'padding',
-  Edges extends ExtendedEdge[] = [],
+  Edges extends ExtendedEdge[] = []
 >(
   safeAreaEdges: Edges = [] as unknown as Edges,
-  property: Property = 'padding' as Property,
+  property: Property = 'padding' as Property
 ): SafeAreaInsetsStyle<Property, Edges> {
   const insets = useSafeAreaInsets();
 

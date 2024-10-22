@@ -5,8 +5,8 @@ const stylesheet = createStyleSheet(theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: theme.colors.background,
-    zIndex: 50,
-  },
+    zIndex: 50
+  }
 }));
 
 export default stylesheet;

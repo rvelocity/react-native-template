@@ -1,4 +1,4 @@
-import {createStyleSheet} from 'react-native-unistyles';
+import { createStyleSheet } from 'react-native-unistyles';
 
 const stylesheet = createStyleSheet(theme => ({
   headerContainer: {
@@ -6,14 +6,14 @@ const stylesheet = createStyleSheet(theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     height: 60,
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.background
   },
   headerContent: {
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
-  },
+    alignItems: 'center'
+  }
 }));
 
 export default stylesheet;

@@ -6,7 +6,7 @@ type BackgroundProps = {
   // Define props here
 };
 
-const Background: React.FC<BackgroundProps> = (props) => {
+const Background: React.FC<BackgroundProps> = props => {
   return (
     <View style={styles.container}>
       <Text>Background Component</Text>

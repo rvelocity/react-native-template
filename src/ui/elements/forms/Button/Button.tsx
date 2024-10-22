@@ -8,7 +8,7 @@ import stylesheet from './styles';
 const ButtonTypes = {
   contained: 'Contained',
   outlined: 'Outlined',
-  text: 'Text',
+  text: 'Text'
 };
 
 type ButtonProps = TouchableOpacityProps & {
@@ -35,7 +35,7 @@ const ButtonContext = createContext<ButtonContextType>({
   variant: 'primary',
   type: 'contained',
   size: 'md',
-  disabled: false,
+  disabled: false
 });
 
 const { Provider } = ButtonContext;
@@ -76,9 +76,9 @@ const Button = ({
       variant,
       type,
       disabled,
-      size,
+      size
     }),
-    [variant, type, disabled, size],
+    [variant, type, disabled, size]
   );
 
   return (
@@ -92,7 +92,7 @@ const Button = ({
           styles[type],
           styles[size],
           { ...(disabled && styles[`${type}Disabled`]) },
-          rest.style,
+          rest.style
         ]}>
         {/* Use custom activity indictor which can adopt styling of button variant */}
         {loading ? <ActivityIndicator /> : children}

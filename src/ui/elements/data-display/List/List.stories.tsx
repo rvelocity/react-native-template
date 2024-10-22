@@ -1,13 +1,15 @@
 import React from 'react';
-import type {Meta, StoryObj} from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import List from '.';
 import IconButton from '../../media-icons/IconButton';
+import { decorators } from '@.storybook/decorators';
 
-const meta: Meta<typeof List> = {
+const meta = {
   title: 'Elements/Data display/List',
   component: List,
   argTypes: {},
-};
+  decorators: decorators
+} satisfies Meta<typeof List>;
 
 export default meta;
 
@@ -18,13 +20,7 @@ export const DefaultList: Story = {
     <List>
       <List.Accordion
         left={() => (
-          <IconButton
-            variant="svg"
-            icon="menu"
-            color="primary"
-            iconStyle="contained"
-            size={7}
-          />
+          <IconButton variant="svg" icon="menu" color="primary" iconStyle="contained" size={7} />
         )}
         title="Accordion 1"
         subTitle="This is an accordion subtitle">
@@ -32,22 +28,10 @@ export const DefaultList: Story = {
           title="List Item 1"
           description="This is a description for item 1"
           left={() => (
-            <IconButton
-              variant="svg"
-              icon="menu"
-              color="primary"
-              iconStyle="contained"
-              size={7}
-            />
+            <IconButton variant="svg" icon="menu" color="primary" iconStyle="contained" size={7} />
           )}
           right={() => (
-            <IconButton
-              variant="svg"
-              icon="menu"
-              color="primary"
-              iconStyle="contained"
-              size={7}
-            />
+            <IconButton variant="svg" icon="menu" color="primary" iconStyle="contained" size={7} />
           )}
         />
         <List.Item
@@ -63,13 +47,7 @@ export const DefaultList: Story = {
             />
           )}
           right={() => (
-            <IconButton
-              variant="svg"
-              icon="menu"
-              color="primary"
-              iconStyle="contained"
-              size={7}
-            />
+            <IconButton variant="svg" icon="menu" color="primary" iconStyle="contained" size={7} />
           )}
           divider={true}
         />
@@ -90,28 +68,16 @@ export const DefaultList: Story = {
           title="List Item 3"
           description="This is a description for item 3"
           left={() => (
-            <IconButton
-              variant="svg"
-              icon="menu"
-              color="primary"
-              iconStyle="contained"
-              size={7}
-            />
+            <IconButton variant="svg" icon="menu" color="primary" iconStyle="contained" size={7} />
           )}
           right={() => (
-            <IconButton
-              variant="svg"
-              icon="menu"
-              color="primary"
-              iconStyle="contained"
-              size={7}
-            />
+            <IconButton variant="svg" icon="menu" color="primary" iconStyle="contained" size={7} />
           )}
           divider={true}
         />
       </List.Accordion>
     </List>
-  ),
+  )
 };
 
 export const WithSubHeader: Story = {
@@ -122,25 +88,13 @@ export const WithSubHeader: Story = {
         title="List Item 1"
         description="This is a description for item 1"
         left={() => (
-          <IconButton
-            variant="svg"
-            icon="menu"
-            color="primary"
-            iconStyle="contained"
-            size={7}
-          />
+          <IconButton variant="svg" icon="menu" color="primary" iconStyle="contained" size={7} />
         )}
         right={() => (
-          <IconButton
-            variant="svg"
-            icon="menu"
-            color="primary"
-            iconStyle="contained"
-            size={7}
-          />
+          <IconButton variant="svg" icon="menu" color="primary" iconStyle="contained" size={7} />
         )}
         divider={true}
       />
     </List>
-  ),
+  )
 };

@@ -1,6 +1,6 @@
 import React from 'react';
-import {TouchableWithoutFeedback, View} from 'react-native';
-import {useStyles} from 'react-native-unistyles';
+import { TouchableWithoutFeedback, View } from 'react-native';
+import { useStyles } from 'react-native-unistyles';
 import Text from '../../Text';
 import Icon from '../../media-icons/Icon';
 import stylesheet from './styles';
@@ -12,13 +12,8 @@ type CheckboxProps = {
   description?: string;
 };
 
-const Checkbox: React.FC<CheckboxProps> = ({
-  value,
-  onValueChange,
-  label,
-  description,
-}) => {
-  const {styles} = useStyles(stylesheet);
+const Checkbox: React.FC<CheckboxProps> = ({ value, onValueChange, label, description }) => {
+  const { styles } = useStyles(stylesheet);
 
   const handlePress = () => {
     onValueChange(!value);
@@ -28,9 +23,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
     <TouchableWithoutFeedback onPress={handlePress}>
       <View style={styles.container}>
         <View style={value ? styles.checkedBox : styles.uncheckedBox}>
-          {value && (
-            <Icon variant="vector" icon="check" size={20} color="white" />
-          )}
+          {value && <Icon variant="vector" icon="check" size={20} color="white" />}
         </View>
         {label && (
           <View style={styles.label}>

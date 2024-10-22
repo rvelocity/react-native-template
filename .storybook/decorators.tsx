@@ -1,4 +1,4 @@
-import {View} from 'react-native';
+import { View } from 'react-native';
 import React from 'react';
 
 export const decorators = [
@@ -7,9 +7,9 @@ export const decorators = [
       style={{
         padding: 16,
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'center'
       }}>
       <Story />
     </View>
-  ),
+  )
 ];

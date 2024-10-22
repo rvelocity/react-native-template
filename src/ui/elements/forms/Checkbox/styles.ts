@@ -1,9 +1,9 @@
-import {createStyleSheet} from 'react-native-unistyles';
+import { createStyleSheet } from 'react-native-unistyles';
 
 export default createStyleSheet(theme => ({
   container: {
     flexDirection: 'row',
-    alignItems: 'flex-start',
+    alignItems: 'flex-start'
   },
   checkedBox: {
     width: theme.spacing['24'],
@@ -13,7 +13,7 @@ export default createStyleSheet(theme => ({
     borderColor: theme.colors.primary,
     borderWidth: theme.spacing['2'],
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   uncheckedBox: {
     width: theme.spacing['24'],
@@ -22,9 +22,9 @@ export default createStyleSheet(theme => ({
     borderColor: theme.colors.primary,
     borderWidth: theme.spacing['2'],
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   label: {
-    marginLeft: theme.spacing['6'],
-  },
+    marginLeft: theme.spacing['6']
+  }
 }));

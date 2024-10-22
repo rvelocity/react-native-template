@@ -22,7 +22,7 @@ export const LottieElement: React.FC<LottieElementProps> = ({
   description,
   style,
   autoPlay = true,
-  loop = true,
+  loop = true
 }) => {
   const { styles } = useStyles(stylesheet);
   const animate = getAnimation(animation);

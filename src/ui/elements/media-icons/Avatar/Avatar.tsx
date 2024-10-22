@@ -8,7 +8,7 @@ import React, {
   type ReactNode,
   useContext,
   useMemo,
-  useState,
+  useState
 } from 'react';
 import { ImageProps, View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
@@ -22,7 +22,7 @@ const avatarText = {
   md: 'bodyLarge',
   lg: 'bodyLarge',
   xl: 'bodyLarge',
-  '2xl': 'bodyLarge',
+  '2xl': 'bodyLarge'
 };
 
 type AvatarType = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
@@ -45,7 +45,7 @@ type AvatarProps = {
 // };
 
 const AvatarContext = createContext<AvatarContextType>({
-  variant: 'md',
+  variant: 'md'
 });
 
 const { Provider } = AvatarContext;
@@ -54,7 +54,7 @@ const getAvatarGroupChildren = (
   children: ReactNode,
   max: number,
   variant: AvatarType,
-  styles: any,
+  styles: any
 ): [ReactElement[], ReactElement | null] => {
   let childrenArray = Children.toArray(children) as ReactElement[];
   let plusAvatars = 0;
@@ -66,8 +66,8 @@ const getAvatarGroupChildren = (
 
   const avatars = childrenArray.reverse().map((child, index) =>
     cloneElement(child, {
-      key: `avatar-group-child-${index}`,
-    }),
+      key: `avatar-group-child-${index}`
+    })
   );
 
   const plusAvatarComponent =
@@ -110,7 +110,7 @@ const AvatarImage = ({ source, ...props }: AutoImageProps): ReactElement => {
     <View
       style={[
         styles.avatarImage,
-        { width: styles[variant].width, height: styles[variant].height },
+        { width: styles[variant].width, height: styles[variant].height }
       ]}>
       {!imageError ? (
         <AutoImage
@@ -151,7 +151,7 @@ const Avatar = ({ children, variant = 'md' }: AvatarProps): ReactElement => {
 
   const memorizedValue = useMemo(
     () => ({ variant: groupVariant || variant }),
-    [groupVariant, variant],
+    [groupVariant, variant]
   );
   const { styles } = useStyles(stylesheet);
 

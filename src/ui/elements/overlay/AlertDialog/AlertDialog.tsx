@@ -23,7 +23,7 @@ const AlertDialog: FC<AlertDialogProps> = ({
   primaryText,
   secondaryText,
   primaryAction,
-  secondaryAction,
+  secondaryAction
 }): ReactElement => {
   const { styles } = useStyles(stylesheet);
 

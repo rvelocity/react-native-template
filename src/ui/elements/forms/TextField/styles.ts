@@ -6,34 +6,36 @@ const stylesheet = createStyleSheet(theme => ({
     height: 46,
     flexGrow: 1,
     width: 'auto',
-    backgroundColor: theme.colors.white,
+    backgroundColor: theme.colors.background,
     borderColor: theme.colors.darkGray,
     paddingHorizontal: 4,
-    color: theme.colors.secondary,
+    color: theme.colors.darkGray,
     overflow: 'hidden',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    borderRadius: 4
   },
+  textInput: { flex: 1 },
   outlined: {
     borderWidth: 1,
     backgroundColor: 'transparent',
-    borderColor: theme.colors.primary,
-    borderRadius: 4,
+    borderColor: theme.colors.gray,
+    borderRadius: 4
   },
   underlined: {
-    borderBottomWidth: 1,
+    borderBottomWidth: 1
   },
   // Text Field Size
   lg: {
-    height: 56,
+    height: 56
   },
   md: {
-    height: 46,
+    height: 46
   },
   sm: {
-    height: 40,
-  },
+    height: 40
+  }
 }));
 
 export default stylesheet;

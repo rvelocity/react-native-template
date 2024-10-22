@@ -1,35 +1,35 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import type {Meta, StoryObj} from '@storybook/react';
-import React, {useState} from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
+import React, { useState } from 'react';
 import Checkbox from '.';
-import {decorators} from '@.storybook/decorators';
+import { decorators } from '@.storybook/decorators';
 
 const meta = {
   title: 'Elements/Forms/Checkbox',
   component: Checkbox,
   argTypes: {
     value: {
-      control: {type: 'boolean'},
+      control: { type: 'boolean' }
     },
     onValueChange: {
-      action: 'changed',
+      action: 'changed'
     },
     label: {
       control: {
-        type: 'text',
-      },
+        type: 'text'
+      }
     },
     description: {
       control: {
-        type: 'text',
-      },
-    },
+        type: 'text'
+      }
+    }
   },
   args: {
     value: false,
-    label: '',
+    label: ''
   },
-  decorators: decorators,
+  decorators: decorators
 } satisfies Meta<typeof Checkbox>;
 
 export default meta;
@@ -53,31 +53,31 @@ const CheckboxTemplate: CheckboxStory = {
         onValueChange={handleValueChange}
       />
     );
-  },
+  }
 };
 
 export const Default = {
-  ...CheckboxTemplate,
+  ...CheckboxTemplate
 };
 
 export const Enabled: CheckboxStory = {
   ...CheckboxTemplate,
   args: {
-    value: true,
-  },
+    value: true
+  }
 };
 
 export const WithLabel: CheckboxStory = {
   ...CheckboxTemplate,
   args: {
-    label: 'Check me',
-  },
+    label: 'Check me'
+  }
 };
 
 export const WithLabelDescription: CheckboxStory = {
   ...CheckboxTemplate,
   args: {
     label: 'Check me',
-    description: 'This is a description',
-  },
+    description: 'This is a description'
+  }
 };

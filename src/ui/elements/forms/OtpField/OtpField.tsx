@@ -1,7 +1,7 @@
-import React, {type FC, useCallback, useEffect, useRef, useState} from 'react';
-import {Pressable, TextInput, View} from 'react-native';
+import React, { type FC, useCallback, useEffect, useRef, useState } from 'react';
+import { Pressable, TextInput, View } from 'react-native';
 import Text from '../../Text';
-import {useStyles} from 'react-native-unistyles';
+import { useStyles } from 'react-native-unistyles';
 import stylesheet from './styles';
 
 interface OTPFieldProps {
@@ -11,13 +11,8 @@ interface OTPFieldProps {
   setCode: (value: string) => void;
 }
 
-const OTPField: FC<OTPFieldProps> = ({
-  setIsPinReady,
-  maximumCodeLength,
-  code,
-  setCode,
-}) => {
-  const {styles} = useStyles(stylesheet);
+const OTPField: FC<OTPFieldProps> = ({ setIsPinReady, maximumCodeLength, code, setCode }) => {
+  const { styles } = useStyles(stylesheet);
   const [isInputBoxFocused, setIsInputBoxFocused] = useState(false);
   const inputRef = useRef<TextInput>(null);
 
@@ -43,9 +38,7 @@ const OTPField: FC<OTPFieldProps> = ({
       const isValueFocused = isCurrentValue || (isLastValue && isCodeComplete);
 
       const styledSplitBoxes =
-        isInputBoxFocused && isValueFocused
-          ? styles.splitBoxesFocused
-          : styles.splitBoxesUnFocused;
+        isInputBoxFocused && isValueFocused ? styles.splitBoxesFocused : styles.splitBoxesUnFocused;
 
       return (
         <View style={[styles.splitBoxes, styledSplitBoxes]} key={index}>
@@ -61,8 +54,8 @@ const OTPField: FC<OTPFieldProps> = ({
       isInputBoxFocused,
       styles.splitBoxesFocused,
       styles.splitBoxesUnFocused,
-      styles.splitBoxes,
-    ],
+      styles.splitBoxes
+    ]
   );
 
   const handleOnPress = (): void => {

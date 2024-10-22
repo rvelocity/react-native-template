@@ -4,7 +4,7 @@ import React, {
   type ReactElement,
   useContext,
   useEffect,
-  useRef,
+  useRef
 } from 'react';
 import { Animated, ViewStyle } from 'react-native';
 
@@ -21,7 +21,7 @@ type RadioProps = RadioContextType & PropsWithChildren;
 
 enum StatusType {
   CHECKED = 'checked',
-  UNCHECKED = 'unchecked',
+  UNCHECKED = 'unchecked'
 }
 
 type RadioButtonProps = {
@@ -35,7 +35,7 @@ type RadioButtonProps = {
 
 const RadioContext = createContext<RadioContextType>({
   value: '',
-  onValueChange: () => {},
+  onValueChange: () => {}
 });
 
 export const Radio = ({ value, onValueChange, children }: RadioProps): ReactElement => {
@@ -58,7 +58,7 @@ const RadioButton = ({
 
   const getBorderColor = (
     isChecked: boolean,
-    isDisabled: boolean = false,
+    isDisabled: boolean = false
   ): keyof Theme['colors'] => {
     return isDisabled && isChecked ? 'secondary' : isChecked ? 'primary' : 'secondary';
   };
@@ -74,7 +74,7 @@ const RadioButton = ({
     Animated.timing(borderAnim, {
       toValue,
       duration: 150,
-      useNativeDriver: false,
+      useNativeDriver: false
     }).start();
   }, [status, borderAnim, borderWidth]);
 
@@ -96,13 +96,13 @@ const RadioButton = ({
     backgroundColor: disabled ? theme.colors.secondary : theme.colors.white,
     borderColor: theme.colors[getBorderColor(checked, disabled)],
     opacity: disabled ? 0.5 : 1,
-    borderWidth: checked ? 7 : borderAnim,
+    borderWidth: checked ? 7 : borderAnim
   };
 
   return (
     <Clickable
       {...(!(disabled ?? false) && {
-        onPress: () => handlePress(value),
+        onPress: () => handlePress(value)
       })}
       accessibilityRole="radio"
       accessibilityState={{ disabled, checked }}

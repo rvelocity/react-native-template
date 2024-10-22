@@ -1,11 +1,11 @@
-import type {Meta, StoryObj} from '@storybook/react';
+import { decorators } from '@.storybook/decorators';
+import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import Icon from '.';
+import Icon from './Icon';
 
-import {decorators} from '@.storybook/decorators';
 const options = [
-  0, 1, 2, 4, 6, 7, 8, 10, 12, 14, 16, 18, 20, 22, 24, 28, 32, 40, 42, 48, 50,
-  52, 56, 64, 68, 70, 72, 80, 88, 96, 156,
+  0, 1, 2, 4, 6, 7, 8, 10, 12, 14, 16, 18, 20, 22, 24, 28, 32, 40, 42, 48, 50, 52, 56, 64, 68, 70,
+  72, 80, 88, 96, 156
 ];
 
 const meta = {
@@ -13,25 +13,25 @@ const meta = {
   component: Icon,
   argTypes: {
     variant: {
-      control: {type: 'select'},
-      options: ['vector', 'image', 'svg'],
+      control: { type: 'select' },
+      options: ['vector', 'image', 'svg']
     },
     icon: {
-      control: {type: 'text'},
+      control: { type: 'text' }
     },
     color: {
-      control: {type: 'text'},
+      control: { type: 'text' }
     },
     size: {
-      control: {type: 'select'},
-      options,
-    },
+      control: { type: 'select' },
+      options
+    }
   },
   args: {
     color: 'primary',
-    size: 24,
+    size: 24
   },
-  decorators: decorators,
+  decorators: decorators
 } satisfies Meta<typeof Icon>;
 
 export default meta;
@@ -39,24 +39,24 @@ export default meta;
 type Story = StoryObj<typeof Icon>;
 
 const IconTemplate: Story = {
-  render: ({...args}) => {
+  render: ({ ...args }) => {
     return <Icon {...args} />;
-  },
+  }
 };
 
 export const Image: Story = {
   ...IconTemplate,
   args: {
     variant: 'image',
-    icon: 'avatar',
-  },
+    icon: 'avatar'
+  }
 };
 
 export const Vector: Story = {
   ...IconTemplate,
   argTypes: {
     type: {
-      control: {type: 'select'},
+      control: { type: 'select' },
       options: [
         'ant',
         'entypo',
@@ -71,29 +71,29 @@ export const Vector: Story = {
         'materialCommunity',
         'octicon',
         'simpleLine',
-        'zocial',
-      ],
-    },
+        'zocial'
+      ]
+    }
   },
   args: {
     variant: 'vector',
     icon: 'apps',
-    type: 'material',
-  },
+    type: 'material'
+  }
 };
 
 export const Svg: Story = {
   ...IconTemplate,
   args: {
     variant: 'svg',
-    icon: 'menu',
-  },
+    icon: 'menu'
+  }
 };
 
 export const Animation: Story = {
   ...IconTemplate,
   args: {
     variant: 'image',
-    icon: 'avatar',
-  },
+    icon: 'avatar'
+  }
 };

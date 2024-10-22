@@ -4,10 +4,10 @@ import React, {
   ReactElement,
   useContext,
   useMemo,
-  useState,
+  useState
 } from 'react';
-import {TouchableOpacity, View} from 'react-native';
-import {useStyles} from 'react-native-unistyles';
+import { TouchableOpacity, View } from 'react-native';
+import { useStyles } from 'react-native-unistyles';
 import Icon from '../../media-icons/Icon';
 import Text from '../../Text';
 import stylesheet from './styles';
@@ -20,23 +20,23 @@ interface AccordionContextType {
 
 const AccordionContext = createContext<AccordionContextType>({
   isExpanded: false,
-  toggle: () => {},
+  toggle: () => {}
 });
 
-const {Provider} = AccordionContext;
+const { Provider } = AccordionContext;
 
 type AccordionProps = PropsWithChildren;
 
-const Accordion = ({children}: AccordionProps): ReactElement => {
-  const {styles} = useStyles(stylesheet);
+const Accordion = ({ children }: AccordionProps): ReactElement => {
+  const { styles } = useStyles(stylesheet);
   return <View style={styles.container}>{children}</View>;
 };
 
 type ItemProps = PropsWithChildren;
 
-const Item = ({children}: ItemProps): ReactElement => {
+const Item = ({ children }: ItemProps): ReactElement => {
   const [isExpanded, setExpanded] = useState(false);
-  const {styles} = useStyles(stylesheet);
+  const { styles } = useStyles(stylesheet);
 
   const toggle = (): void => {
     setExpanded(prev => !prev);
@@ -45,9 +45,9 @@ const Item = ({children}: ItemProps): ReactElement => {
   const contextValue = useMemo(
     () => ({
       isExpanded,
-      toggle,
+      toggle
     }),
-    [isExpanded],
+    [isExpanded]
   );
 
   return (
@@ -75,10 +75,10 @@ const Trigger = ({children}: TriggerProps): ReactElement => {
 
 type HeaderProps = PropsWithChildren;
 
-const Header = ({children}: HeaderProps): ReactElement => {
-  const {styles} = useStyles(stylesheet);
+const Header = ({ children }: HeaderProps): ReactElement => {
+  const { styles } = useStyles(stylesheet);
 
-  const {isExpanded, toggle} = useContext(AccordionContext);
+  const { isExpanded, toggle } = useContext(AccordionContext);
 
   return (
     <TouchableOpacity onPress={toggle} style={styles.trigger}>
@@ -96,9 +96,9 @@ const Header = ({children}: HeaderProps): ReactElement => {
 
 type ContentProps = PropsWithChildren;
 
-const Content = ({children}: ContentProps): ReactElement | null => {
-  const {styles} = useStyles(stylesheet);
-  const {isExpanded} = useContext(AccordionContext);
+const Content = ({ children }: ContentProps): ReactElement | null => {
+  const { styles } = useStyles(stylesheet);
+  const { isExpanded } = useContext(AccordionContext);
 
   return isExpanded ? (
     <View style={styles.content}>
@@ -112,4 +112,4 @@ Accordion.Item = Item;
 Accordion.Header = Header;
 Accordion.Content = Content;
 
-export {Accordion};
+export { Accordion };

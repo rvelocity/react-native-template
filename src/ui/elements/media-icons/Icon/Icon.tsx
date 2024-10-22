@@ -1,15 +1,12 @@
-import {
-  getAnimation,
-  type Animation as animationType,
-} from '@assets/constants/animations';
-import {getIcon, type Icon as IconType} from '@assets/constants/icons';
-import {getImage, type Image as ImageType} from '@assets/constants/images';
+import { getAnimation, type Animation as animationType } from '@assets/constants/animations';
+import { getIcon, type Icon as IconType } from '@assets/constants/icons';
+import { getImage, type Image as ImageType } from '@assets/constants/images';
 import LottieView from 'lottie-react-native';
-import React, {type FC, type ReactNode} from 'react';
-import {Image, type ImageSourcePropType} from 'react-native';
+import React, { type FC, type ReactNode } from 'react';
+import { Image, type ImageSourcePropType } from 'react-native';
 
-import {useStyles} from 'react-native-unistyles';
-import VectorIcon, {type VectorIconProps} from '../VectorIcon';
+import { useStyles } from 'react-native-unistyles';
+import VectorIcon, { type VectorIconProps } from '../VectorIcon';
 
 export interface IconProps extends Omit<VectorIconProps, 'name'> {
   icon: IconType | ImageType | animationType | string;
@@ -21,13 +18,13 @@ export interface IconProps extends Omit<VectorIconProps, 'name'> {
 const Icon: FC<IconProps> = ({
   icon,
   variant,
-  size = 7,
+  size = 24,
   color = 'primary',
   autoPlay = true,
   loop = false,
   ...rest
 }) => {
-  const {theme} = useStyles();
+  const { theme } = useStyles();
 
   const iconSize = theme.spacing[size as keyof typeof theme.spacing];
   const iconColor = theme.colors[color as keyof typeof theme.colors];
@@ -41,20 +38,13 @@ const Icon: FC<IconProps> = ({
       case 'vector':
         return <VectorIcon name={icon} size={size} color={color} {...rest} />;
       case 'svg':
-        return (
-          <SvgComponent
-            color={iconColor}
-            fontSize={size}
-            width={size}
-            height={size}
-          />
-        );
+        return <SvgComponent color={iconColor} fontSize={size} width={size} height={size} />;
       case 'image':
         return (
           <Image
             source={imageSource as ImageSourcePropType}
             resizeMode="contain"
-            style={{width: size, height: size}}
+            style={{ width: size, height: size }}
             {...rest}
           />
         );
@@ -62,7 +52,7 @@ const Icon: FC<IconProps> = ({
         return (
           <LottieView
             source={animatedIconSource}
-            style={{width: iconSize, height: iconSize}}
+            style={{ width: iconSize, height: iconSize }}
             autoPlay={autoPlay}
             loop={loop}
             {...rest}

@@ -18,7 +18,7 @@ const Switch: React.FC<SwitchProps> = ({ value, onValueChange }) => {
     Animated.timing(animation, {
       toValue: newValue ? 1 : 0,
       duration: 200,
-      useNativeDriver: false,
+      useNativeDriver: false
     }).start();
     onValueChange(newValue);
   };
@@ -27,18 +27,18 @@ const Switch: React.FC<SwitchProps> = ({ value, onValueChange }) => {
     Animated.timing(animation, {
       toValue: value ? 1 : 0,
       duration: 200,
-      useNativeDriver: false,
+      useNativeDriver: false
     }).start();
   }, [animation, value]);
 
   const switchInterpolation = animation.interpolate({
     inputRange: [0, 1],
-    outputRange: [0, 22],
+    outputRange: [0, 22]
   });
 
   const backgroundColorInterpolation = animation.interpolate({
     inputRange: [0, 1],
-    outputRange: [theme.colors.secondary, theme.colors.primary],
+    outputRange: [theme.colors.secondary, theme.colors.primary]
   });
 
   return (
@@ -46,16 +46,16 @@ const Switch: React.FC<SwitchProps> = ({ value, onValueChange }) => {
       <Animated.View
         style={[
           {
-            backgroundColor: backgroundColorInterpolation,
+            backgroundColor: backgroundColorInterpolation
           },
-          styles.container,
+          styles.container
         ]}>
         <Animated.View
           style={[
             {
-              transform: [{ translateX: switchInterpolation }],
+              transform: [{ translateX: switchInterpolation }]
             },
-            styles.circle,
+            styles.circle
           ]}
         />
       </Animated.View>

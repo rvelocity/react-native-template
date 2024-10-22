@@ -1,7 +1,7 @@
 import React, { type FC, type PropsWithChildren, type ReactElement } from 'react';
 import {
   KeyboardAvoidingView as RNKeyboardAvoidingView,
-  type KeyboardAvoidingViewProps as RNKeyboardAvoidingViewProps,
+  type KeyboardAvoidingViewProps as RNKeyboardAvoidingViewProps
 } from 'react-native';
 
 import { detectDevice } from '@/utils';
@@ -15,7 +15,7 @@ type KeyboardAvoidingViewProps = PropsWithChildren & {
 export const KeyboardAvoidingView: FC<KeyboardAvoidingViewProps> = ({
   children,
   keyboardOffset = 0,
-  KeyboardAvoidingViewProps,
+  KeyboardAvoidingViewProps
 }): ReactElement => {
   return (
     <RNKeyboardAvoidingView

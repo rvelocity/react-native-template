@@ -3,7 +3,7 @@ import React, { type FC, type ReactElement } from 'react';
 import {
   type ImageSourcePropType,
   Image as RNImage,
-  type ImageProps as RNImageProps,
+  type ImageProps as RNImageProps
 } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
 import { IconProps } from '../Icon/Icon';

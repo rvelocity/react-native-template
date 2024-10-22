@@ -1,7 +1,7 @@
-const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
+const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');
 
 const defaultConfig = getDefaultConfig(__dirname);
-const {assetExts, sourceExts} = defaultConfig.resolver;
+const { assetExts, sourceExts } = defaultConfig.resolver;
 
 const path = require('path');
 const withStorybook = require('@storybook/react-native/metro/withStorybook');
@@ -14,41 +14,35 @@ const withStorybook = require('@storybook/react-native/metro/withStorybook');
  */
 const config = {
   transformer: {
-    babelTransformerPath: require.resolve(
-      'react-native-svg-transformer/react-native',
-    ),
+    babelTransformerPath: require.resolve('react-native-svg-transformer/react-native'),
     unstable_allowRequireContext: true,
     getTransformOptions: async () => ({
       transform: {
         experimentalImportSupport: false,
-        inlineRequires: false,
-      },
-    }),
+        inlineRequires: false
+      }
+    })
   },
   resolver: {
     resolverMainFields: ['sbmodern', 'react-native', 'browser', 'main'],
     assetExts: assetExts.filter(ext => ext !== 'svg'),
     sourceExts: [...sourceExts, 'svg'],
     resolveRequest: (context, moduleName, platform) => {
-      const defaultResolveResult = context.resolveRequest(
-        context,
-        moduleName,
-        platform,
-      );
+      const defaultResolveResult = context.resolveRequest(context, moduleName, platform);
 
       if (
         // process.env.STORYBOOK_ENABLED !== 'true' &&
         defaultResolveResult?.filePath?.includes?.('./.storybook/')
       ) {
         return {
-          type: 'empty',
+          type: 'empty'
         };
       }
 
       return defaultResolveResult;
-    },
+    }
   },
-  watchFolders: [path.resolve(__dirname, '..')],
+  watchFolders: [path.resolve(__dirname, '..')]
 };
 
 const finalConfig = mergeConfig(defaultConfig, config);
@@ -59,7 +53,7 @@ module.exports = withStorybook(finalConfig, {
   // enabled: process.env.STORYBOOK_ENABLED === 'true',
   enabled: true,
   // Path to your storybook config
-  configPath: path.resolve(__dirname, './.storybook'),
+  configPath: path.resolve(__dirname, './.storybook')
 
   // Optional websockets configuration
   // Starts a websocket server on the specified port and host on metro start

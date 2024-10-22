@@ -29,7 +29,7 @@ const ListAccordion = ({ title, subTitle, children, left }: ListAccordionProps):
     LayoutAnimation.configureNext({
       duration: 300,
       create: { type: 'easeIn', property: 'opacity' },
-      update: { type: 'linear', springDamping: 0.3, duration: 250 },
+      update: { type: 'linear', springDamping: 0.3, duration: 250 }
     });
     setOpened(!opened);
   };
@@ -78,7 +78,7 @@ const ListItem = ({
   right,
   titleColor = 'black',
   descriptionColor = 'gray',
-  divider = false,
+  divider = false
 }: ListItemProps): ReactElement => {
   const { styles } = useStyles(stylesheet);
 

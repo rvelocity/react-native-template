@@ -1,6 +1,6 @@
-import {decorators} from '@.storybook/decorators';
-import {NavigationContainer} from '@react-navigation/native';
-import type {Meta, StoryObj} from '@storybook/react';
+import { decorators } from '@.storybook/decorators';
+import { NavigationContainer } from '@react-navigation/native';
+import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import IconButton from '../../media-icons/IconButton';
 import Header from './Header';
@@ -8,7 +8,7 @@ import Header from './Header';
 const meta: Meta<typeof Header> = {
   title: 'Elements/Layout/Header',
   component: Header,
-  decorators: decorators,
+  decorators: decorators
 };
 
 export default meta;
@@ -20,7 +20,7 @@ export const Basic: Story = {
     <Header>
       <Header.Content title="Home" />
     </Header>
-  ),
+  )
 };
 
 export const WithBackAction: Story = {
@@ -31,7 +31,7 @@ export const WithBackAction: Story = {
         <Header.Content title="Profile" />
       </Header>
     </NavigationContainer>
-  ),
+  )
 };
 
 export const WithActions: Story = {
@@ -43,7 +43,7 @@ export const WithActions: Story = {
         <Header.Action icon="arrowleft" variant="vector" type="ant" />
       </Header>
     </NavigationContainer>
-  ),
+  )
 };
 
 export const CustomChildren: Story = {
@@ -52,13 +52,8 @@ export const CustomChildren: Story = {
       <Header>
         <Header.BackAction />
         <Header.Content title="Search" />
-        <IconButton
-          size={24}
-          variant="vector"
-          type="ant"
-          icon="customerservice"
-        />
+        <IconButton size={24} variant="vector" type="ant" icon="customerservice" />
       </Header>
     </NavigationContainer>
-  ),
+  )
 };

@@ -23,14 +23,14 @@ export const Shimmer: FC<ShimmerProps> = ({ width, height, borderRadius = 10 }) 
       Animated.timing(shimmerValue, {
         toValue: 1,
         duration: 1500,
-        useNativeDriver: true,
-      }),
+        useNativeDriver: true
+      })
     ).start();
   }, [shimmerValue]);
 
   const translateX = shimmerValue.interpolate({
     inputRange: [0, 1],
-    outputRange: [-width, width],
+    outputRange: [-width, width]
   });
 
   return (
@@ -40,16 +40,16 @@ export const Shimmer: FC<ShimmerProps> = ({ width, height, borderRadius = 10 }) 
         {
           width: width,
           height: height,
-          borderRadius: borderRadius,
-        },
+          borderRadius: borderRadius
+        }
       ]}>
       <Animated.View
         style={[
           styles.shimmer,
           {
             width: width * 2, // Ensure the shimmer effect covers the entire container
-            transform: [{ translateX }],
-          },
+            transform: [{ translateX }]
+          }
         ]}>
         <LinearGradient
           colors={['transparent', theme.colors.secondary, 'transparent']} // Create a vertical gradient

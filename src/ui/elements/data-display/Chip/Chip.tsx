@@ -20,7 +20,7 @@ const Badge: FC<BadgeProps> = ({
   icon,
   onPress,
   variant = 'primary',
-  type = 'contained',
+  type = 'contained'
 }) => {
   const { styles } = useStyles(stylesheet);
   const { capitalFirstLetter } = stringHelper;
