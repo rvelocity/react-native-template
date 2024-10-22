@@ -2,6 +2,14 @@ import React, { type ReactElement } from 'react';
 import { Text, TouchableOpacity, View, ViewStyle } from 'react-native';
 import { type BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import IconButton from '@/ui/elements/media-icons/IconButton';
+import { lightTheme } from '@/theme';
+
+const IconMapping = {
+  HomeStack: 'home',
+  FoodStack: 'fastfood',
+  MartStack: 'local-grocery-store',
+  DineInStack: 'brunch-dining'
+};
 
 const BottomTabIcon = ({
   focused,
@@ -12,14 +20,10 @@ const BottomTabIcon = ({
   color?: string;
   size?: number;
 }): ReactElement => {
+  const iconName = IconMapping[title as keyof typeof IconMapping];
+
   return (
-    <IconButton
-      variant="svg"
-      {...(focused && { color: 'success' })}
-      icon={'menu'}
-      color={'primary'}
-      size={12}
-    />
+    <IconButton variant="vector" icon={iconName} color={focused ? 'success' : 'gray'} size={20} />
   );
 };
 
@@ -34,7 +38,7 @@ const CustomTabBar = ({ state, descriptors, navigation }: BottomTabBarProps): Re
         if (typeof options.tabBarLabel === 'function') {
           label = options.tabBarLabel({
             focused: isFocused,
-            color: '#673ab7',
+            color: lightTheme.colors.primary,
             position: 'below-icon',
             children: route.name
           }) as string;
@@ -72,7 +76,7 @@ const styles = {
     justifyContent: 'space-around' as ViewStyle['justifyContent'], // Distribute items evenly
     alignItems: 'center' as ViewStyle['alignItems'], // Center items vertically
     height: 100, // Adjust the height as needed
-    backgroundColor: '#fff', // Set background color if needed
+    backgroundColor: lightTheme.colors.background, // Set background color if needed
     paddingBottom: 20
   },
   tabBarItem: {
@@ -81,10 +85,10 @@ const styles = {
     justifyContent: 'center' as ViewStyle['justifyContent'] // Center items vertically
   },
   tabLabel: {
-    color: '#222'
+    color: lightTheme.colors.darkGray
   },
   focusedTabLabel: {
-    color: '#673ab7'
+    color: lightTheme.colors.text
   }
 };
 
