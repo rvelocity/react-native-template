@@ -3,11 +3,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Home from '@/screens/authenticated/Home';
 import { type BottomTabNavigatorScreenProps, type HomeStackParamList } from '@/types/navigation';
-import { NAVIGATIONS } from '@/constants/navigation';
 
 const Stack = createNativeStackNavigator<HomeStackParamList>();
 
-export const HomeStack: FC<BottomTabNavigatorScreenProps<`${NAVIGATIONS.HOME}Stack`>> = () => {
+export const HomeStack: FC<BottomTabNavigatorScreenProps<'HomeStack'>> = () => {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -15,7 +14,7 @@ export const HomeStack: FC<BottomTabNavigatorScreenProps<`${NAVIGATIONS.HOME}Sta
         animationDuration: 0
       }}>
       <Stack.Screen
-        name={NAVIGATIONS.HOME}
+        name="Home"
         component={Home}
         options={{
           headerShown: false

@@ -3,11 +3,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import DineIn from '@/screens/authenticated/DineIn';
 import { type BottomTabNavigatorScreenProps, type DineInStackParamList } from '@/types/navigation';
-import { NAVIGATIONS } from '@/constants/navigation';
-
 const Stack = createNativeStackNavigator<DineInStackParamList>();
 
-export const DineInStack: FC<BottomTabNavigatorScreenProps<`${NAVIGATIONS.DINE_IN}Stack`>> = () => {
+export const DineInStack: FC<BottomTabNavigatorScreenProps<'DineInStack'>> = () => {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -15,7 +13,7 @@ export const DineInStack: FC<BottomTabNavigatorScreenProps<`${NAVIGATIONS.DINE_I
         animationDuration: 0
       }}>
       <Stack.Screen
-        name={NAVIGATIONS.DINE_IN}
+        name="DineIn"
         component={DineIn}
         options={{
           headerShown: false

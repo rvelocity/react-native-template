@@ -20,10 +20,6 @@ export type UnAuthenticatedStackNavigatorParamList = {
 
 export type AuthenticatedStackNavigatorParamList = {
   Root: NavigatorScreenParams<BottomTabNavigatorParamList>;
-  Home: undefined;
-  Food: undefined;
-  Mart: undefined;
-  DineIn: undefined;
 };
 
 export type HomeStackParamList = {
@@ -42,11 +38,16 @@ export type DineInStackParamList = {
   DineIn: undefined;
 };
 
+export type CourierStackParamList = {
+  Courier: undefined;
+};
+
 export type BottomTabNavigatorParamList = {
   HomeStack: NavigatorScreenParams<HomeStackParamList>;
   FoodStack: NavigatorScreenParams<FoodStackParamList>;
   MartStack: NavigatorScreenParams<MartStackParamList>;
   DineInStack: NavigatorScreenParams<DineInStackParamList>;
+  CourierStack: NavigatorScreenParams<CourierStackParamList>;
 };
 
 export type BottomTabNavigatorScreenProps<T extends keyof BottomTabNavigatorParamList> =

@@ -20,7 +20,7 @@ const IconButton: FC<IconButtonProps> = ({
   color = 'primary',
   iconStyle = 'default',
   disabled = false,
-  padding,
+  padding = 0,
   ...rest
 }): ReactElement => {
   const { styles, theme } = useStyles(stylesheet);
@@ -29,7 +29,7 @@ const IconButton: FC<IconButtonProps> = ({
     const containerStyles = [
       styles.container,
       {
-        padding: padding || 10,
+        padding: padding,
         borderRadius: size,
         opacity: disabled ? 0.3 : 1,
         ...(iconStyle === 'contained' && { backgroundColor: theme.colors.secondary }),

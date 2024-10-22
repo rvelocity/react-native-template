@@ -1,80 +1,44 @@
-import React, { type FC, type ReactElement } from 'react';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
-  type BottomTabNavigationOptions,
-  createBottomTabNavigator
+  BottomTabBarProps,
+  createBottomTabNavigator,
+  type BottomTabNavigationOptions
 } from '@react-navigation/bottom-tabs';
 import { type RouteProp } from '@react-navigation/native';
-import { lightTheme } from '@/theme';
-// import { theme } from '@/theme';
+import React, { type FC, type ReactElement } from 'react';
+
 import {
   type AuthenticatedStackNavigatorScreenProps,
   type BottomTabNavigatorParamList
 } from '@/types/navigation';
 
-import { HomeStack } from './stacks/homeStack';
+import BottomTabBar from './BottomTabBar';
+import { CourierStack } from './stacks/courierStack';
 import { DineInStack } from './stacks/dineInStack';
-import { MartStack } from './stacks/martStack';
 import { FoodStack } from './stacks/foodStack';
-import CustomTabBar from './CustomTab';
-import { NAVIGATIONS } from '@/constants/navigation';
-// Import your custom tab bar
+import { HomeStack } from './stacks/homeStack';
+import { MartStack } from './stacks/martStack';
 
 const Tab = createBottomTabNavigator<BottomTabNavigatorParamList>();
 
 interface BottomTabNavigatorProps extends AuthenticatedStackNavigatorScreenProps<'Root'> {}
 
 export const BottomTabNavigator: FC<BottomTabNavigatorProps> = (): ReactElement => {
-  const { bottom } = useSafeAreaInsets();
-
-  const screenOptions = ({
-    route
-  }: {
+  const screenOptions = ({}: {
     route: RouteProp<BottomTabNavigatorParamList, keyof BottomTabNavigatorParamList>;
   }): BottomTabNavigationOptions => ({
     tabBarHideOnKeyboard: true,
-    headerShown: false,
-    tabBarActiveTintColor: '#11111',
-    tabBarShowLabel: true,
-    headerShadowVisible: false,
-    tabBarStyle: { height: 200 + bottom, paddingBottom: bottom },
-    tabBarLabelStyle: {
-      // fontFamily: lightTheme.typeFaces.bodyLarge.fontFamily,
-      fontSize: lightTheme.typeFaces.bodyLarge.fontSize,
-      paddingBottom: 6
-    }
+    headerShown: false
   });
 
+  const tabBar = (props: BottomTabBarProps) => <BottomTabBar {...props} />;
+
   return (
-    <Tab.Navigator screenOptions={screenOptions} tabBar={props => <CustomTabBar {...props} />}>
-      <Tab.Screen
-        name={`${NAVIGATIONS.HOME}Stack`}
-        component={HomeStack}
-        options={{
-          title: NAVIGATIONS.HOME
-        }}
-      />
-      <Tab.Screen
-        name={`${NAVIGATIONS.FOOD}Stack`}
-        component={FoodStack}
-        options={{
-          title: NAVIGATIONS.FOOD
-        }}
-      />
-      <Tab.Screen
-        name={`${NAVIGATIONS.MART}Stack`}
-        component={MartStack}
-        options={{
-          title: NAVIGATIONS.MART
-        }}
-      />
-      <Tab.Screen
-        name={`${NAVIGATIONS.DINE_IN}Stack`}
-        component={DineInStack}
-        options={{
-          title: NAVIGATIONS.DINE_IN
-        }}
-      />
+    <Tab.Navigator screenOptions={screenOptions} tabBar={tabBar} detachInactiveScreens={false}>
+      <Tab.Screen name="HomeStack" component={HomeStack} />
+      <Tab.Screen name="FoodStack" component={FoodStack} />
+      <Tab.Screen name="MartStack" component={MartStack} />
+      <Tab.Screen name="DineInStack" component={DineInStack} />
+      <Tab.Screen name="CourierStack" component={CourierStack} />
     </Tab.Navigator>
   );
 };

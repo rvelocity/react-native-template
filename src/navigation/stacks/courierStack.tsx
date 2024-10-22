@@ -1,12 +1,12 @@
 import React, { type FC } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import Food from '@/screens/authenticated/Food';
-import { BottomTabNavigatorScreenProps, FoodStackParamList } from '@/types/navigation';
+import Courier from '@/screens/authenticated/Courier';
+import { type BottomTabNavigatorScreenProps, type CourierStackParamList } from '@/types/navigation';
 
-const Stack = createNativeStackNavigator<FoodStackParamList>();
+const Stack = createNativeStackNavigator<CourierStackParamList>();
 
-export const FoodStack: FC<BottomTabNavigatorScreenProps<'FoodStack'>> = () => {
+export const CourierStack: FC<BottomTabNavigatorScreenProps<'CourierStack'>> = () => {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -14,8 +14,8 @@ export const FoodStack: FC<BottomTabNavigatorScreenProps<'FoodStack'>> = () => {
         animationDuration: 0
       }}>
       <Stack.Screen
-        name="Food"
-        component={Food}
+        name="Courier"
+        component={Courier}
         options={{
           headerShown: false
         }}

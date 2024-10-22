@@ -3,11 +3,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Mart from '@/screens/authenticated/Mart';
 import { type BottomTabNavigatorScreenProps, type MartStackParamList } from '@/types/navigation';
-import { NAVIGATIONS } from '@/constants/navigation';
 
 const Stack = createNativeStackNavigator<MartStackParamList>();
 
-export const MartStack: FC<BottomTabNavigatorScreenProps<`${NAVIGATIONS.MART}Stack`>> = () => {
+export const MartStack: FC<BottomTabNavigatorScreenProps<'MartStack'>> = () => {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -15,7 +14,7 @@ export const MartStack: FC<BottomTabNavigatorScreenProps<`${NAVIGATIONS.MART}Sta
         animationDuration: 0
       }}>
       <Stack.Screen
-        name={NAVIGATIONS.MART}
+        name="Mart"
         component={Mart}
         options={{
           headerShown: false
