@@ -5,10 +5,10 @@ import { View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
 
 type ContentSafeViewProps = PropsWithChildren & {
-  gap: keyof Theme['spacing'];
+  gap?: keyof Theme['spacing'];
 };
 
-const ContentSafeView: React.FC<ContentSafeViewProps> = ({ children, gap, ...rest }) => {
+const ContentSafeView: React.FC<ContentSafeViewProps> = ({ children, gap = 24, ...rest }) => {
   const { theme } = useStyles();
   const { width } = useDimensions('window');
 

@@ -3,20 +3,22 @@ import { createStyleSheet } from 'react-native-unistyles';
 const stylesheet = createStyleSheet(theme => ({
   // Text field variants
   default: {
-    height: 46,
+    height: 64,
     flexGrow: 1,
     width: 'auto',
-    backgroundColor: theme.colors.background,
     borderColor: theme.colors.darkGray,
-    paddingHorizontal: 4,
+    paddingHorizontal: 12,
     color: theme.colors.darkGray,
     overflow: 'hidden',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    borderRadius: 4
+    borderRadius: 8
   },
   textInput: { flex: 1 },
+  contained: {
+    backgroundColor: theme.colors.secondary
+  },
   outlined: {
     borderWidth: 1,
     backgroundColor: 'transparent',
@@ -28,13 +30,13 @@ const stylesheet = createStyleSheet(theme => ({
   },
   // Text Field Size
   lg: {
-    height: 56
+    height: 64
   },
   md: {
-    height: 46
+    height: 50
   },
   sm: {
-    height: 40
+    height: 46
   }
 }));
 

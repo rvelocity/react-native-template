@@ -2,8 +2,7 @@ import { createStyleSheet } from 'react-native-unistyles';
 
 const stylesheet = createStyleSheet(theme => ({
   headerContainer: {
-    gap: 16,
-    backgroundColor: theme.colors.background
+    gap: 24
   },
   headerTopRow: {
     flexDirection: 'row',

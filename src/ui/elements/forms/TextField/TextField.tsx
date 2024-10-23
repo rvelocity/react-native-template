@@ -3,7 +3,7 @@ import { TextInput as RNTextInput, View, type TextInputProps } from 'react-nativ
 import { useStyles } from 'react-native-unistyles';
 import stylesheet from './styles';
 
-type TextFieldVariantType = 'default' | 'outlined' | 'underlined';
+type TextFieldVariantType = 'contained' | 'outlined' | 'underlined';
 type TextFieldSizeType = 'md' | 'sm' | 'lg';
 
 export interface TextFieldProps extends PropsWithChildren, TextInputProps {
@@ -14,7 +14,7 @@ export interface TextFieldProps extends PropsWithChildren, TextInputProps {
 }
 
 const TextField: FC<TextFieldProps> = ({
-  variant = 'default',
+  variant = 'contained',
   size = 'md',
   placeholder = 'Placeholder',
   left,

@@ -15,7 +15,6 @@ const SearchBar: React.FC<SearchBarProps> = ({ ...rest }) => {
 
   return (
     <TextField
-      variant="outlined"
       size="md"
       placeholder="Placeholder"
       left={<IconButton size={24} variant="vector" type="feather" icon="search" />}

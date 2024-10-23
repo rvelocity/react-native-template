@@ -9,7 +9,7 @@ const meta = {
   argTypes: {
     variant: {
       control: { type: 'radio' },
-      options: ['default', 'outlined', 'underlined']
+      options: ['contained', 'outlined', 'underlined']
     },
     size: {
       control: { type: 'select' },
@@ -22,7 +22,7 @@ const meta = {
     onBlur: { action: 'blur' }
   },
   args: {
-    variant: 'default',
+    variant: 'contained',
     size: 'md',
     placeholder: 'Placeholder'
   },

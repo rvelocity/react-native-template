@@ -61,7 +61,7 @@ const BottomTabBar = ({ state, navigation }: BottomTabBarProps): ReactElement =>
               <View style={styles.tabBarItem}>
                 <BottomTabIcon focused={isFocused} route={route.name} />
                 <Text
-                  variant="labelMediumProminent"
+                  variant="captionSmall"
                   style={[styles.tabLabel, isFocused && styles.focusedTabLabel]}>
                   {TITLE_ICON_MAPPING[routeName as keyof typeof TITLE_ICON_MAPPING].title}
                 </Text>
@@ -88,7 +88,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   tabLabel: {
-    color: lightTheme.colors.darkGray
+    color: lightTheme.colors.darkGray,
+    fontWeight: 900
   },
   focusedTabLabel: {
     color: lightTheme.colors.text
