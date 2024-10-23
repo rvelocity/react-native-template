@@ -10,12 +10,11 @@ interface SearchBarProps extends TextFieldProps {
   // Define props here
 }
 
-const SearchBar: React.FC<SearchBarProps> = (...rest) => {
+const SearchBar: React.FC<SearchBarProps> = ({ ...rest }) => {
   const { styles } = useStyles(stylesheet);
 
   return (
     <TextField
-      variant="outlined"
       size="md"
       placeholder="Placeholder"
       left={<IconButton size={24} variant="vector" type="feather" icon="search" />}
