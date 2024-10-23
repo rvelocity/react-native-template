@@ -5,8 +5,9 @@
       "@/*": ["src/*"],
       "@assets/*": ["./assets/*"],
       "@.storybook/*": ["./.storybook/*"]
-    }
+    },
+    "typeRoots": ["./node_modules/@types", "./types"]
   },
-  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
+  "include": ["src/**/*", "types/**/*"],
   "extends": "@react-native/typescript-config/tsconfig.json"
 }

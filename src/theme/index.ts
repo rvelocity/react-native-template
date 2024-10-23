@@ -3,20 +3,26 @@ import lightColors from './lightMode';
 import spacing from './spacing';
 import shadows from './shadows';
 import typeFaces from './typography';
+import { stacks } from './stacks';
 export * from './breakpoints';
 
 export const darkTheme = {
   colors: darkColors,
   typeFaces,
   spacing,
-  shadows
+  shadows,
+  stacks
 } as const;
 
 export const lightTheme = {
   colors: lightColors,
   typeFaces,
   spacing,
-  shadows
+  shadows,
+  stacks: {
+    spacing: 4,
+    debug: false
+  }
 } as const;
 
 export type Theme = typeof lightTheme;

@@ -1,5 +1,6 @@
 import ContentSafeView from '@/ui/elements/layout/ContentSafeView/ContentSafeView.tsx';
 import Screen from '@/ui/elements/layout/Screen/Screen.tsx';
+import CategoriesStack from '@/ui/widgets/CategoriesStack/CategoriesStack';
 import HeaderWithSearchAndAvatar from '@/ui/widgets/HeaderWithSearchAndAvatar';
 import React from 'react';
 
@@ -12,6 +13,7 @@ const Home: React.FC<HomeProps> = props => {
     <Screen preset="auto" safeAreaEdges={['top']}>
       <ContentSafeView gap={16}>
         <HeaderWithSearchAndAvatar />
+        <CategoriesStack />
       </ContentSafeView>
     </Screen>
   );
