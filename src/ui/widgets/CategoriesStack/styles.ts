@@ -6,11 +6,11 @@ export const stylesheet = StyleSheet.create({
     width: '100%'
   },
   smallCard: {
-    width: '37%',
+    flex: 3,
     height: 100
   },
   largeCard: {
-    width: '60%',
+    flex: 5,
     height: 100
   },
   cardHeight: {
