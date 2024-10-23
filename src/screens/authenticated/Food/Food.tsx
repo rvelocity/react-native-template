@@ -2,6 +2,7 @@ import Carousel from '@/ui/elements/data-display/Carousel';
 import ContentSafeView from '@/ui/elements/layout/ContentSafeView/ContentSafeView.tsx';
 import Screen from '@/ui/elements/layout/Screen/Screen.tsx';
 import ImageBanner from '@/ui/elements/media-icons/ImageBanner';
+import FoodCategoryList from '@/ui/widgets/FoodCategoryList';
 import HeaderWithSearchAndAvatar from '@/ui/widgets/HeaderWithSearchAndAvatar/HeaderWithSearchAndAvatar.tsx';
 import React from 'react';
 
@@ -14,6 +15,7 @@ const Food: React.FC<FoodProps> = props => {
     <Screen preset="auto" safeAreaEdges={['top']} background="white">
       <ContentSafeView>
         <HeaderWithSearchAndAvatar />
+        <FoodCategoryList />
         <Carousel pagingEnabled>
           <Carousel.Item>
             <ImageBanner

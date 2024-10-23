@@ -1,11 +1,11 @@
+import Clickable from '@/ui/elements/Clickable';
+import SearchBar from '@/ui/elements/forms/SearchBar';
+import Icon from '@/ui/elements/media-icons/Icon';
+import IconButton from '@/ui/elements/media-icons/IconButton';
+import Text from '@/ui/elements/Text';
 import React from 'react';
 import { View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
-import Clickable from '@/ui/elements/Clickable';
-import Icon from '@/ui/elements/media-icons/Icon';
-import IconButton from '@/ui/elements/media-icons/IconButton';
-import SearchBar from '@/ui/components/SearchBar/SearchBar';
-import Text from '@/ui/elements/Text';
 import stylesheet from './styles';
 
 const HeaderWithSearchAndAvatar = () => {

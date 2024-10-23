@@ -77,10 +77,21 @@ const BottomTabBar = ({ state, navigation }: BottomTabBarProps): ReactElement =>
 const styles = StyleSheet.create({
   tabBarContainer: {
     padding: 8,
+    paddingVertical: 12,
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: lightTheme.colors.secondary
+    backgroundColor: lightTheme.colors.white,
+    // Shadow for iOS
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: -5 // Increased height for a larger shadow spread
+    },
+    shadowOpacity: 0.2, // Slightly darker shadow
+    shadowRadius: 6, // Increased radius for more blur/spread
+    // Shadow for Android
+    elevation: 8 // Increased elevation for more spread
   },
   tabBarItem: {
     flex: 1,
