@@ -12,9 +12,9 @@ const CategoriesStack = () => {
     <View>
       <Stack space={4}>
         <Columns space={2} alignY="top">
-          <Card variant="outlined" />
-          <Card variant="outlined" />
-          <Card variant="outlined" />
+          <Card variant="outlined" style={styles.cardHeight} />
+          <Card variant="outlined" style={styles.cardHeight} />
+          <Card variant="outlined" style={styles.cardHeight} />
         </Columns>
         <Inline space={2} style={styles.inlineRow}>
           <Card variant="outlined" style={styles.smallCard} />

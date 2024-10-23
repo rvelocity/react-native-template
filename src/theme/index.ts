@@ -19,10 +19,7 @@ export const lightTheme = {
   typeFaces,
   spacing,
   shadows,
-  stacks: {
-    spacing: 4,
-    debug: false
-  }
+  stacks
 } as const;
 
 export type Theme = typeof lightTheme;
