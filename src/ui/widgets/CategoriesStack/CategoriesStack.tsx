@@ -1,10 +1,13 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { Stack, Columns, Inline } from '@grapp/stacks';
-import Text from '@/ui/elements/Text';
+import stylesheet from './styles';
 import Card from '@/ui/elements/Card';
+import { useStyles } from 'react-native-unistyles';
 
 const CategoriesStack = () => {
+  const { styles } = useStyles(stylesheet);
+
   return (
     <View>
       <Stack space={4}>
@@ -21,18 +24,5 @@ const CategoriesStack = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  inlineRow: {
-    flexDirection: 'row', // Set the layout to row
-    width: '100%'
-  },
-  smallCard: {
-    width: '35%'
-  },
-  largeCard: {
-    width: '60%'
-  }
-});
 
 export default CategoriesStack;

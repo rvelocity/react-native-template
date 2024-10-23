@@ -3,8 +3,7 @@ import { createStyleSheet } from 'react-native-unistyles';
 const stylesheet = createStyleSheet(theme => ({
   cardBase: {
     padding: 12,
-    borderRadius: 10,
-    height: 100
+    borderRadius: 10
   },
   transparent: {
     backgroundColor: 'transparent',
