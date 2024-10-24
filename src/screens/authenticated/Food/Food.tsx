@@ -4,6 +4,7 @@ import Screen from '@/ui/elements/layout/Screen/Screen.tsx';
 import ImageBanner from '@/ui/elements/media-icons/ImageBanner';
 import FoodCategoryList from '@/ui/widgets/FoodCategoryList';
 import HeaderWithSearchAndAvatar from '@/ui/widgets/HeaderWithSearchAndAvatar/HeaderWithSearchAndAvatar.tsx';
+import RestaurantList from '@/ui/widgets/RestaurantList/RestaurantList';
 import React from 'react';
 
 type FoodProps = {
@@ -42,6 +43,7 @@ const Food: React.FC<FoodProps> = props => {
             />
           </Carousel.Item>
         </Carousel>
+        <RestaurantList />
       </ContentSafeView>
     </Screen>
   );
