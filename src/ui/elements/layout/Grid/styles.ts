@@ -1,9 +1,12 @@
-import { StyleSheet } from 'react-native';
+import { createStyleSheet } from 'react-native-unistyles';
 
-export default StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+const stylesheet = createStyleSheet(theme => ({
+  flexOne: {
+    flex: 1
+  },
+  flexRow: {
+    flexDirection: 'row'
   }
-});
+}));
+
+export default stylesheet;

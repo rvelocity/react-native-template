@@ -1,16 +1,21 @@
+import ContentSafeView from '@/ui/elements/layout/ContentSafeView/ContentSafeView.tsx';
+import Screen from '@/ui/elements/layout/Screen/Screen.tsx';
+import HeaderWithSearchAndAvatar from '@/ui/widgets/HeaderWithSearchAndAvatar';
+import ServiceCategoryGrid from '@/ui/widgets/ServiceCategoryGrid';
 import React from 'react';
-import { Text, View } from 'react-native';
-import styles from './styles.ts';
 
 type HomeProps = {
   // Define props here
 };
 
-const Home: React.FC<HomeProps> = (props) => {
+const Home: React.FC<HomeProps> = props => {
   return (
-    <View style={styles.container}>
-      <Text>Home Component</Text>
-    </View>
+    <Screen preset="auto" safeAreaEdges={['top']} background="white">
+      <ContentSafeView>
+        <HeaderWithSearchAndAvatar />
+        <ServiceCategoryGrid />
+      </ContentSafeView>
+    </Screen>
   );
 };
 

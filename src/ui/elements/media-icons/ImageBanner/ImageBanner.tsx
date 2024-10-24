@@ -1,15 +1,21 @@
-import React from 'react';
-import { View, Text } from 'react-native';
-import styles from './styles.ts';
+import React, { FC, PropsWithChildren, ReactElement } from 'react';
+import { View } from 'react-native';
+import Image, { ImageProps } from '../Image/Image';
+import { useStyles } from 'react-native-unistyles';
+import stylesheet from './styles';
 
 type ImageBannerProps = {
-  // Define props here
-};
+  variant?: 'xs' | 'sm' | 'md' | 'lg';
+} & PropsWithChildren &
+  ImageProps;
 
-const ImageBanner: React.FC<ImageBannerProps> = props => {
+export const ImageBanner: FC<ImageBannerProps> = ({ variant = 'sm', ...rest }): ReactElement => {
+  const { styles } = useStyles(stylesheet);
+  const variantStyles = styles[variant];
+
   return (
-    <View style={styles.container}>
-      <Text>ImageBanner Component</Text>
+    <View style={[styles.container, variantStyles]}>
+      <Image style={styles.imageBanner} {...rest} />
     </View>
   );
 };
