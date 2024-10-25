@@ -4,18 +4,9 @@ import Text from '@/ui/elements/Text/Text.tsx';
 import Image from '@/ui/elements/media-icons/Image/Image.tsx';
 import { useStyles } from 'react-native-unistyles';
 import stylesheet from './styles';
+import { RestaurantType } from '@/types/restaurant';
 
-type RestaurantCardProps = {
-  id: string;
-  name: string;
-  foodCategories: string[];
-  distance: number;
-  deliveryTime: string;
-  thumbnail: string;
-  rating: number;
-};
-
-const RestaurantCard: FC<RestaurantCardProps> = ({
+const RestaurantCard: FC<RestaurantType> = ({
   name,
   foodCategories,
   distance,

@@ -4,13 +4,9 @@ import Image from '@/ui/elements/media-icons/Image/Image.tsx';
 import { useStyles } from 'react-native-unistyles';
 import stylesheet from './styles.ts';
 import Text from '@/ui/elements/Text/Text.tsx';
+import { FoodCategoryType } from '@/types/foodCategories.ts';
 
-type FoodCategoryProps = {
-  thumbnail: string;
-  title: string;
-};
-
-const FoodCategory: React.FC<FoodCategoryProps> = ({ thumbnail, title }) => {
+const FoodCategory: React.FC<FoodCategoryType> = ({ thumbnail, title }) => {
   const { styles } = useStyles(stylesheet);
 
   return (
