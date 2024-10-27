@@ -26,6 +26,11 @@ export type HomeStackParamList = {
   Home: undefined;
 };
 
+export type HomeStackProps<T extends keyof HomeStackParamList> = NativeStackScreenProps<
+  HomeStackParamList,
+  T
+>;
+
 export type FoodStackParamList = {
   Food: undefined;
 };
@@ -36,7 +41,13 @@ export type MartStackParamList = {
 
 export type DineInStackParamList = {
   DineIn: undefined;
+  DineInCategory: undefined;
 };
+
+export type DineInStackProps<T extends keyof DineInStackParamList> = NativeStackScreenProps<
+  DineInStackParamList,
+  T
+>;
 
 export type CourierStackParamList = {
   Courier: undefined;

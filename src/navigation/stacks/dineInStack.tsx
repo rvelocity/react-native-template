@@ -2,6 +2,8 @@ import React, { type FC } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import DineIn from '@/screens/authenticated/DineIn';
+import DineInCategory from '@/screens/authenticated/DineInCategory';
+
 import { type BottomTabNavigatorScreenProps, type DineInStackParamList } from '@/types/navigation';
 const Stack = createNativeStackNavigator<DineInStackParamList>();
 
@@ -15,6 +17,13 @@ export const DineInStack: FC<BottomTabNavigatorScreenProps<'DineInStack'>> = () 
       <Stack.Screen
         name="DineIn"
         component={DineIn}
+        options={{
+          headerShown: false
+        }}
+      />
+      <Stack.Screen
+        name="DineInCategory"
+        component={DineInCategory}
         options={{
           headerShown: false
         }}

@@ -5,6 +5,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
 import stylesheet from './styles';
+import { useNavigation } from '@react-navigation/native';
 
 type CategoryProps = {
   category: any;
@@ -12,9 +13,14 @@ type CategoryProps = {
 
 const Category: React.FC<CategoryProps> = ({ category }) => {
   const { styles } = useStyles(stylesheet);
+  const { navigate } = useNavigation();
+
+  const navigateToCategory = () => {
+    navigate('DineInCategory');
+  };
 
   return (
-    <Clickable onPress={() => {}}>
+    <Clickable onPress={navigateToCategory}>
       <View style={styles.container}>
         <View style={styles.imageContainer}>
           <Image remote image={category.image} style={[styles.imageStyle]} resizeMode="contain" />

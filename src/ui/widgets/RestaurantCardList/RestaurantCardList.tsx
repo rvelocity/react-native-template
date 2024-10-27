@@ -1,7 +1,7 @@
 import RestaurantCard from '@/ui/components/RestaurantCard';
 import Text from '@/ui/elements/Text';
 import React, { FC } from 'react';
-import { FlatList, View } from 'react-native';
+import { FlatList, ScrollView, View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
 import stylesheet from './styles';
 
@@ -19,7 +19,6 @@ const RestaurantCardList: FC<RestaurantCardListProps> = ({
   const { styles } = useStyles(stylesheet);
 
   const renderFunction = ({ item }) => {
-    console.log(item);
     return (
       <RestaurantCard
         variant={orientation === 'horizontal' ? 'small' : 'large'}
@@ -32,6 +31,7 @@ const RestaurantCardList: FC<RestaurantCardListProps> = ({
   return (
     <View style={styles.container}>
       <Text variant="bodyEmphasized">{title}</Text>
+
       <FlatList
         horizontal={orientation === 'horizontal'}
         data={restaurants}
