@@ -6,13 +6,15 @@ import stylesheet from './styles.ts';
 import Text from '@/ui/elements/Text/Text.tsx';
 import Icon from '@/ui/elements/media-icons/Icon/Icon.tsx';
 import IconButton from '@/ui/elements/media-icons/IconButton/IconButton.tsx';
+import Clickable from '@/ui/elements/Clickable/Clickable.tsx';
 
 type RestaurantCardProps = {
-  restaurant: any;
   variant: 'small' | 'large';
+  dineIn?: boolean;
+  restaurant: any;
 };
 
-const RestaurantCard: React.FC<RestaurantCardProps> = ({ variant, restaurant }) => {
+const RestaurantCard: React.FC<RestaurantCardProps> = ({ variant, restaurant, dineIn = false }) => {
   const { styles } = useStyles(stylesheet);
 
   const isSmallVariant = variant === 'small';
@@ -32,7 +34,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ variant, restaurant }) 
   const infoStyles = isSmallVariant ? styles.infoSmall : styles.infoLarge;
 
   return (
-    <TouchableOpacity onPress={() => {}}>
+    <Clickable onPress={() => {}}>
       <View style={containerStyles}>
         <View style={imageContainerStyles}>
           <View style={styles.wishlistIcon}>
@@ -47,8 +49,10 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ variant, restaurant }) 
           <Image remote image={restaurant.image} style={styles.imageStyle} resizeMode="cover" />
         </View>
         <View style={footerStyles}>
-          <View>
-            <Text variant="labelLarge">{restaurant.name}</Text>
+          <View style={styles.titleDescription}>
+            <Text variant="labelLarge" numberOfLines={1}>
+              {restaurant.name}
+            </Text>
             <Text variant="bodySmall" numberOfLines={1} color="darkGray">
               {restaurant.description}
             </Text>
@@ -62,8 +66,11 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ variant, restaurant }) 
             />
           </View>
         </View>
+        {dineIn && (
+          <AddressAndPrice address={restaurant.address} dineInPrice={restaurant.dineInPrice} />
+        )}
       </View>
-    </TouchableOpacity>
+    </Clickable>
   );
 };
 
@@ -106,6 +113,21 @@ const DistanceAndTime = ({
       </Text>
       <Text variant="bodySmall" color="gray">
         {deliveryTime}
+      </Text>
+    </View>
+  );
+};
+
+const AddressAndPrice = ({ address, dineInPrice }: { address: string; dineInPrice: string }) => {
+  const { styles } = useStyles(stylesheet);
+
+  return (
+    <View style={styles.addressAndPriceContainer}>
+      <Text variant="bodySmall" color="gray">
+        {address}
+      </Text>
+      <Text variant="bodySmall" color="gray">
+        {dineInPrice}
       </Text>
     </View>
   );

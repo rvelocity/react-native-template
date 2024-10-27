@@ -2,11 +2,11 @@ import { createStyleSheet } from 'react-native-unistyles';
 
 const stylesheet = createStyleSheet(theme => ({
   container: {
-    gap: 8,
+    gap: 4,
     overflow: 'hidden'
   },
   smallContainer: {
-    width: 170
+    width: 134
   },
   largeContainer: {
     width: '100%'
@@ -16,7 +16,7 @@ const stylesheet = createStyleSheet(theme => ({
     overflow: 'hidden'
   },
   imageContainerSmall: {
-    height: 170
+    height: 146
   },
   imageContainerLarge: {
     width: '100%',
@@ -25,6 +25,9 @@ const stylesheet = createStyleSheet(theme => ({
   imageStyle: {
     width: '100%',
     height: '100%'
+  },
+  titleDescription: {
+    gap: 4
   },
   footerSmall: {
     gap: 4
@@ -40,7 +43,8 @@ const stylesheet = createStyleSheet(theme => ({
     gap: 4
   },
   infoLarge: {
-    alignItems: 'flex-end'
+    alignItems: 'flex-end',
+    gap: 4
   },
   wishlistIcon: {
     position: 'absolute',
@@ -56,6 +60,11 @@ const stylesheet = createStyleSheet(theme => ({
   distanceAndTimeContainer: {
     flexDirection: 'row',
     gap: 4
+  },
+  addressAndPriceContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
   }
 }));
 

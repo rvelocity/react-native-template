@@ -11,6 +11,7 @@ import { useStyles } from 'react-native-unistyles';
 import Icon from '../../media-icons/Icon';
 import Text from '../../Text';
 import stylesheet from './styles';
+import Clickable from '../../Clickable';
 
 // Accordion Context
 interface AccordionContextType {
@@ -81,7 +82,7 @@ const Header = ({ children }: HeaderProps): ReactElement => {
   const { isExpanded, toggle } = useContext(AccordionContext);
 
   return (
-    <TouchableOpacity onPress={toggle} style={styles.trigger}>
+    <Clickable onPress={toggle} style={styles.trigger}>
       <View style={styles.header}>
         <Text variant="titleSmall">{children}</Text>
         {isExpanded ? (
@@ -90,7 +91,7 @@ const Header = ({ children }: HeaderProps): ReactElement => {
           <Icon variant="vector" type="fontisto" size={14} icon="angle-down" />
         )}
       </View>
-    </TouchableOpacity>
+    </Clickable>
   );
 };
 

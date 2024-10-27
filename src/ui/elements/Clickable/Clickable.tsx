@@ -1,13 +1,28 @@
 import React, { type FC, type PropsWithChildren, type ReactElement } from 'react';
-import { TouchableOpacity, type TouchableOpacityProps } from 'react-native';
+import { Pressable, type PressableProps, StyleProp, ViewStyle } from 'react-native';
 
-type ClickableProps = PropsWithChildren & TouchableOpacityProps;
+type ClickableProps = PropsWithChildren &
+  PressableProps & {
+    feedback?: boolean;
+    style?: StyleProp<ViewStyle> | ((state: { pressed: boolean }) => StyleProp<ViewStyle>);
+  };
 
-const Clickable: FC<ClickableProps> = ({ children, ...rest }): ReactElement => {
+const Clickable: FC<ClickableProps> = ({
+  children,
+  feedback = false,
+  style,
+  ...rest
+}): ReactElement => {
   return (
-    <TouchableOpacity {...rest} activeOpacity={0.7}>
+    <Pressable
+      {...rest}
+      android_ripple={feedback ? { color: 'rgba(0, 0, 0, 0.1)' } : undefined}
+      style={({ pressed }) => [
+        typeof style === 'function' ? style({ pressed }) : style,
+        feedback && pressed && { opacity: 0.85 }
+      ]}>
       {children}
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 

@@ -7,10 +7,15 @@ import stylesheet from './styles';
 
 type RestaurantCardListProps = {
   orientation: 'horizontal' | 'vertical';
+  dineIn?: boolean;
   title: string;
 };
 
-const RestaurantCardList: FC<RestaurantCardListProps> = ({ title, orientation }) => {
+const RestaurantCardList: FC<RestaurantCardListProps> = ({
+  orientation,
+  title,
+  dineIn = false
+}) => {
   const { styles } = useStyles(stylesheet);
 
   const renderFunction = ({ item }) => {
@@ -18,6 +23,7 @@ const RestaurantCardList: FC<RestaurantCardListProps> = ({ title, orientation })
     return (
       <RestaurantCard
         variant={orientation === 'horizontal' ? 'small' : 'large'}
+        dineIn={dineIn}
         restaurant={item}
       />
     );
@@ -25,7 +31,7 @@ const RestaurantCardList: FC<RestaurantCardListProps> = ({ title, orientation })
 
   return (
     <View style={styles.container}>
-      <Text variant="titleExtraLarge">{title}</Text>
+      <Text variant="bodyEmphasized">{title}</Text>
       <FlatList
         horizontal={orientation === 'horizontal'}
         data={restaurants}
@@ -59,17 +65,9 @@ const restaurants = [
     distance: '3.0 km',
     deliveryTime: '35-40 mins',
     image:
-      'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/5/7/2b1d78bb-5604-46db-99ba-02de93dc58a2_881203.jpg'
-  },
-  {
-    id: '806682',
-    name: 'Burger King',
-    description: 'Burgers, American',
-    rating: 4.3,
-    distance: '2.4 km',
-    deliveryTime: '30-35 mins',
-    image:
-      'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/6/11/a5cee281-c25f-494a-8cab-ba7f49acfb03_806682.JPG'
+      'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/5/7/2b1d78bb-5604-46db-99ba-02de93dc58a2_881203.jpg',
+    address: 'Tukoganj Main road, Treasure Island Indore',
+    dineInPrice: '₹250 for two'
   },
   {
     id: '65543',
@@ -79,7 +77,9 @@ const restaurants = [
     distance: '1.4 km',
     deliveryTime: '20-25 mins',
     image:
-      'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/7/17/3e29a7b8-2ada-411f-977f-a7ecfe0f8f6e_65543.jpg'
+      'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/7/17/3e29a7b8-2ada-411f-977f-a7ecfe0f8f6e_65543.jpg',
+    address: 'Saket Square, Old Palasia',
+    dineInPrice: '₹350 for two'
   },
   {
     id: '729652',
@@ -89,7 +89,9 @@ const restaurants = [
     distance: '3.0 km',
     deliveryTime: '20-25 mins',
     image:
-      'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/5/10/213a964e-8671-4d10-aed6-4d5f0b4e2441_729652.JPG'
+      'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/5/10/213a964e-8671-4d10-aed6-4d5f0b4e2441_729652.JPG',
+    address: 'Street no 1, South Tukoganj',
+    dineInPrice: '₹300 for two'
   },
   {
     id: '73884',
@@ -99,7 +101,9 @@ const restaurants = [
     distance: '2.4 km',
     deliveryTime: '30-35 mins',
     image:
-      'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/4/17/34bdc0b9-123a-44a8-b07a-12055c8ba41f_73884.JPG'
+      'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/4/17/34bdc0b9-123a-44a8-b07a-12055c8ba41f_73884.JPG',
+    address: 'Malhar Mega Mall, Vijay Nagar',
+    dineInPrice: '₹400 for two'
   },
   {
     id: '62186',
@@ -109,7 +113,9 @@ const restaurants = [
     distance: '1.4 km',
     deliveryTime: '20-25 mins',
     image:
-      'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/10/25/3227c9b2-0448-4fa5-a9df-a479499a3aeb_62186.jpg'
+      'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/10/25/3227c9b2-0448-4fa5-a9df-a479499a3aeb_62186.jpg',
+    address: 'Saket Square, Old Palasia',
+    dineInPrice: '₹250 for two'
   },
   {
     id: '65330',
@@ -119,7 +125,9 @@ const restaurants = [
     distance: '1.4 km',
     deliveryTime: '20-25 mins',
     image:
-      'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/10/24/735ef9b3-c7fb-47d3-bf0b-f38ca0ec38d9_65330.JPG'
+      'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/10/24/735ef9b3-c7fb-47d3-bf0b-f38ca0ec38d9_65330.JPG',
+    address: 'Old Palasia, Navneet Tower Road',
+    dineInPrice: '₹400 for two'
   },
   {
     id: '64814',
@@ -129,6 +137,20 @@ const restaurants = [
     distance: '1.2 km',
     deliveryTime: '25-30 mins',
     image:
-      'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/5116a385bac0548e06c33c08350fbf11'
+      'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/5116a385bac0548e06c33c08350fbf11',
+    address: 'Old Palasia',
+    dineInPrice: '₹200 for two'
+  },
+  {
+    id: '806682',
+    name: 'Burger King',
+    description: 'Burgers, American',
+    rating: 4.3,
+    distance: '2.4 km',
+    deliveryTime: '30-35 mins',
+    image:
+      'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/6/11/a5cee281-c25f-494a-8cab-ba7f49acfb03_806682.JPG',
+    address: 'Indore, Malhar Mall',
+    dineInPrice: '₹350 for two'
   }
 ];

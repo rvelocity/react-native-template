@@ -1,4 +1,4 @@
-import FoodCategory from '@/ui/components/FoodCategory';
+import Category from '@/ui/components/Category';
 import { useNavigation } from '@react-navigation/native';
 import React, { FC } from 'react';
 import { FlatList, ScrollView } from 'react-native';
@@ -9,7 +9,7 @@ const FoodCategoryList: FC<FoodCategoryListProps> = () => {
   const navigation = useNavigation();
 
   const renderFunction = ({ item }) => {
-    return <FoodCategory key={item.id} foodCategory={item} />;
+    return <Category key={item.id} category={item} />;
   };
 
   const numColumns = Math.ceil(categories.length / 2);
