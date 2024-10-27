@@ -6,20 +6,24 @@ import stylesheet from './styles.ts';
 import Text from '@/ui/elements/Text/Text.tsx';
 
 type FoodCategoryProps = {
-  thumbnail: string;
-  title: string;
+  foodCategory: any;
 };
 
-const FoodCategory: React.FC<FoodCategoryProps> = ({ thumbnail, title }) => {
+const FoodCategory: React.FC<FoodCategoryProps> = ({ foodCategory }) => {
   const { styles } = useStyles(stylesheet);
 
   return (
     <TouchableOpacity onPress={() => {}}>
       <View style={styles.container}>
         <View style={styles.imageContainer}>
-          <Image remote image={thumbnail} style={[styles.imageStyle]} resizeMode="contain" />
+          <Image
+            remote
+            image={foodCategory.image}
+            style={[styles.imageStyle]}
+            resizeMode="contain"
+          />
         </View>
-        <Text variant="labelProminent">{title}</Text>
+        {/* <Text variant="labelProminent">{foodCategory.name}</Text> */}
       </View>
     </TouchableOpacity>
   );

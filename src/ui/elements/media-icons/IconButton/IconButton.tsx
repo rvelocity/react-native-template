@@ -20,7 +20,7 @@ const IconButton: FC<IconButtonProps> = ({
   color = 'primary',
   iconStyle = 'default',
   disabled = false,
-  padding = 0,
+  padding = 8,
   ...rest
 }): ReactElement => {
   const { styles, theme } = useStyles(stylesheet);

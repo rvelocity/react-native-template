@@ -4,6 +4,7 @@ import Screen from '@/ui/elements/layout/Screen/Screen.tsx';
 import ImageBanner from '@/ui/elements/media-icons/ImageBanner';
 import FoodCategoryList from '@/ui/widgets/FoodCategoryList';
 import HeaderWithSearchAndAvatar from '@/ui/widgets/HeaderWithSearchAndAvatar/HeaderWithSearchAndAvatar.tsx';
+import RestaurantCardList from '@/ui/widgets/RestaurantCardList';
 import React from 'react';
 
 type FoodProps = {
@@ -42,6 +43,9 @@ const Food: React.FC<FoodProps> = props => {
             />
           </Carousel.Item>
         </Carousel>
+
+        <RestaurantCardList title="Top Rated Restaurants" orientation="horizontal" />
+        <RestaurantCardList title="Restaurants To Explore" orientation="vertical" />
       </ContentSafeView>
     </Screen>
   );
