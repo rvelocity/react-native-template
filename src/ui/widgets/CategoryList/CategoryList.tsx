@@ -1,7 +1,8 @@
-import mockData from '@/mockData';
-import Category from '@/ui/components/Category';
 import React, { FC } from 'react';
 import { FlatList, ScrollView } from 'react-native';
+
+import mockData from '@/mockData';
+import Category from '@/ui/components/Category';
 
 type CategoryListProps = {
   data: any[];

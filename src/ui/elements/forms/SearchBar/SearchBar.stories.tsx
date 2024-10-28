@@ -1,8 +1,11 @@
-import { decorators } from '@.storybook/decorators';
-import TextFieldMeta from '@/ui/elements/forms/TextField/TextField.stories';
-import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
+
+import TextFieldMeta from '@/ui/elements/forms/TextField/TextField.stories';
+
 import SearchBar from './SearchBar';
+
+import { decorators } from '@.storybook/decorators';
 
 const meta = {
   title: 'Components/SearchBar',

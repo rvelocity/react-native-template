@@ -1,8 +1,10 @@
 import React, { createContext, ReactElement, useContext, useMemo } from 'react';
 import { ActivityIndicator, Text, TouchableOpacityProps, View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
+
 import Clickable from '../../Clickable';
 import { IconProps } from '../../media-icons/Icon';
+
 import stylesheet from './styles';
 
 const ButtonTypes = {
@@ -40,7 +42,7 @@ const ButtonContext = createContext<ButtonContextType>({
 
 const { Provider } = ButtonContext;
 
-const ButtonText = ({ title }: ButtonTextProps): ReactElement => {
+function ButtonText({ title }: ButtonTextProps): ReactElement {
   const { styles } = useStyles(stylesheet);
   const { variant, type, disabled, size } = useContext<ButtonContextType>(ButtonContext);
 
@@ -49,17 +51,17 @@ const ButtonText = ({ title }: ButtonTextProps): ReactElement => {
   return (
     <Text style={[styles[disabled ? 'disabledText' : textVariant], styles[textSize]]}>{title}</Text>
   );
-};
+}
 
-const ButtonIcon = ({}: ButtonIconProps): ReactElement => {
+function ButtonIcon({}: ButtonIconProps): ReactElement {
   return (
     <View>
       <Text>Button Icon</Text>
     </View>
   );
-};
+}
 
-const Button = ({
+function Button({
   children,
   onPress,
   variant,
@@ -68,7 +70,7 @@ const Button = ({
   disabled = false,
   loading = false,
   ...rest
-}: ButtonProps): ReactElement => {
+}: ButtonProps): ReactElement {
   const { styles } = useStyles(stylesheet);
 
   const memorizedValue = useMemo(
@@ -99,7 +101,7 @@ const Button = ({
       </Clickable>
     </Provider>
   );
-};
+}
 
 Button.Text = ButtonText;
 Button.Icon = ButtonIcon;

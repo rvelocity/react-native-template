@@ -1,4 +1,4 @@
-import { persist, createJSONStorage, create, zustandStorage } from '@/api/storageManager';
+import { create, createJSONStorage, persist, zustandStorage } from '@/api/storageManager';
 import { User } from '@/types/user';
 
 export interface AuthState {

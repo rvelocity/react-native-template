@@ -1,6 +1,7 @@
 import { MMKV } from 'react-native-mmkv';
-import { persist, createJSONStorage, StateStorage } from 'zustand/middleware';
 import { create } from 'zustand';
+import { createJSONStorage, persist, StateStorage } from 'zustand/middleware';
+
 import { WHITELIST_KEYS } from '@/constants/storageKeys';
 
 // Create and initialize the MMKV instance
@@ -32,4 +33,4 @@ export const clearStorage = () => {
   storage.clearAll();
 };
 
-export { create, storage, zustandStorage, persist, createJSONStorage };
+export { create, createJSONStorage, persist, storage, zustandStorage };

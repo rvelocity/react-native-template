@@ -1,7 +1,9 @@
-import { decorators } from '@.storybook/decorators';
-import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
+
 import { Accordion } from './Accordion';
+
+import { decorators } from '@.storybook/decorators';
 
 const meta: Meta<typeof Accordion> = {
   title: 'Elements/Disclosure/Accordion',

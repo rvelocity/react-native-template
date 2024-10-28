@@ -1,8 +1,10 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import type { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
-import { decorators } from '@.storybook/decorators';
+import type { Meta, StoryObj } from '@storybook/react';
+
 import OTPField from './OtpField';
+
+import { decorators } from '@.storybook/decorators';
 
 const meta: Meta<typeof OTPField> = {
   title: 'Elements/Forms/OTPField',

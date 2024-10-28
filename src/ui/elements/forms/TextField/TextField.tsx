@@ -1,6 +1,7 @@
 import React, { type FC, type PropsWithChildren, type ReactElement, type ReactNode } from 'react';
-import { TextInput as RNTextInput, View, type TextInputProps } from 'react-native';
+import { type TextInputProps, TextInput as RNTextInput, View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
+
 import stylesheet from './styles';
 
 type TextFieldVariantType = 'contained' | 'outlined' | 'underlined';

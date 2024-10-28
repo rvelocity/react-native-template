@@ -1,5 +1,5 @@
 import React, { type FC, type PropsWithChildren, type ReactElement } from 'react';
-import { Pressable, type PressableProps, StyleProp, ViewStyle } from 'react-native';
+import { type PressableProps, Pressable, StyleProp, ViewStyle } from 'react-native';
 
 type ClickableProps = PropsWithChildren &
   PressableProps & {

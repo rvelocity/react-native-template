@@ -1,4 +1,4 @@
-import React, { type ReactElement, useEffect, type useLayoutEffect } from 'react';
+import React, { type ReactElement, type useLayoutEffect, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
 export const useHeader = (

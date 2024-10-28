@@ -1,12 +1,34 @@
 {
   "compilerOptions": {
+    "allowJs": false,
+    "jsx": "react-native",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@assets/*": ["./assets/*"],
-      "@.storybook/*": ["./.storybook/*"]
+      "@/*": [
+        "src/*"
+      ],
+      "@assets/*": [
+        "./assets/*"
+      ],
+      "@.storybook/*": [
+        "./.storybook/*"
+      ]
     }
   },
-  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
+  "include": [
+    "__tests__",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    ".eslintrc.js",
+    "*.js",
+    "*.ts",
+    "assets/svg/**/*",
+    "index.js",
+    "src",
+  ],
+  "exclude": [
+    "node_modules",
+    ".github"
+  ],
   "extends": "@react-native/typescript-config/tsconfig.json"
 }

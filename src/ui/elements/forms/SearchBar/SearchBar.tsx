@@ -1,14 +1,14 @@
-import TextField, { TextFieldProps } from '@/ui/elements/forms/TextField/TextField.tsx';
-import Divider from '@/ui/elements/layout/Divider';
-import IconButton from '@/ui/elements/media-icons/IconButton/IconButton.tsx';
 import React from 'react';
 import { View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
+
+import TextField, { TextFieldProps } from '@/ui/elements/forms/TextField/TextField.tsx';
+import Divider from '@/ui/elements/layout/Divider';
+import IconButton from '@/ui/elements/media-icons/IconButton/IconButton.tsx';
+
 import stylesheet from './styles';
 
-interface SearchBarProps extends TextFieldProps {
-  // Define props here
-}
+type SearchBarProps = TextFieldProps;
 
 const SearchBar: React.FC<SearchBarProps> = ({ ...rest }) => {
   const { styles } = useStyles(stylesheet);

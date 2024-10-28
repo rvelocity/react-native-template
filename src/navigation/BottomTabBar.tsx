@@ -1,12 +1,14 @@
+import React, { type ReactElement } from 'react';
+import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
+import { type BottomTabBarProps } from '@react-navigation/bottom-tabs';
+
 import useNavigationStore from '@/hooks/useNavigationStore';
 import { useSafeAreaInsetsStyle } from '@/hooks/useSafeAreaInsetsStyle';
 import { lightTheme } from '@/theme';
 import IconButton from '@/ui/elements/media-icons/IconButton';
 import Text from '@/ui/elements/Text';
 import { IconKeys } from '@/utils';
-import { type BottomTabBarProps } from '@react-navigation/bottom-tabs';
-import React, { type ReactElement } from 'react';
-import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
+
 import { SHOW_TAB_BAR_ROUTES_NAMES } from './navigationUtils';
 
 const TITLE_ICON_MAPPING = {
@@ -17,7 +19,7 @@ const TITLE_ICON_MAPPING = {
   CourierStack: { type: 'materialCommunity', icon: 'truck-outline', title: 'Courier' }
 };
 
-const BottomTabIcon = ({ focused, route }: { route: string; focused: boolean }): ReactElement => {
+function BottomTabIcon({ focused, route }: { route: string; focused: boolean }): ReactElement {
   const icon = TITLE_ICON_MAPPING[route as keyof typeof TITLE_ICON_MAPPING];
   const color = focused ? 'primary' : 'gray';
 
@@ -30,15 +32,15 @@ const BottomTabIcon = ({ focused, route }: { route: string; focused: boolean }):
       size={20}
     />
   );
-};
+}
 
-const BottomTabBar = ({ state, navigation }: BottomTabBarProps): ReactElement | null => {
+function BottomTabBar({ state, navigation }: BottomTabBarProps): ReactElement | null {
   const bottomPadding = useSafeAreaInsetsStyle(['bottom']);
   const { currentRouteInfo } = useNavigationStore();
 
   if (SHOW_TAB_BAR_ROUTES_NAMES.includes(currentRouteInfo as string)) {
     return (
-      <View style={[bottomPadding]}>
+      <View style={bottomPadding}>
         <View style={styles.tabBarContainer}>
           {state.routes.map((route, index) => {
             const isFocused = state.index === index;
@@ -79,9 +81,12 @@ const BottomTabBar = ({ state, navigation }: BottomTabBarProps): ReactElement | 
   }
 
   return null;
-};
+}
 
 const styles = StyleSheet.create({
+  focusedTabLabel: {
+    color: lightTheme.colors.text
+  },
   tabBarContainer: {
     padding: 8,
     paddingVertical: 2,
@@ -101,16 +106,13 @@ const styles = StyleSheet.create({
     elevation: 8 // Increased elevation for more spread
   },
   tabBarItem: {
-    flex: 1,
     alignItems: 'center',
+    flex: 1,
     justifyContent: 'center'
   },
   tabLabel: {
     color: lightTheme.colors.darkGray,
     fontWeight: 900
-  },
-  focusedTabLabel: {
-    color: lightTheme.colors.text
   }
 });
 

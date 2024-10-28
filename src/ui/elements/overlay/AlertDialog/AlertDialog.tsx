@@ -1,10 +1,12 @@
 import React, { type FC, type ReactElement } from 'react';
-import Modal from '../Modal';
-import Text from '../../Text';
-import Button from '../../forms/Button';
 import { View } from 'react-native';
-import stylesheet from './styles';
 import { useStyles } from 'react-native-unistyles';
+
+import Button from '../../forms/Button';
+import Text from '../../Text';
+import Modal from '../Modal';
+
+import stylesheet from './styles';
 
 interface AlertDialogProps {
   visible: boolean;

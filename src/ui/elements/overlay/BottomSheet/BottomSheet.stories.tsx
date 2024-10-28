@@ -1,10 +1,13 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { decorators } from '@.storybook/decorators.tsx';
-import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Button, Text, View } from 'react-native';
+import { Meta, StoryObj } from '@storybook/react';
+
 import ContentSafeView from '../../layout/ContentSafeView';
+
 import BottomSheet from './BottomSheet';
+
+import { decorators } from '@.storybook/decorators.tsx';
 
 const meta = {
   title: 'Elements/Overlay/BottomSheet',

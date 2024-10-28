@@ -1,9 +1,11 @@
-import Card from '@/ui/elements/Card';
-import Grid from '@/ui/elements/layout/Grid';
-import Text from '@/ui/elements/Text';
 import React from 'react';
 import { View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
+
+import Card from '@/ui/elements/Card';
+import Grid from '@/ui/elements/layout/Grid';
+import Text from '@/ui/elements/Text';
+
 import stylesheet from './styles';
 
 const serviceCategory = [

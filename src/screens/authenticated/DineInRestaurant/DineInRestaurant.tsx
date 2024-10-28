@@ -1,4 +1,8 @@
 /* eslint-disable react/no-unstable-nested-components */
+import React from 'react';
+import { View } from 'react-native';
+import { useStyles } from 'react-native-unistyles';
+
 import useHeader from '@/hooks/useHeader';
 import mockData from '@/mockData';
 import { DineInStackProps } from '@/types/navigation';
@@ -12,12 +16,10 @@ import Screen from '@/ui/elements/layout/Screen/Screen.tsx';
 import Icon from '@/ui/elements/media-icons/Icon';
 import Image from '@/ui/elements/media-icons/Image';
 import Text from '@/ui/elements/Text';
-import React from 'react';
-import { View } from 'react-native';
-import { useStyles } from 'react-native-unistyles';
+
 import stylesheet from './styles';
 
-interface DineInRestaurantProps extends DineInStackProps<'DineInRestaurant'> {}
+type DineInRestaurantProps = DineInStackProps<'DineInRestaurant'>;
 
 const DineInRestaurantHeader: React.FC = () => (
   <Header>

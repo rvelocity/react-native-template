@@ -1,3 +1,6 @@
+import React from 'react';
+import { useStyles } from 'react-native-unistyles';
+
 import useHeader from '@/hooks/useHeader';
 import mockData from '@/mockData';
 import { DineInStackProps } from '@/types/navigation';
@@ -7,19 +10,18 @@ import Screen from '@/ui/elements/layout/Screen/Screen.tsx';
 import Text from '@/ui/elements/Text';
 import Filters from '@/ui/widgets/Filters';
 import RestaurantList from '@/ui/widgets/RestaurantList';
-import React from 'react';
+
 import stylesheet from './styles';
-import { useStyles } from 'react-native-unistyles';
 
-interface DineInCategoryProps extends DineInStackProps<'DineInCategory'> {}
+type DineInCategoryProps = DineInStackProps<'DineInCategory'>;
 
-const ShopHeader = () => {
+function ShopHeader() {
   return (
     <Header>
       <Header.BackAction />
     </Header>
   );
-};
+}
 
 const DineInCategory: React.FC<DineInCategoryProps> = ({ navigation }) => {
   const { styles } = useStyles(stylesheet);

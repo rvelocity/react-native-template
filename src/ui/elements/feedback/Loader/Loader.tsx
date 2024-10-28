@@ -1,8 +1,9 @@
 import React from 'react';
 import { type ActivityIndicatorProps, StyleSheet, View } from 'react-native';
-
 import { useStyles } from 'react-native-unistyles';
+
 import LottieElement from '../LottieElement';
+
 import stylesheet from './styles';
 
 type LoaderProps = ActivityIndicatorProps;

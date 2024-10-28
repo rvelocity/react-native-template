@@ -1,8 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-
 import { View } from 'react-native';
+import type { Meta, StoryObj } from '@storybook/react';
+
 import ImageBanner from '../../media-icons/ImageBanner';
+
 import Carousel, { IndicatorType } from './Carousel';
 
 type CarouselStory = StoryObj<typeof Carousel>;

@@ -1,11 +1,13 @@
 import React, { type FC, type ReactElement, type ReactNode, useEffect, useRef } from 'react';
 import { Animated, Easing, View } from 'react-native';
-
 import { useStyles } from 'react-native-unistyles';
-import stylesheet from './styles';
+
 import useDimensions from '@/hooks/useDimensions';
+
 import IconButton from '../../media-icons/IconButton';
 import Modal from '../Modal';
+
+import stylesheet from './styles';
 
 interface BottomSheetProps {
   isVisible: boolean;

@@ -1,16 +1,18 @@
-import Clickable from '@/ui/elements/Clickable';
-import SearchBar from '@/ui/elements/forms/SearchBar';
-import Icon from '@/ui/elements/media-icons/Icon';
-import IconButton from '@/ui/elements/media-icons/IconButton';
-import Text from '@/ui/elements/Text';
 import React from 'react';
 import { View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
-import stylesheet from './styles';
-import ContentSafeView from '@/ui/elements/layout/ContentSafeView';
 import { useNavigation } from '@react-navigation/native';
 
-const HeaderWithSearchAndAvatar = () => {
+import Clickable from '@/ui/elements/Clickable';
+import SearchBar from '@/ui/elements/forms/SearchBar';
+import ContentSafeView from '@/ui/elements/layout/ContentSafeView';
+import Icon from '@/ui/elements/media-icons/Icon';
+import IconButton from '@/ui/elements/media-icons/IconButton';
+import Text from '@/ui/elements/Text';
+
+import stylesheet from './styles';
+
+function HeaderWithSearchAndAvatar() {
   const { styles } = useStyles(stylesheet);
   const { navigate } = useNavigation();
 
@@ -43,6 +45,6 @@ const HeaderWithSearchAndAvatar = () => {
       </View>
     </ContentSafeView>
   );
-};
+}
 
 export default HeaderWithSearchAndAvatar;

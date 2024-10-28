@@ -1,6 +1,6 @@
 import { createStyleSheet } from 'react-native-unistyles';
 
-const stylesheet = createStyleSheet(theme => ({
+const stylesheet = createStyleSheet(() => ({
   screenContent: {
     gap: 24
   }

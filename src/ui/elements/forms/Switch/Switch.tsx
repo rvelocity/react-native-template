@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Animated, TouchableWithoutFeedback } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
+
 import stylesheet from './styles';
 
 type SwitchProps = {

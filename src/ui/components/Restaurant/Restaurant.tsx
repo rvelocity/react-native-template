@@ -1,11 +1,13 @@
-import Clickable from '@/ui/elements/Clickable/Clickable.tsx';
-import Text from '@/ui/elements/Text/Text.tsx';
-import Icon from '@/ui/elements/media-icons/Icon/Icon.tsx';
-import IconButton from '@/ui/elements/media-icons/IconButton/IconButton.tsx';
-import Image from '@/ui/elements/media-icons/Image/Image.tsx';
 import React from 'react';
 import { View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
+
+import Clickable from '@/ui/elements/Clickable/Clickable.tsx';
+import Icon from '@/ui/elements/media-icons/Icon/Icon.tsx';
+import IconButton from '@/ui/elements/media-icons/IconButton/IconButton.tsx';
+import Image from '@/ui/elements/media-icons/Image/Image.tsx';
+import Text from '@/ui/elements/Text/Text.tsx';
+
 import stylesheet from './styles';
 
 type RestaurantProps = {
@@ -73,7 +75,7 @@ const Restaurant: React.FC<RestaurantProps> = ({ variant, data, onPress, dineIn 
   );
 };
 
-const Rating = ({ rating }: { rating: number }) => {
+function Rating({ rating }: { rating: number }) {
   const { styles } = useStyles(stylesheet);
 
   return (
@@ -84,9 +86,9 @@ const Rating = ({ rating }: { rating: number }) => {
       </Text>
     </View>
   );
-};
+}
 
-const DistanceAndTime = ({
+function DistanceAndTime({
   isSmall,
   distance,
   deliveryTime
@@ -94,7 +96,7 @@ const DistanceAndTime = ({
   isSmall: boolean;
   distance: string;
   deliveryTime: string;
-}) => {
+}) {
   const { styles } = useStyles(stylesheet);
 
   return (
@@ -115,9 +117,9 @@ const DistanceAndTime = ({
       </Text>
     </View>
   );
-};
+}
 
-const AddressAndPrice = ({ address, dineInPrice }: { address: string; dineInPrice: string }) => {
+function AddressAndPrice({ address, dineInPrice }: { address: string; dineInPrice: string }) {
   const { styles } = useStyles(stylesheet);
 
   return (
@@ -130,6 +132,6 @@ const AddressAndPrice = ({ address, dineInPrice }: { address: string; dineInPric
       </Text>
     </View>
   );
-};
+}
 
 export default Restaurant;

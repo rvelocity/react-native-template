@@ -1,7 +1,9 @@
 import React, { FC, PropsWithChildren, ReactElement } from 'react';
 import { View } from 'react-native';
-import Image, { ImageProps } from '../Image/Image';
 import { useStyles } from 'react-native-unistyles';
+
+import Image, { ImageProps } from '../Image/Image';
+
 import stylesheet from './styles';
 
 type ImageBannerProps = {

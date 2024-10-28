@@ -1,15 +1,16 @@
 import React, { type PropsWithChildren, type ReactElement, useRef, useState } from 'react';
 import {
-  Animated,
-  FlatList,
   type NativeScrollEvent,
   type NativeSyntheticEvent,
-  View,
-  Text
+  Animated,
+  FlatList,
+  Text,
+  View
 } from 'react-native';
+import { useStyles } from 'react-native-unistyles';
 
 import useDimensions from '@/hooks/useDimensions';
-import { useStyles } from 'react-native-unistyles';
+
 import stylesheet from './styles';
 
 export enum IndicatorType {
@@ -23,12 +24,12 @@ type CarouselProps = PropsWithChildren & {
   pagingEnabled?: boolean;
 };
 
-export const Carousel = ({
+export function Carousel({
   children,
   snapToInterval,
   indicator = IndicatorType.DOT,
   pagingEnabled = false
-}: CarouselProps): ReactElement => {
+}: CarouselProps): ReactElement {
   const { styles, theme } = useStyles(stylesheet);
 
   const dimensions = useDimensions('window');
@@ -149,26 +150,26 @@ export const Carousel = ({
       {indicator === IndicatorType.LINE && renderLineIndicator()}
     </View>
   );
-};
+}
 
 type ItemProps = PropsWithChildren & {
   width?: number;
 };
 
-const Item = ({ children, width }: ItemProps): ReactElement => {
+function Item({ children, width }: ItemProps): ReactElement {
   const { styles, theme } = useStyles(stylesheet);
   const dimensions = useDimensions('window');
   const safeWidth = dimensions.width - theme.spacing[28];
 
   return <View style={[styles.itemContainer, { width: width ?? safeWidth - 32 }]}>{children}</View>;
-};
+}
 
 Carousel.Item = Item;
 
 export default Carousel;
 
-const Separator = (): ReactElement => {
+function Separator(): ReactElement {
   const { styles } = useStyles(stylesheet);
 
   return <View style={styles.separator} />;
-};
+}

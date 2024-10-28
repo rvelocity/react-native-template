@@ -1,5 +1,5 @@
 import React, { type ReactElement, useLayoutEffect, useState } from 'react';
-import { Image, type ImageProps, type ImageURISource } from 'react-native';
+import { type ImageProps, type ImageURISource, Image } from 'react-native';
 
 export interface AutoImageProps extends ImageProps {
   /**
@@ -35,7 +35,7 @@ function useAutoImage(
       // Local image
       const { width, height } = Image.resolveAssetSource(source);
       setRemoteImageDimensions([width, height]);
-    } else if (typeof source?.uri === 'string' && source.uri.trim().length > 0) {
+    } else if (typeof source.uri === 'string' && source.uri.trim().length > 0) {
       // Remote image
       Image.getSize(source.uri, (w, h) => {
         setRemoteImageDimensions([w, h]);
@@ -62,7 +62,7 @@ function useAutoImage(
  *
  * - [Documentation and Examples](https://github.com/infinitered/ignite/blob/master/docs/Components-AutoImage.md)
  */
-const AutoImage = (props: AutoImageProps): ReactElement => {
+function AutoImage(props: AutoImageProps): ReactElement {
   const { maxWidth = 0, maxHeight = 0, onError, style, source, ...imageProps } = props;
 
   const [width, height] = useAutoImage(source as ImageURISource | number, [maxWidth, maxHeight]);
@@ -70,6 +70,6 @@ const AutoImage = (props: AutoImageProps): ReactElement => {
   return (
     <Image {...imageProps} source={source} style={[{ width, height }, style]} onError={onError} />
   );
-};
+}
 
 export default AutoImage;

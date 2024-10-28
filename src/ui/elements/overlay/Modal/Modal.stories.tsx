@@ -1,9 +1,11 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { decorators } from '@.storybook/decorators';
-import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Button, Text, View } from 'react-native';
+import { Meta, StoryObj } from '@storybook/react';
+
 import Modal from './Modal';
+
+import { decorators } from '@.storybook/decorators';
 
 const meta = {
   title: 'Elements/Overlay/Modal',

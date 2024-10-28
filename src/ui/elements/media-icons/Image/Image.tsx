@@ -1,12 +1,14 @@
-import { getImage, type Image as ImageType } from '@assets/constants/images';
 import React, { type FC, type ReactElement } from 'react';
 import {
+  type ImageProps as RNImageProps,
   type ImageSourcePropType,
-  Image as RNImage,
-  type ImageProps as RNImageProps
+  Image as RNImage
 } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
+import { type Image as ImageType, getImage } from '@assets/constants/images';
+
 import { IconProps } from '../Icon/Icon';
+
 import stylesheet from './styles';
 
 export type ImageProps = Omit<RNImageProps, 'source'> &

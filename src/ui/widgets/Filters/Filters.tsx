@@ -1,8 +1,10 @@
 /* eslint-disable react/no-unstable-nested-components */
-import Chip from '@/ui/elements/data-display/Chip/Chip.tsx';
-import Icon from '@/ui/elements/media-icons/Icon/Icon.tsx';
 import React, { FC } from 'react';
 import { ScrollView, View } from 'react-native';
+
+import Chip from '@/ui/elements/data-display/Chip/Chip.tsx';
+import Icon from '@/ui/elements/media-icons/Icon/Icon.tsx';
+
 import styles from './styles';
 
 type FiltersProps = {
@@ -17,7 +19,7 @@ const Filters: FC<FiltersProps> = props => {
           variant="outlined"
           onPress={() => {}}
           right={() => (
-            <Icon icon={'sliders'} type="feather" variant="vector" size={14} color="gray" />
+            <Icon icon="sliders" type="feather" variant="vector" size={14} color="gray" />
           )}>
           Filter
         </Chip>
@@ -25,7 +27,7 @@ const Filters: FC<FiltersProps> = props => {
           variant="outlined"
           onPress={() => {}}
           right={() => (
-            <Icon icon={'chevron-down'} type="feather" variant="vector" size={16} color="gray" />
+            <Icon icon="chevron-down" type="feather" variant="vector" size={16} color="gray" />
           )}>
           Sort by
         </Chip>

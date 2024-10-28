@@ -5,6 +5,7 @@
 import React, { type FC, type PropsWithChildren, type ReactElement } from 'react';
 import { ScrollView, View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
+
 import stylesheet from './styles';
 
 type SpacerProps = {

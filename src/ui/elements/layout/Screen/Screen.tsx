@@ -1,22 +1,23 @@
-import { useScrollToTop } from '@react-navigation/native';
 import React, { type PropsWithChildren, type ReactElement, useRef, useState } from 'react';
 import {
   type LayoutChangeEvent,
-  type StatusBarProps as RNStatusBarProps,
-  ScrollView,
   type ScrollViewProps,
+  type StatusBarProps as RNStatusBarProps,
   type StyleProp,
-  View,
-  type ViewStyle
+  type ViewStyle,
+  ScrollView,
+  View
 } from 'react-native';
+import { useStyles } from 'react-native-unistyles';
+import { useScrollToTop } from '@react-navigation/native';
 
 import { type ExtendedEdge, useSafeAreaInsetsStyle } from '@/hooks/useSafeAreaInsetsStyle';
 import { type Theme } from '@/theme';
 
-import { useStyles } from 'react-native-unistyles';
+import Loader from '../../feedback/Loader';
 import KeyboardAvoidingView from '../../KeyboardAvoidingView';
 import StatusBar from '../../StatusBar';
-import Loader from '../../feedback/Loader';
+
 import stylesheet from './styles';
 
 type ScreenPreset = 'fixed' | 'scroll' | 'auto';
@@ -112,7 +113,7 @@ const useAutoPreset = (
   };
 };
 
-const ScreenWithoutScrolling = (props: ScreenProps): ReactElement => {
+function ScreenWithoutScrolling(props: ScreenProps): ReactElement {
   const { children, style, contentContainerStyle } = props;
   const { styles } = useStyles(stylesheet);
 
@@ -121,9 +122,9 @@ const ScreenWithoutScrolling = (props: ScreenProps): ReactElement => {
       <View style={[styles.outerStyle, contentContainerStyle]}>{children}</View>
     </View>
   );
-};
+}
 
-const ScreenWithScrolling = (props: ScreenProps): ReactElement => {
+function ScreenWithScrolling(props: ScreenProps): ReactElement {
   const {
     children,
     keyboardShouldPersistTaps = 'handled',
@@ -160,7 +161,7 @@ const ScreenWithScrolling = (props: ScreenProps): ReactElement => {
       <View style={styles.bottomSpacing} />
     </ScrollView>
   );
-};
+}
 
 export const Screen: React.FC<ScreenProps> = props => {
   const {

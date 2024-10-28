@@ -1,8 +1,9 @@
+import { ParamListBase } from '@react-navigation/native';
+import { create } from 'zustand';
+
 import { createJSONStorage, persist, zustandStorage } from '@/api/storageManager';
 import { PERSIST_KEYS } from '@/constants/storageKeys';
 import { INITIAL_ROUTES_NAMES, navigationRef } from '@/navigation/navigationUtils';
-import { ParamListBase } from '@react-navigation/native';
-import { create } from 'zustand';
 
 type RouteKey = keyof ParamListBase | null;
 

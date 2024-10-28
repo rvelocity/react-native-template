@@ -1,10 +1,12 @@
-import { QueryCache, QueryClient, onlineManager, Query } from '@tanstack/react-query';
-import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
 import React, { FC, PropsWithChildren, useEffect } from 'react';
+import { Platform } from 'react-native';
 import { addEventListener } from '@react-native-community/netinfo';
 import { createSyncStoragePersister } from '@tanstack/query-sync-storage-persister';
-import { Platform } from 'react-native';
+import { onlineManager, Query, QueryCache, QueryClient } from '@tanstack/react-query';
+import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
+
 import { Storage } from '@/types/reactQueryConfig';
+
 import { zustandStorage } from './storageManager';
 
 export const clientPersister = createSyncStoragePersister({

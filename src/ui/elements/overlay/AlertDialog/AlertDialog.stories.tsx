@@ -1,8 +1,10 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Button, View } from 'react-native';
+import { Meta, StoryObj } from '@storybook/react';
+
 import AlertDialog from './AlertDialog';
+
 import { decorators } from '@.storybook/decorators.tsx';
 
 const meta = {

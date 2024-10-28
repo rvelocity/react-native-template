@@ -1,8 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
+
+import ImageBanner from './ImageBanner';
 
 import { decorators } from '@.storybook/decorators';
-import ImageBanner from './ImageBanner';
 
 const ImageBannerMeta: Meta<typeof ImageBanner> = {
   title: 'Elements/Media Icons/ImageBanner',

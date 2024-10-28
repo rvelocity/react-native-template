@@ -6,12 +6,14 @@ import React, {
   useMemo,
   useState
 } from 'react';
-import { TouchableOpacity, View } from 'react-native';
+import { View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
+
+import Clickable from '../../Clickable';
 import Icon from '../../media-icons/Icon';
 import Text from '../../Text';
+
 import stylesheet from './styles';
-import Clickable from '../../Clickable';
 
 // Accordion Context
 interface AccordionContextType {
@@ -28,14 +30,14 @@ const { Provider } = AccordionContext;
 
 type AccordionProps = PropsWithChildren;
 
-const Accordion = ({ children }: AccordionProps): ReactElement => {
+function Accordion({ children }: AccordionProps): ReactElement {
   const { styles } = useStyles(stylesheet);
   return <View style={styles.container}>{children}</View>;
-};
+}
 
 type ItemProps = PropsWithChildren;
 
-const Item = ({ children }: ItemProps): ReactElement => {
+function Item({ children }: ItemProps): ReactElement {
   const [isExpanded, setExpanded] = useState(false);
   const { styles } = useStyles(stylesheet);
 
@@ -56,7 +58,7 @@ const Item = ({ children }: ItemProps): ReactElement => {
       <View style={styles.item}>{children}</View>
     </Provider>
   );
-};
+}
 
 // If in future we needed isExpanded state, we will use Trigger component (render props pattern)
 /* type TriggerProps = {
@@ -76,7 +78,7 @@ const Trigger = ({children}: TriggerProps): ReactElement => {
 
 type HeaderProps = PropsWithChildren;
 
-const Header = ({ children }: HeaderProps): ReactElement => {
+function Header({ children }: HeaderProps): ReactElement {
   const { styles } = useStyles(stylesheet);
 
   const { isExpanded, toggle } = useContext(AccordionContext);
@@ -93,11 +95,11 @@ const Header = ({ children }: HeaderProps): ReactElement => {
       </View>
     </Clickable>
   );
-};
+}
 
 type ContentProps = PropsWithChildren;
 
-const Content = ({ children }: ContentProps): ReactElement | null => {
+function Content({ children }: ContentProps): ReactElement | null {
   const { styles } = useStyles(stylesheet);
   const { isExpanded } = useContext(AccordionContext);
 
@@ -106,7 +108,7 @@ const Content = ({ children }: ContentProps): ReactElement | null => {
       <Text variant="bodyMedium">{children}</Text>
     </View>
   ) : null;
-};
+}
 
 Accordion.Item = Item;
 // Accordion.Trigger = Trigger;

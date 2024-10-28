@@ -1,7 +1,9 @@
-import Screen from '@/ui/elements/layout/Screen/Screen.tsx';
-import HeaderWithSearchAndAvatar from '@/ui/widgets/HeaderWithSearchAndAvatar/HeaderWithSearchAndAvatar.tsx';
 import React from 'react';
 import { useStyles } from 'react-native-unistyles';
+
+import Screen from '@/ui/elements/layout/Screen/Screen.tsx';
+import HeaderWithSearchAndAvatar from '@/ui/widgets/HeaderWithSearchAndAvatar/HeaderWithSearchAndAvatar.tsx';
+
 import stylesheet from './styles';
 
 type MartProps = {

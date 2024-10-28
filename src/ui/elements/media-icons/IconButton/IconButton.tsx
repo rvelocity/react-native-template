@@ -1,8 +1,10 @@
 import React, { type FC, type ReactElement } from 'react';
 import { View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
+
 import Clickable from '../../Clickable';
 import Icon, { type IconProps } from '../Icon';
+
 import stylesheet from './styles';
 
 export interface IconButtonProps extends IconProps {
