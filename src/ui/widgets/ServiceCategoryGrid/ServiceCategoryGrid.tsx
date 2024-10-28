@@ -4,7 +4,7 @@ import Text from '@/ui/elements/Text';
 import React from 'react';
 import { View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
-import stylesheet from './styles.ts';
+import stylesheet from './styles';
 
 const serviceCategory = [
   {

@@ -19,7 +19,7 @@ import stylesheet from './styles';
 
 interface DineInRestaurantProps extends DineInStackProps<'DineInRestaurant'> {}
 
-const ShopHeader: React.FC = () => (
+const DineInRestaurantHeader: React.FC = () => (
   <Header>
     <Header.BackAction />
     <Header.Action icon="hearto" variant="vector" type="ant" />
@@ -28,7 +28,7 @@ const ShopHeader: React.FC = () => (
 );
 
 const DineInRestaurant: React.FC<DineInRestaurantProps> = () => {
-  useHeader(ShopHeader);
+  useHeader(DineInRestaurantHeader);
   const { styles } = useStyles(stylesheet);
 
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import styles from './styles.ts';
+import styles from './styles';
 
 type FormControlProps = {
   // Define props here

@@ -8,9 +8,15 @@ import { View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
 import stylesheet from './styles';
 import ContentSafeView from '@/ui/elements/layout/ContentSafeView';
+import { useNavigation } from '@react-navigation/native';
 
 const HeaderWithSearchAndAvatar = () => {
   const { styles } = useStyles(stylesheet);
+  const { navigate } = useNavigation();
+
+  const navigateToProfile = () => {
+    navigate('ProfileStack');
+  };
 
   return (
     <ContentSafeView>
@@ -29,7 +35,7 @@ const HeaderWithSearchAndAvatar = () => {
               </View>
             </View>
           </Clickable>
-          <Clickable>
+          <Clickable onPress={navigateToProfile}>
             <IconButton variant="image" icon="avatar" size={34} />
           </Clickable>
         </View>

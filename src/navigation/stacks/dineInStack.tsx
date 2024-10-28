@@ -11,14 +11,13 @@ export const DineInStack: FC<BottomTabNavigatorScreenProps<'DineInStack'>> = () 
   return (
     <Stack.Navigator
       screenOptions={{
-        animation: 'slide_from_right',
+        animation: 'default',
         animationDuration: 0
       }}>
       <Stack.Screen
         name="DineIn"
         component={DineIn}
         options={{
-          animation: 'default',
           headerShown: false
         }}
       />
@@ -26,7 +25,6 @@ export const DineInStack: FC<BottomTabNavigatorScreenProps<'DineInStack'>> = () 
         name="DineInCategory"
         component={DineInCategory}
         options={{
-          animation: 'default',
           headerShown: false
         }}
       />
@@ -34,7 +32,6 @@ export const DineInStack: FC<BottomTabNavigatorScreenProps<'DineInStack'>> = () 
         name="DineInRestaurant"
         component={DineInRestaurant}
         options={{
-          animation: 'default',
           headerShown: false
         }}
       />
