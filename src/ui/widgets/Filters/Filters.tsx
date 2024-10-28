@@ -3,7 +3,7 @@ import Chip from '@/ui/elements/data-display/Chip/Chip.tsx';
 import Icon from '@/ui/elements/media-icons/Icon/Icon.tsx';
 import React, { FC } from 'react';
 import { ScrollView, View } from 'react-native';
-import styles from './styles.ts';
+import styles from './styles';
 
 type FiltersProps = {
   // Define props here

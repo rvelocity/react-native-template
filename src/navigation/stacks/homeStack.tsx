@@ -10,7 +10,7 @@ export const HomeStack: FC<BottomTabNavigatorScreenProps<'HomeStack'>> = () => {
   return (
     <Stack.Navigator
       screenOptions={{
-        animation: 'slide_from_right',
+        animation: 'default',
         animationDuration: 0
       }}>
       <Stack.Screen

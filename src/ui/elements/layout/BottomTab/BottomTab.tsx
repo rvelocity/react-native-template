@@ -1,12 +1,12 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import styles from './styles.ts';
+import styles from './styles';
 
 type BottomTabProps = {
   // Define props here
 };
 
-const BottomTab: React.FC<BottomTabProps> = (props) => {
+const BottomTab: React.FC<BottomTabProps> = props => {
   return (
     <View style={styles.container}>
       <Text>BottomTab Component</Text>

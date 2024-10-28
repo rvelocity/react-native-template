@@ -1,3 +1,4 @@
+import { type BottomTabScreenProps } from '@react-navigation/bottom-tabs';
 import {
   CompositeScreenProps,
   type NavigationContainer,
@@ -5,7 +6,6 @@ import {
 } from '@react-navigation/native';
 import { type NativeStackScreenProps } from '@react-navigation/native-stack';
 import { type ComponentProps } from 'react';
-import { type BottomTabScreenProps } from '@react-navigation/bottom-tabs';
 
 export interface NavigationProps extends Partial<ComponentProps<typeof NavigationContainer>> {}
 
@@ -20,6 +20,7 @@ export type UnAuthenticatedStackNavigatorParamList = {
 
 export type AuthenticatedStackNavigatorParamList = {
   Root: NavigatorScreenParams<BottomTabNavigatorParamList>;
+  ProfileStack: NavigatorScreenParams<ProfileStackParamList>;
 };
 
 export type HomeStackParamList = {
@@ -52,6 +53,10 @@ export type DineInStackProps<T extends keyof DineInStackParamList> = NativeStack
 
 export type CourierStackParamList = {
   Courier: undefined;
+};
+
+export type ProfileStackParamList = {
+  Profile: undefined;
 };
 
 export type BottomTabNavigatorParamList = {

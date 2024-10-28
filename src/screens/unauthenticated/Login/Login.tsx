@@ -1,12 +1,12 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import styles from './styles.ts';
+import styles from './styles';
 
 type LoginProps = {
   // Define props here
 };
 
-const Login: React.FC<LoginProps> = (props) => {
+const Login: React.FC<LoginProps> = props => {
   return (
     <View style={styles.container}>
       <Text>Login Component</Text>

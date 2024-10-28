@@ -6,7 +6,7 @@ import Image from '@/ui/elements/media-icons/Image/Image.tsx';
 import React from 'react';
 import { View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
-import stylesheet from './styles.ts';
+import stylesheet from './styles';
 
 type RestaurantProps = {
   variant: 'small' | 'large';
