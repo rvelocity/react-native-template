@@ -9,9 +9,13 @@ interface HomeProps extends HomeStackProps<'Home'> {}
 
 const Home: React.FC<HomeProps> = props => {
   return (
-    <Screen preset="auto" safeAreaEdges={['top']} background="white">
+    <Screen
+      preset="auto"
+      safeAreaEdges={['top']}
+      background="white"
+      contentContainerStyle={{ gap: 24 }}>
+      <HeaderWithSearchAndAvatar />
       <ContentSafeView>
-        <HeaderWithSearchAndAvatar />
         <ServiceCategoryGrid />
       </ContentSafeView>
     </Screen>

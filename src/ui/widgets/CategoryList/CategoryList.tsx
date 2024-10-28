@@ -1,7 +1,9 @@
 import Category from '@/ui/components/Category';
 import { useNavigation } from '@react-navigation/native';
 import React, { FC } from 'react';
-import { FlatList, ScrollView } from 'react-native';
+import { FlatList, ScrollView, View } from 'react-native';
+import { useStyles } from 'react-native-unistyles';
+import stylesheet from './styles';
 
 type FoodCategoryListProps = {};
 

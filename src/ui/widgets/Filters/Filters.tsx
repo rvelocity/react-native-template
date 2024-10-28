@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unstable-nested-components */
 import Chip from '@/ui/elements/data-display/Chip/Chip.tsx';
 import Icon from '@/ui/elements/media-icons/Icon/Icon.tsx';
-import React from 'react';
+import React, { FC } from 'react';
 import { ScrollView, View } from 'react-native';
 import styles from './styles.ts';
 
@@ -9,9 +9,9 @@ type FiltersProps = {
   // Define props here
 };
 
-const Filters: React.FC<FiltersProps> = props => {
+const Filters: FC<FiltersProps> = props => {
   return (
-    <ScrollView horizontal>
+    <ScrollView horizontal contentContainerStyle={{ paddingHorizontal: 14 }}>
       <View style={styles.container}>
         <Chip
           variant="outlined"

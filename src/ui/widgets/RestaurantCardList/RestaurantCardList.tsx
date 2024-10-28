@@ -1,9 +1,10 @@
 import RestaurantCard from '@/ui/components/RestaurantCard';
 import Text from '@/ui/elements/Text';
 import React, { FC } from 'react';
-import { FlatList, ScrollView, View } from 'react-native';
+import { FlatList, View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
 import stylesheet from './styles';
+import ContentSafeView from '@/ui/elements/layout/ContentSafeView';
 
 type RestaurantCardListProps = {
   orientation: 'horizontal' | 'vertical';
@@ -30,16 +31,34 @@ const RestaurantCardList: FC<RestaurantCardListProps> = ({
 
   return (
     <View style={styles.container}>
-      <Text variant="bodyEmphasized">{title}</Text>
+      <ContentSafeView>
+        <Text variant="bodyEmphasized">{title}</Text>
+      </ContentSafeView>
 
-      <FlatList
-        horizontal={orientation === 'horizontal'}
-        data={restaurants}
-        keyExtractor={item => item.id.toString()}
-        renderItem={renderFunction}
-        ItemSeparatorComponent={() => <Separator orientation={orientation} />}
-        showsHorizontalScrollIndicator={false}
-      />
+      {orientation === 'horizontal' ? (
+        <FlatList
+          horizontal={orientation === 'horizontal'}
+          data={restaurants}
+          keyExtractor={item => item.id.toString()}
+          renderItem={renderFunction}
+          ItemSeparatorComponent={() => <Separator orientation={orientation} />}
+          showsHorizontalScrollIndicator={false}
+          ListHeaderComponent={<Separator orientation="horizontal" />}
+          ListFooterComponent={<Separator orientation="horizontal" />}
+          // showsVerticalScrollIndicator={false}
+          // contentContainerStyle={styles.container}
+        />
+      ) : (
+        <ContentSafeView>
+          <FlatList
+            data={restaurants}
+            keyExtractor={item => item.id.toString()}
+            renderItem={renderFunction}
+            ItemSeparatorComponent={() => <Separator orientation={orientation} />}
+            showsHorizontalScrollIndicator={false}
+          />
+        </ContentSafeView>
+      )}
     </View>
   );
 };

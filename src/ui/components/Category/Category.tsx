@@ -1,11 +1,11 @@
 import Clickable from '@/ui/elements/Clickable/Clickable.tsx';
 import Image from '@/ui/elements/media-icons/Image/Image.tsx';
 // import Text from '@/ui/elements/Text/Text.tsx';
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
 import stylesheet from './styles';
-import { useNavigation } from '@react-navigation/native';
 
 type CategoryProps = {
   category: any;

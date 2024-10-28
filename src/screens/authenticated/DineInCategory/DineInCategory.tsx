@@ -1,16 +1,12 @@
 import React from 'react';
-
+import useHeader from '@/hooks/useHeader';
 import { DineInStackProps } from '@/types/navigation';
 import ContentSafeView from '@/ui/elements/layout/ContentSafeView/ContentSafeView.tsx';
-import Screen from '@/ui/elements/layout/Screen/Screen.tsx';
-import RestaurantCardList from '@/ui/widgets/RestaurantCardList';
 import Header from '@/ui/elements/layout/Header';
-import useHeader from '@/hooks/useHeader';
+import Screen from '@/ui/elements/layout/Screen/Screen.tsx';
 import Text from '@/ui/elements/Text';
-import { View } from 'react-native';
-import Chip from '@/ui/elements/data-display/Chip';
-import Icon from '@/ui/elements/media-icons/Icon';
 import Filters from '@/ui/widgets/Filters';
+import RestaurantCardList from '@/ui/widgets/RestaurantCardList';
 
 interface DineInCategoryProps extends DineInStackProps<'DineInCategory'> {}
 
@@ -26,12 +22,12 @@ const DineInCategory: React.FC<DineInCategoryProps> = props => {
   useHeader(ShopHeader);
 
   return (
-    <Screen preset="auto" background="white">
+    <Screen preset="auto" background="white" contentContainerStyle={{ gap: 24 }}>
       <ContentSafeView>
         <Text variant="titleExtraLarge">Rooftop</Text>
-        <Filters />
-        <RestaurantCardList dineIn title="Restaurants To Explore" orientation="vertical" />
       </ContentSafeView>
+      <Filters />
+      <RestaurantCardList dineIn title="Restaurants To Explore" orientation="vertical" />
     </Screen>
   );
 };

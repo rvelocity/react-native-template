@@ -1,11 +1,10 @@
-import React from 'react';
 import Carousel from '@/ui/elements/data-display/Carousel';
-import ContentSafeView from '@/ui/elements/layout/ContentSafeView/ContentSafeView.tsx';
 import Screen from '@/ui/elements/layout/Screen/Screen.tsx';
 import ImageBanner from '@/ui/elements/media-icons/ImageBanner';
 import CategoryList from '@/ui/widgets/CategoryList';
 import HeaderWithSearchAndAvatar from '@/ui/widgets/HeaderWithSearchAndAvatar/HeaderWithSearchAndAvatar.tsx';
 import RestaurantCardList from '@/ui/widgets/RestaurantCardList';
+import React from 'react';
 
 type FoodProps = {
   // Define props here
@@ -20,20 +19,23 @@ const imageUrls = [
 
 const Food: React.FC<FoodProps> = props => {
   return (
-    <Screen preset="auto" safeAreaEdges={['top']} background="white">
-      <ContentSafeView>
-        <HeaderWithSearchAndAvatar />
-        <CategoryList />
-        <Carousel pagingEnabled>
-          {imageUrls.map((url, index) => (
-            <Carousel.Item key={index}>
-              <ImageBanner image={url} remote resizeMode="cover" />
-            </Carousel.Item>
-          ))}
-        </Carousel>
-        <RestaurantCardList title="Top Rated Restaurants" orientation="horizontal" />
-        <RestaurantCardList title="Restaurants To Explore" orientation="vertical" />
-      </ContentSafeView>
+    <Screen
+      preset="auto"
+      safeAreaEdges={['top']}
+      background="white"
+      contentContainerStyle={{ gap: 24 }}>
+      <HeaderWithSearchAndAvatar />
+      <CategoryList />
+      <Carousel pagingEnabled>
+        {imageUrls.map((url, index) => (
+          <Carousel.Item key={index}>
+            <ImageBanner image={url} remote resizeMode="cover" />
+          </Carousel.Item>
+        ))}
+      </Carousel>
+
+      <RestaurantCardList title="Top Rated Restaurants" orientation="horizontal" />
+      <RestaurantCardList title="Restaurants To Explore" orientation="vertical" />
     </Screen>
   );
 };

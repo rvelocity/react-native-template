@@ -1,4 +1,5 @@
 import { DineInStackProps } from '@/types/navigation';
+import ImageSlider from '@/ui/components/ImageSlider';
 import Carousel from '@/ui/elements/data-display/Carousel';
 import ContentSafeView from '@/ui/elements/layout/ContentSafeView/ContentSafeView.tsx';
 import Screen from '@/ui/elements/layout/Screen/Screen.tsx';
@@ -18,19 +19,22 @@ interface DineInProps extends DineInStackProps<'DineIn'> {}
 
 const DineIn: FC<DineInProps> = props => {
   return (
-    <Screen preset="auto" safeAreaEdges={['top']} background="white">
-      <ContentSafeView>
-        <HeaderWithSearchAndAvatar />
-        <CategoryList />
-        <Carousel pagingEnabled>
-          {imageUrls.map((url, index) => (
-            <Carousel.Item key={index}>
-              <ImageBanner image={url} remote resizeMode="stretch" />
-            </Carousel.Item>
-          ))}
-        </Carousel>
-        <RestaurantCardList dineIn title="Restaurants To Explore" orientation="vertical" />
-      </ContentSafeView>
+    <Screen
+      preset="auto"
+      safeAreaEdges={['top']}
+      background="white"
+      contentContainerStyle={{ gap: 24 }}>
+      <HeaderWithSearchAndAvatar />
+      <CategoryList />
+      <Carousel pagingEnabled>
+        {imageUrls.map((url, index) => (
+          <Carousel.Item key={index}>
+            <ImageBanner image={url} remote resizeMode="stretch" />
+          </Carousel.Item>
+        ))}
+      </Carousel>
+      <ImageSlider title="Must Try Places" />
+      <RestaurantCardList dineIn title="Restaurants To Explore" orientation="vertical" />
     </Screen>
   );
 };

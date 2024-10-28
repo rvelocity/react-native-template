@@ -1,0 +1,83 @@
+import ContentSafeView from '@/ui/elements/layout/ContentSafeView/ContentSafeView.tsx';
+import Image from '@/ui/elements/media-icons/Image';
+import Text from '@/ui/elements/Text/Text.tsx';
+import React from 'react';
+import { FlatList, View } from 'react-native';
+import { useStyles } from 'react-native-unistyles';
+import stylesheet from './styles';
+
+type ImageSliderProps = {
+  title: string;
+};
+
+const ImageSlider: React.FC<ImageSliderProps> = ({ title }) => {
+  const { styles } = useStyles(stylesheet);
+
+  const renderFunction = ({ item }) => {
+    return (
+      <View style={styles.imageContainer}>
+        <Image remote image={item.image} />
+      </View>
+    );
+  };
+
+  return (
+    <View style={styles.container}>
+      <ContentSafeView>
+        <Text variant="bodyEmphasized">{title}</Text>
+      </ContentSafeView>
+
+      <FlatList
+        horizontal
+        data={images}
+        keyExtractor={item => item.id.toString()}
+        renderItem={renderFunction}
+        ItemSeparatorComponent={Separator}
+        showsHorizontalScrollIndicator={false}
+        ListHeaderComponent={<Separator lg />}
+        ListFooterComponent={<Separator lg />}
+      />
+    </View>
+  );
+};
+
+export default ImageSlider;
+
+const Separator = ({ lg = false }: { lg: boolean }) => {
+  const { styles } = useStyles(stylesheet);
+
+  return <View style={lg ? styles.separatorLg : styles.separatorSm} />;
+};
+
+const images = [
+  {
+    id: 1,
+    image:
+      'https://b.zmtcdn.com/data/collections/390362a568b42aaf49e9c12d9960f65b_1692184849.jpg?output-format=webp'
+  },
+  {
+    id: 2,
+    image:
+      'https://b.zmtcdn.com/data/collections/f141889a9c1564098ee6a9763a941d78_1692186590.jpg?output-format=webp'
+  },
+  {
+    id: 3,
+    image:
+      'https://b.zmtcdn.com/data/collections/66bee1c025922a59b8b1ab69a3a6b187_1692187932.jpg?output-format=webp'
+  },
+  {
+    id: 4,
+    image:
+      'https://b.zmtcdn.com/data/collections/8049ed160722a4dcf04adde41aaac43e_1692186941.jpg?output-format=webp'
+  },
+  {
+    id: 5,
+    image:
+      'https://b.zmtcdn.com/data/collections/6d0f0062154163f1a6a1a4a33353a645_1692188276.jpg?output-format=webp'
+  },
+  {
+    id: 6,
+    image:
+      'https://b.zmtcdn.com/data/collections/908aad87392ba1f9526e7b483b94d124_1711107868.jpg?output-format=webp'
+  }
+];
