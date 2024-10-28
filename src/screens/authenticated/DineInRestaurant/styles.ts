@@ -32,7 +32,7 @@ const stylesheet = createStyleSheet(theme => ({
     marginVertical: theme.spacing[4]
   },
   actionButtonsContainer: {
-    gap: theme.spacing[2]
+    gap: theme.spacing[6]
   }
 }));
 
