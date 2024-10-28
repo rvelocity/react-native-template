@@ -1,11 +1,11 @@
-import { getAnimation, type Animation as animationType } from '@assets/constants/animations';
-import { getIcon, type Icon as IconType } from '@assets/constants/icons';
-import { getImage, type Image as ImageType } from '@assets/constants/images';
-import LottieView from 'lottie-react-native';
 import React, { type FC, type ReactNode } from 'react';
-import { Image, type ImageSourcePropType } from 'react-native';
-
+import { type ImageSourcePropType, Image } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
+import { type Animation as animationType, getAnimation } from '@assets/constants/animations';
+import { type Icon as IconType, getIcon } from '@assets/constants/icons';
+import { type Image as ImageType, getImage } from '@assets/constants/images';
+import LottieView from 'lottie-react-native';
+
 import VectorIcon, { type VectorIconProps } from '../VectorIcon';
 
 export interface IconProps extends Omit<VectorIconProps, 'name'> {

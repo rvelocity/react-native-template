@@ -1,10 +1,12 @@
 /* eslint-disable react/no-unstable-nested-components */
-import Restaurant from '@/ui/components/Restaurant';
-import Text from '@/ui/elements/Text';
 import React, { FC } from 'react';
 import { FlatList, ScrollView, View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
+
+import Restaurant from '@/ui/components/Restaurant';
 import ContentSafeView from '@/ui/elements/layout/ContentSafeView';
+import Text from '@/ui/elements/Text';
+
 import stylesheet from './styles';
 
 type RestaurantListProps = {
@@ -72,7 +74,7 @@ const RestaurantList: FC<RestaurantListProps> = ({
 
 export default RestaurantList;
 
-const Separator = ({ orientation }: { orientation: 'horizontal' | 'vertical' }) => {
+function Separator({ orientation }: { orientation: 'horizontal' | 'vertical' }) {
   const { styles } = useStyles(stylesheet);
 
   return (
@@ -80,4 +82,4 @@ const Separator = ({ orientation }: { orientation: 'horizontal' | 'vertical' }) 
       style={orientation === 'horizontal' ? styles.separatorHorizontal : styles.separatorVertical}
     />
   );
-};
+}

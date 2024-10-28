@@ -1,6 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
+
 import Text from '.';
+
 import { decorators } from '@.storybook/decorators';
 
 const variants = [

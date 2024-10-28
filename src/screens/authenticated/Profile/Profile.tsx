@@ -1,11 +1,13 @@
-import Text from '@/ui/elements/Text';
-import ContentSafeView from '@/ui/elements/layout/ContentSafeView';
-import Screen from '@/ui/elements/layout/Screen';
 import React from 'react';
 import { useStyles } from 'react-native-unistyles';
-import stylesheet from './styles';
-import Header from '@/ui/elements/layout/Header';
+
 import useHeader from '@/hooks/useHeader';
+import ContentSafeView from '@/ui/elements/layout/ContentSafeView';
+import Header from '@/ui/elements/layout/Header';
+import Screen from '@/ui/elements/layout/Screen';
+import Text from '@/ui/elements/Text';
+
+import stylesheet from './styles';
 
 type ProfileProps = {
   // Define props here

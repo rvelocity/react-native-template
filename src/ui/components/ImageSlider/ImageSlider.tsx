@@ -1,9 +1,11 @@
-import ContentSafeView from '@/ui/elements/layout/ContentSafeView/ContentSafeView.tsx';
-import Image from '@/ui/elements/media-icons/Image';
-import Text from '@/ui/elements/Text/Text.tsx';
 import React from 'react';
 import { FlatList, View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
+
+import ContentSafeView from '@/ui/elements/layout/ContentSafeView/ContentSafeView.tsx';
+import Image from '@/ui/elements/media-icons/Image';
+import Text from '@/ui/elements/Text/Text.tsx';
+
 import stylesheet from './styles';
 
 type ImageSliderProps = {
@@ -44,8 +46,8 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ title, data }) => {
 
 export default ImageSlider;
 
-const Separator = ({ lg = false }: { lg: boolean }) => {
+function Separator({ lg = false }: { lg: boolean }) {
   const { styles } = useStyles(stylesheet);
 
   return <View style={lg ? styles.separatorLg : styles.separatorSm} />;
-};
+}

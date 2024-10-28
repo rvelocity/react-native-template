@@ -1,16 +1,19 @@
-import { useSafeAreaInsetsStyle } from '@/hooks/useSafeAreaInsetsStyle';
-import { useNavigation } from '@react-navigation/native';
 import React, { type PropsWithChildren, type ReactElement, Children, isValidElement } from 'react';
 import { View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
+import { useNavigation } from '@react-navigation/native';
+
+import { useSafeAreaInsetsStyle } from '@/hooks/useSafeAreaInsetsStyle';
+
 import IconButton from '../../media-icons/IconButton';
 import { IconButtonProps } from '../../media-icons/IconButton/IconButton';
-import stylesheet from './styles';
 import Text from '../../Text';
 import ContentSafeView from '../ContentSafeView';
 
+import stylesheet from './styles';
+
 // Set displayName for Header.Action to identify it
-const Action = (props: { icon: string; onPress?: () => void } & IconButtonProps): ReactElement => {
+function Action(props: { icon: string; onPress?: () => void } & IconButtonProps): ReactElement {
   const { styles } = useStyles(stylesheet);
 
   return (
@@ -18,10 +21,10 @@ const Action = (props: { icon: string; onPress?: () => void } & IconButtonProps)
       <IconButton size={24} {...props} />
     </View>
   );
-};
+}
 Action.displayName = 'HeaderAction';
 
-export const Header = ({ children }: PropsWithChildren): ReactElement => {
+export function Header({ children }: PropsWithChildren): ReactElement {
   const { styles } = useStyles(stylesheet);
   const containerInsets = useSafeAreaInsetsStyle(['top'], 'margin');
 
@@ -43,9 +46,9 @@ export const Header = ({ children }: PropsWithChildren): ReactElement => {
       </ContentSafeView>
     </View>
   );
-};
+}
 
-const BackAction = ({ onPress }: { onPress?: () => void }): ReactElement => {
+function BackAction({ onPress }: { onPress?: () => void }): ReactElement {
   const { styles } = useStyles(stylesheet);
   const navigation = useNavigation();
 
@@ -65,7 +68,7 @@ const BackAction = ({ onPress }: { onPress?: () => void }): ReactElement => {
       />
     </View>
   );
-};
+}
 BackAction.displayName = 'HeaderBackAction';
 
 type ContentProps = {
@@ -73,7 +76,7 @@ type ContentProps = {
   subTitle?: string;
 };
 
-const Content = ({ title, subTitle }: ContentProps): ReactElement => {
+function Content({ title, subTitle }: ContentProps): ReactElement {
   return (
     <View>
       <Text variant="titleMedium">{title}</Text>
@@ -84,7 +87,7 @@ const Content = ({ title, subTitle }: ContentProps): ReactElement => {
       )}
     </View>
   );
-};
+}
 Content.displayName = 'HeaderContent';
 
 // Attach displayName to each component for filtering

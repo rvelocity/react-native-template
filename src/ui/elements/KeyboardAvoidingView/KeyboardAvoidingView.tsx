@@ -1,10 +1,11 @@
 import React, { type FC, type PropsWithChildren, type ReactElement } from 'react';
 import {
-  KeyboardAvoidingView as RNKeyboardAvoidingView,
-  type KeyboardAvoidingViewProps as RNKeyboardAvoidingViewProps
+  type KeyboardAvoidingViewProps as RNKeyboardAvoidingViewProps,
+  KeyboardAvoidingView as RNKeyboardAvoidingView
 } from 'react-native';
 
 import { detectDevice } from '@/utils';
+
 import styles from './styles';
 
 type KeyboardAvoidingViewProps = PropsWithChildren & {

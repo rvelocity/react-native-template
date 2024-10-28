@@ -1,7 +1,9 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import type { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
+
 import Switch from '.';
+
 import { decorators } from '@.storybook/decorators';
 
 const meta = {
@@ -31,7 +33,7 @@ const SwitchTemplate: Story = {
 
     const handleValueChange = (newValue: boolean) => {
       setIsEnabled(newValue);
-      args.onValueChange?.(newValue);
+      args.onValueChange(newValue);
     };
 
     return <Switch value={isEnabled} onValueChange={handleValueChange} />;

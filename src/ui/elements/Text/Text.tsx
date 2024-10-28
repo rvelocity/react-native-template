@@ -1,7 +1,8 @@
-import { Theme } from '@/theme';
 import React from 'react';
-import { Text as RnText, TextProps as RnTextProps, StyleProp, TextStyle, View } from 'react-native';
+import { StyleProp, Text as RnText, TextProps as RnTextProps, TextStyle } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
+
+import { Theme } from '@/theme';
 
 interface TextProps extends RnTextProps {
   variant?: keyof Theme['typeFaces'];

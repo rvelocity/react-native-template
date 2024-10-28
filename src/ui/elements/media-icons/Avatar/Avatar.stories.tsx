@@ -1,9 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import Avatar from '.';
-import { decorators } from '@.storybook/decorators';
-import { getImage } from '@assets/constants/images';
 import { ImageSource } from 'react-native-vector-icons/Icon';
+import { getImage } from '@assets/constants/images';
+import type { Meta, StoryObj } from '@storybook/react';
+
+import Avatar from '.';
+
+import { decorators } from '@.storybook/decorators';
 
 const meta: Meta<typeof Avatar> = {
   title: 'Elements/Data Display/Avatar',

@@ -32,7 +32,7 @@ const config = {
 
       if (
         // process.env.STORYBOOK_ENABLED !== 'true' &&
-        defaultResolveResult?.filePath?.includes?.('./.storybook/')
+        defaultResolveResult.filePath?.includes?.('./.storybook/')
       ) {
         return {
           type: 'empty'

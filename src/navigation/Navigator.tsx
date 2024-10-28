@@ -1,16 +1,17 @@
-import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import useNavigationStore from '@/hooks/useNavigationStore';
 import { NavigationProps, RootNavigatorParamList } from '@/types/navigation';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import { AuthenticatedNavigator } from './AuthenticatedNavigator';
-import { UnAuthenticatedNavigator } from './UnAuthenticatedNavigator';
 import { navigationRef } from './navigationUtils';
+import { UnAuthenticatedNavigator } from './UnAuthenticatedNavigator';
 
 export const Stack = createNativeStackNavigator<RootNavigatorParamList>();
 
-export const Navigator = (props: NavigationProps) => {
+export function Navigator(props: NavigationProps) {
   const isLoggedIn = true;
   const { onNavigationStateChange } = useNavigationStore();
 
@@ -38,6 +39,6 @@ export const Navigator = (props: NavigationProps) => {
       </Stack.Navigator>
     </NavigationContainer>
   );
-};
+}
 
 export default Navigator;

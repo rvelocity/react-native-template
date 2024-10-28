@@ -1,26 +1,26 @@
+import React, { type FC, type ReactElement } from 'react';
 import {
+  type BottomTabNavigationOptions,
   BottomTabBarProps,
-  createBottomTabNavigator,
-  type BottomTabNavigationOptions
+  createBottomTabNavigator
 } from '@react-navigation/bottom-tabs';
 import { type RouteProp } from '@react-navigation/native';
-import React, { type FC, type ReactElement } from 'react';
 
 import {
   type AuthenticatedStackNavigatorScreenProps,
   type BottomTabNavigatorParamList
 } from '@/types/navigation';
 
-import BottomTabBar from './BottomTabBar';
 import { CourierStack } from './stacks/courierStack';
 import { DineInStack } from './stacks/dineInStack';
 import { FoodStack } from './stacks/foodStack';
 import { HomeStack } from './stacks/homeStack';
 import { MartStack } from './stacks/martStack';
+import BottomTabBar from './BottomTabBar';
 
 const Tab = createBottomTabNavigator<BottomTabNavigatorParamList>();
 
-interface BottomTabNavigatorProps extends AuthenticatedStackNavigatorScreenProps<'Root'> {}
+type BottomTabNavigatorProps = AuthenticatedStackNavigatorScreenProps<'Root'>;
 
 export const BottomTabNavigator: FC<BottomTabNavigatorProps> = (): ReactElement => {
   const screenOptions = ({}: {

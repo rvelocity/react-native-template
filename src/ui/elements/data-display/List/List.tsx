@@ -1,17 +1,19 @@
 import React, { type PropsWithChildren, type ReactElement, type ReactNode, useState } from 'react';
 import { LayoutAnimation, StyleProp, TextStyle, View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
+
 import Clickable from '../../Clickable';
 import Divider from '../../layout/Divider';
 import Icon, { IconProps } from '../../media-icons/Icon';
 import Text from '../../Text';
+
 import stylesheet from './styles';
 
 type ListProps = PropsWithChildren;
 
-const List = ({ children }: ListProps): ReactElement => {
+function List({ children }: ListProps): ReactElement {
   return <View>{children}</View>;
-};
+}
 
 type ListAccordionProps = PropsWithChildren & {
   title: string;
@@ -20,7 +22,7 @@ type ListAccordionProps = PropsWithChildren & {
   left?: () => ReactNode;
 };
 
-const ListAccordion = ({ title, subTitle, children, left }: ListAccordionProps): ReactElement => {
+function ListAccordion({ title, subTitle, children, left }: ListAccordionProps): ReactElement {
   const { styles } = useStyles(stylesheet);
   const [opened, setOpened] = useState<boolean>(false);
 
@@ -56,7 +58,7 @@ const ListAccordion = ({ title, subTitle, children, left }: ListAccordionProps):
       {opened && <View style={styles.accordionBody}>{children}</View>}
     </View>
   );
-};
+}
 
 type ListItemProps = {
   title?: string;
@@ -70,7 +72,7 @@ type ListItemProps = {
   right?: () => ReactNode;
 };
 
-const ListItem = ({
+function ListItem({
   title,
   description,
   left,
@@ -78,7 +80,7 @@ const ListItem = ({
   titleColor = 'black',
   descriptionColor = 'gray',
   divider = false
-}: ListItemProps): ReactElement => {
+}: ListItemProps): ReactElement {
   const { styles } = useStyles(stylesheet);
 
   return (
@@ -102,25 +104,25 @@ const ListItem = ({
       </View>
     </View>
   );
-};
+}
 
-const ListIcon = ({ variant, icon, ...rest }: IconProps): ReactElement => {
+function ListIcon({ variant, icon, ...rest }: IconProps): ReactElement {
   return <Icon icon={icon} variant={variant} {...rest} />;
-};
+}
 
 type ListSectionProps = PropsWithChildren;
 
-const ListSection = ({ children }: ListSectionProps): ReactElement => {
+function ListSection({ children }: ListSectionProps): ReactElement {
   const { styles } = useStyles(stylesheet);
 
   return <View style={styles.listSection}>{children}</View>;
-};
+}
 
 type ListSubHeaderProps = {
   title: string | number;
 };
 
-const ListSubHeader = ({ title }: ListSubHeaderProps): ReactElement => {
+function ListSubHeader({ title }: ListSubHeaderProps): ReactElement {
   const { styles } = useStyles(stylesheet);
 
   return (
@@ -128,7 +130,7 @@ const ListSubHeader = ({ title }: ListSubHeaderProps): ReactElement => {
       <Text variant="bodyEmphasized">{title}</Text>
     </View>
   );
-};
+}
 
 List.Accordion = ListAccordion;
 List.Icon = ListIcon;

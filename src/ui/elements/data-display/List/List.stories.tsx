@@ -1,7 +1,10 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import List from '.';
+
 import IconButton from '../../media-icons/IconButton';
+
+import List from '.';
+
 import { decorators } from '@.storybook/decorators';
 
 const meta = {

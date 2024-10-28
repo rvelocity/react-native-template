@@ -1,8 +1,10 @@
-import React, { ReactElement, type FC, type PropsWithChildren } from 'react';
+import React, { type FC, type PropsWithChildren, ReactElement } from 'react';
 import { View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
+
 import Clickable from '../../Clickable';
 import Text from '../../Text';
+
 import stylesheet from './styles';
 
 interface ChipProps extends PropsWithChildren {

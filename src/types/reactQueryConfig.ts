@@ -1,10 +1,11 @@
 import {
-  UseQueryOptions,
-  UseMutationOptions,
   QueryKey,
-  UseInfiniteQueryOptions
+  UseInfiniteQueryOptions,
+  UseMutationOptions,
+  UseQueryOptions
 } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
+
 import { ErrorResponse } from './api';
 
 export interface ReactQueryConfig {

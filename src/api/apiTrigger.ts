@@ -1,4 +1,5 @@
 import { ReactQueryConfig } from '@/types/reactQueryConfig';
+
 import { ApiClient, ApiGuestClient } from './apiClient';
 
 export interface IUseAPI extends ReactQueryConfig {

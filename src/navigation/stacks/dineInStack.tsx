@@ -1,9 +1,10 @@
+import React, { type FC } from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import DineIn from '@/screens/authenticated/DineIn';
 import DineInCategory from '@/screens/authenticated/DineInCategory';
 import DineInRestaurant from '@/screens/authenticated/DineInRestaurant';
 import { type BottomTabNavigatorScreenProps, type DineInStackParamList } from '@/types/navigation';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import React, { type FC } from 'react';
 
 const Stack = createNativeStackNavigator<DineInStackParamList>();
 

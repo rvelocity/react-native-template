@@ -1,13 +1,13 @@
+import { type ComponentProps } from 'react';
 import { type BottomTabScreenProps } from '@react-navigation/bottom-tabs';
 import {
-  CompositeScreenProps,
   type NavigationContainer,
-  type NavigatorScreenParams
+  type NavigatorScreenParams,
+  CompositeScreenProps
 } from '@react-navigation/native';
 import { type NativeStackScreenProps } from '@react-navigation/native-stack';
-import { type ComponentProps } from 'react';
 
-export interface NavigationProps extends Partial<ComponentProps<typeof NavigationContainer>> {}
+export type NavigationProps = Partial<ComponentProps<typeof NavigationContainer>>;
 
 export type RootNavigatorParamList = {
   UnAuthenticatedStack: NavigatorScreenParams<UnAuthenticatedStackNavigatorParamList>;

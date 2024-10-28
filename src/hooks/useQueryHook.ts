@@ -1,10 +1,11 @@
 import {
-  useQuery as useReactFetchQuery,
-  useMutation as useReactMutationQuery
+  useMutation as useReactMutationQuery,
+  useQuery as useReactFetchQuery
 } from '@tanstack/react-query';
-import { ReactQueryGetConfig, ReactQueryMutationConfig } from '@/types/reactQueryConfig';
-import { apiTrigger } from '@/api/apiTrigger';
+
 import { queryKeys } from '@/api';
+import { apiTrigger } from '@/api/apiTrigger';
+import { ReactQueryGetConfig, ReactQueryMutationConfig } from '@/types/reactQueryConfig';
 
 export const useQuery = <T>(config: ReactQueryGetConfig<T>) => {
   const { method = 'GET' } = config;

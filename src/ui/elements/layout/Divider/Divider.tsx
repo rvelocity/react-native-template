@@ -1,7 +1,7 @@
-import { Theme } from '@/theme';
 import React from 'react';
 import { StyleProp, View, ViewStyle } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
+
 import stylesheet from './styles';
 
 type DividerProps = {

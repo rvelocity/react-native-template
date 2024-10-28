@@ -1,10 +1,10 @@
 import React, { type FC, useEffect, useRef } from 'react';
 import { Animated, StyleSheet, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient'; // Import LinearGradient
+import { useStyles } from 'react-native-unistyles';
 
 import { type Theme } from '@/theme';
 
-import { useStyles } from 'react-native-unistyles';
 import stylesheet from './styles';
 
 type ShimmerProps = {

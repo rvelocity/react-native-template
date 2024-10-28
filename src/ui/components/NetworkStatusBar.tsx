@@ -1,8 +1,8 @@
-import NetInfo from '@react-native-community/netinfo';
 import React, { useEffect, useRef, useState } from 'react';
 import { Animated, StatusBar, StyleSheet } from 'react-native';
+import NetInfo from '@react-native-community/netinfo';
 
-export const NetworkStatusBar = () => {
+export function NetworkStatusBar() {
   const [isConnected, setIsConnected] = useState(true);
   const [statusMessage, setStatusMessage] = useState('No Internet Connection');
 
@@ -92,12 +92,12 @@ export const NetworkStatusBar = () => {
       </Animated.View>
     </>
   );
-};
+}
 
 const styles = StyleSheet.create({
   offlineContainer: {
-    justifyContent: 'center',
     alignItems: 'center',
+    justifyContent: 'center',
     overflow: 'hidden',
     zIndex: 1
   },

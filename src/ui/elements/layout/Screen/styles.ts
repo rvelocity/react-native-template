@@ -1,6 +1,6 @@
 import { createStyleSheet } from 'react-native-unistyles';
 
-const stylesheet = createStyleSheet(theme => ({
+const stylesheet = createStyleSheet(() => ({
   outerStyle: {
     flex: 1,
     height: '100%',

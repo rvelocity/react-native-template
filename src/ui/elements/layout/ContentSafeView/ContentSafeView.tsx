@@ -1,8 +1,9 @@
-import useDimensions from '@/hooks/useDimensions';
-import { Theme } from '@/theme';
 import React, { PropsWithChildren } from 'react';
 import { View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
+
+import useDimensions from '@/hooks/useDimensions';
+import { Theme } from '@/theme';
 
 type ContentSafeViewProps = PropsWithChildren & {
   gap?: keyof Theme['spacing'];

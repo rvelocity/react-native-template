@@ -1,10 +1,10 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React, { type FC } from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Profile from '@/screens/authenticated/Profile';
 import {
-  AuthenticatedStackNavigatorScreenProps,
-  type ProfileStackParamList
+  type ProfileStackParamList,
+  AuthenticatedStackNavigatorScreenProps
 } from '@/types/navigation';
 
 const Stack = createNativeStackNavigator<ProfileStackParamList>();

@@ -1,8 +1,10 @@
 import React from 'react';
 import { TouchableWithoutFeedback, View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
-import Text from '../../Text';
+
 import Icon from '../../media-icons/Icon';
+import Text from '../../Text';
+
 import stylesheet from './styles';
 
 type CheckboxProps = {

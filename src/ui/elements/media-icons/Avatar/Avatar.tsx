@@ -1,19 +1,22 @@
-import { Theme } from '@/theme';
 import React, {
+  type ReactElement,
+  type ReactNode,
   Children,
   cloneElement,
   createContext,
   PropsWithChildren,
-  type ReactElement,
-  type ReactNode,
   useContext,
   useMemo,
   useState
 } from 'react';
 import { ImageProps, View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
+
+import { Theme } from '@/theme';
+
 import Text from '../../Text';
 import { AutoImage } from '../Image';
+
 import stylesheet from './styles';
 
 const avatarText = {
@@ -82,7 +85,7 @@ const getAvatarGroupChildren = (
   return [avatars, plusAvatarComponent];
 };
 
-const AvatarGroup = ({ children, max, variant = 'md' }: AvatarGroupProps): ReactElement => {
+function AvatarGroup({ children, max, variant = 'md' }: AvatarGroupProps): ReactElement {
   const memorizedValue = useMemo(() => ({ variant }), [variant]);
   const { styles } = useStyles(stylesheet);
   const [avatars, plusAvatarComponent] = getAvatarGroupChildren(children, max, variant, styles);
@@ -95,9 +98,9 @@ const AvatarGroup = ({ children, max, variant = 'md' }: AvatarGroupProps): React
       </View>
     </Provider>
   );
-};
+}
 
-const AvatarImage = ({ source, ...props }: AutoImageProps): ReactElement => {
+function AvatarImage({ source, ...props }: AutoImageProps): ReactElement {
   const { variant } = useContext(AvatarContext);
   const [imageError, setImageError] = useState(false);
   const { styles } = useStyles(stylesheet);
@@ -123,9 +126,9 @@ const AvatarImage = ({ source, ...props }: AutoImageProps): ReactElement => {
       ) : null}
     </View>
   );
-};
+}
 
-const AvatarFallback = ({ children }: AvatarFallbackProps): ReactElement => {
+function AvatarFallback({ children }: AvatarFallbackProps): ReactElement {
   const { variant } = useContext(AvatarContext);
 
   const fullName = children?.toString().split(' ') ?? [];
@@ -140,13 +143,13 @@ const AvatarFallback = ({ children }: AvatarFallbackProps): ReactElement => {
       {lastNameInitial}
     </Text>
   );
-};
+}
 
 // const AvatarBadge = ({ children, title = '' }: AvatarBadgeProps): ReactElement => {
 //   return <View/>;
 // };
 
-const Avatar = ({ children, variant = 'md' }: AvatarProps): ReactElement => {
+function Avatar({ children, variant = 'md' }: AvatarProps): ReactElement {
   const { variant: groupVariant } = useContext(AvatarContext);
 
   const memorizedValue = useMemo(
@@ -160,7 +163,7 @@ const Avatar = ({ children, variant = 'md' }: AvatarProps): ReactElement => {
       <View style={[styles.avatarContainer, styles[groupVariant || variant]]}>{children}</View>
     </Provider>
   );
-};
+}
 
 Avatar.Image = AvatarImage;
 Avatar.Group = AvatarGroup;

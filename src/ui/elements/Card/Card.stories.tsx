@@ -1,8 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import Card from './Card';
-import { decorators } from '@.storybook/decorators';
 import { Text } from 'react-native';
+import type { Meta, StoryObj } from '@storybook/react';
+
+import Card from './Card';
+
+import { decorators } from '@.storybook/decorators';
 
 const meta = {
   title: 'Elements/Card',

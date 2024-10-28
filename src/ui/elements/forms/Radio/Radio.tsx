@@ -1,15 +1,16 @@
 import React, {
-  createContext,
   type PropsWithChildren,
   type ReactElement,
+  createContext,
   useContext,
   useEffect,
   useRef
 } from 'react';
 import { Animated, ViewStyle } from 'react-native';
+import { useStyles } from 'react-native-unistyles';
 
 import { type Theme } from '@/theme';
-import { useStyles } from 'react-native-unistyles';
+
 import Clickable from '../../Clickable';
 
 type RadioContextType = {
@@ -38,17 +39,17 @@ const RadioContext = createContext<RadioContextType>({
   onValueChange: () => {}
 });
 
-export const Radio = ({ value, onValueChange, children }: RadioProps): ReactElement => {
+export function Radio({ value, onValueChange, children }: RadioProps): ReactElement {
   return <RadioContext.Provider value={{ value, onValueChange }}>{children}</RadioContext.Provider>;
-};
+}
 
-const RadioButton = ({
+function RadioButton({
   disabled,
   onPress,
   value,
   status = StatusType.UNCHECKED,
   ...rest
-}: RadioButtonProps): ReactElement => {
+}: RadioButtonProps): ReactElement {
   const { theme } = useStyles();
   const borderWidth = theme.spacing[2];
 
@@ -56,10 +57,7 @@ const RadioButton = ({
   const borderAnim = useRef<Animated.Value>(new Animated.Value(borderWidth)).current;
   const isFirstRendering = useRef<boolean>(true);
 
-  const getBorderColor = (
-    isChecked: boolean,
-    isDisabled: boolean = false
-  ): keyof Theme['colors'] => {
+  const getBorderColor = (isChecked: boolean, isDisabled = false): keyof Theme['colors'] => {
     return isDisabled && isChecked ? 'secondary' : isChecked ? 'primary' : 'secondary';
   };
 
@@ -111,7 +109,7 @@ const RadioButton = ({
       <Animated.View style={animatedStyle} />
     </Clickable>
   );
-};
+}
 
 Radio.RadioButton = RadioButton;
 export default Radio;

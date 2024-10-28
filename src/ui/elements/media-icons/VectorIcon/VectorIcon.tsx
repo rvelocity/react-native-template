@@ -1,8 +1,8 @@
-import { Theme } from '@/theme';
 import React, { type FC, type ReactElement } from 'react';
 import { useStyles } from 'react-native-unistyles';
 
-import { getVectorIcon, type IconKeys } from '@/utils';
+import { Theme } from '@/theme';
+import { type IconKeys, getVectorIcon } from '@/utils';
 
 export interface VectorIconProps {
   type?: IconKeys;

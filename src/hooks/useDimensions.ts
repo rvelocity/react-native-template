@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Dimensions } from 'react-native';
 
 const useDimensions = (type: 'window' | 'screen') => {
@@ -10,7 +10,7 @@ const useDimensions = (type: 'window' | 'screen') => {
     };
 
     const subscription = Dimensions.addEventListener('change', onChange);
-    return () => subscription?.remove();
+    return () => subscription.remove();
   }, [type]);
 
   return dimension;

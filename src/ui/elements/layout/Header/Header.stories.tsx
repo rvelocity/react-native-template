@@ -1,9 +1,12 @@
-import { decorators } from '@.storybook/decorators';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import type { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
+
 import IconButton from '../../media-icons/IconButton';
+
 import Header from './Header';
+
+import { decorators } from '@.storybook/decorators';
 
 const meta: Meta<typeof Header> = {
   title: 'Elements/Layout/Header',

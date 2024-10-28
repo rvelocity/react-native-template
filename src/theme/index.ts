@@ -1,7 +1,7 @@
 import darkColors from './darkMode';
 import lightColors from './lightMode';
-import spacing from './spacing';
 import shadows from './shadows';
+import spacing from './spacing';
 import typeFaces from './typography';
 export * from './breakpoints';
 

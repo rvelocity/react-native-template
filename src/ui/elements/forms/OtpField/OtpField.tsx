@@ -1,7 +1,9 @@
 import React, { type FC, useCallback, useEffect, useRef, useState } from 'react';
 import { Pressable, TextInput, View } from 'react-native';
-import Text from '../../Text';
 import { useStyles } from 'react-native-unistyles';
+
+import Text from '../../Text';
+
 import stylesheet from './styles';
 
 interface OTPFieldProps {
@@ -29,7 +31,7 @@ const OTPField: FC<OTPFieldProps> = ({ setIsPinReady, maximumCodeLength, code, s
   const boxDigit = useCallback(
     (_: unknown, index: number) => {
       const emptyInput = '';
-      const digit = code[index]?.length > 0 ? code[index] : emptyInput;
+      const digit = code[index].length > 0 ? code[index] : emptyInput;
 
       const isCurrentValue = index === code.length;
       const isLastValue = index === maximumCodeLength - 1;

@@ -36,4 +36,4 @@ const apiConfig = {
   }
 };
 
-export { queryKeys, apiConfig };
+export { apiConfig, queryKeys };

@@ -1,10 +1,11 @@
+import React from 'react';
+import { type StyleProp, type ViewStyle, View } from 'react-native';
+import { useStyles } from 'react-native-unistyles';
 import { type Animation, getAnimation } from '@assets/constants/animations';
 import LottieView from 'lottie-react-native';
-import React from 'react';
-import { type StyleProp, View, type ViewStyle } from 'react-native';
 
-import { useStyles } from 'react-native-unistyles';
 import Text from '../../Text';
+
 import stylesheet from './styles';
 
 interface LottieElementProps {
