@@ -4,16 +4,20 @@ import Screen from '@/ui/elements/layout/Screen/Screen.tsx';
 import HeaderWithSearchAndAvatar from '@/ui/widgets/HeaderWithSearchAndAvatar';
 import ServiceCategoryGrid from '@/ui/widgets/ServiceCategoryGrid';
 import React from 'react';
+import { useStyles } from 'react-native-unistyles';
+import stylesheet from './styles';
 
 interface HomeProps extends HomeStackProps<'Home'> {}
 
 const Home: React.FC<HomeProps> = props => {
+  const { styles } = useStyles(stylesheet);
+
   return (
     <Screen
       preset="auto"
       safeAreaEdges={['top']}
       background="white"
-      contentContainerStyle={{ gap: 24 }}>
+      contentContainerStyle={styles.screenContent}>
       <HeaderWithSearchAndAvatar />
       <ContentSafeView>
         <ServiceCategoryGrid />

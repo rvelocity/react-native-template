@@ -1,0 +1,80 @@
+/* eslint-disable react/no-unstable-nested-components */
+import Restaurant from '@/ui/components/Restaurant';
+import Text from '@/ui/elements/Text';
+import React, { FC } from 'react';
+import { FlatList, View } from 'react-native';
+import { useStyles } from 'react-native-unistyles';
+import ContentSafeView from '@/ui/elements/layout/ContentSafeView';
+import stylesheet from './styles';
+
+type RestaurantListProps = {
+  orientation: 'horizontal' | 'vertical';
+  dineIn?: boolean;
+  title: string;
+  data: any[];
+  onPress: () => void;
+};
+
+const RestaurantList: FC<RestaurantListProps> = ({
+  orientation,
+  title,
+  data,
+  onPress,
+  dineIn = false
+}) => {
+  const { styles } = useStyles(stylesheet);
+
+  const renderFunction = ({ item }) => {
+    return (
+      <Restaurant
+        variant={orientation === 'horizontal' ? 'small' : 'large'}
+        dineIn={dineIn}
+        data={item}
+        onPress={onPress}
+      />
+    );
+  };
+
+  return (
+    <View style={styles.container}>
+      <ContentSafeView>
+        <Text variant="bodyEmphasized">{title}</Text>
+      </ContentSafeView>
+
+      {orientation === 'horizontal' ? (
+        <FlatList
+          horizontal={orientation === 'horizontal'}
+          data={data}
+          keyExtractor={item => item.id.toString()}
+          renderItem={renderFunction}
+          ItemSeparatorComponent={() => <Separator orientation={orientation} />}
+          showsHorizontalScrollIndicator={false}
+          ListHeaderComponent={<Separator orientation="horizontal" />}
+          ListFooterComponent={<Separator orientation="horizontal" />}
+        />
+      ) : (
+        <ContentSafeView>
+          <FlatList
+            data={data}
+            keyExtractor={item => item.id.toString()}
+            renderItem={renderFunction}
+            ItemSeparatorComponent={() => <Separator orientation={orientation} />}
+            showsHorizontalScrollIndicator={false}
+          />
+        </ContentSafeView>
+      )}
+    </View>
+  );
+};
+
+export default RestaurantList;
+
+const Separator = ({ orientation }: { orientation: 'horizontal' | 'vertical' }) => {
+  const { styles } = useStyles(stylesheet);
+
+  return (
+    <View
+      style={orientation === 'horizontal' ? styles.separatorHorizontal : styles.separatorVertical}
+    />
+  );
+};

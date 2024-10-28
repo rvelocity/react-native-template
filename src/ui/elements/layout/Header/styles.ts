@@ -11,7 +11,17 @@ const stylesheet = createStyleSheet(theme => ({
   headerContent: {
     width: '100%',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  },
+  otherContent: {
+    gap: 4,
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  actionGroup: {
+    gap: 4,
+    flexDirection: 'row',
     alignItems: 'center'
   },
   backWrapper: { right: 2 },

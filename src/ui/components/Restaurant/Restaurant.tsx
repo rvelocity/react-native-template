@@ -8,13 +8,14 @@ import { View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
 import stylesheet from './styles.ts';
 
-type RestaurantCardProps = {
+type RestaurantProps = {
   variant: 'small' | 'large';
   dineIn?: boolean;
-  restaurant: any;
+  data: any;
+  onPress: () => void;
 };
 
-const RestaurantCard: React.FC<RestaurantCardProps> = ({ variant, restaurant, dineIn = false }) => {
+const Restaurant: React.FC<RestaurantProps> = ({ variant, data, onPress, dineIn = false }) => {
   const { styles } = useStyles(stylesheet);
 
   const isSmallVariant = variant === 'small';
@@ -34,7 +35,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ variant, restaurant, di
   const infoStyles = isSmallVariant ? styles.infoSmall : styles.infoLarge;
 
   return (
-    <Clickable onPress={() => {}}>
+    <Clickable onPress={onPress}>
       <View style={containerStyles}>
         <View style={imageContainerStyles}>
           <View style={styles.wishlistIcon}>
@@ -46,29 +47,27 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ variant, restaurant, di
               iconStyle="contained"
             />
           </View>
-          <Image remote image={restaurant.image} style={styles.imageStyle} resizeMode="cover" />
+          <Image remote image={data.image} style={styles.imageStyle} resizeMode="cover" />
         </View>
         <View style={footerStyles}>
           <View style={styles.titleDescription}>
             <Text variant="labelLarge" numberOfLines={1}>
-              {restaurant.name}
+              {data.name}
             </Text>
             <Text variant="bodySmall" numberOfLines={1} color="darkGray">
-              {restaurant.description}
+              {data.description}
             </Text>
           </View>
           <View style={infoStyles}>
-            <Rating rating={restaurant.rating} />
+            <Rating rating={data.rating} />
             <DistanceAndTime
               isSmall={isSmallVariant}
-              distance={restaurant.distance}
-              deliveryTime={restaurant.deliveryTime}
+              distance={data.distance}
+              deliveryTime={data.deliveryTime}
             />
           </View>
         </View>
-        {dineIn && (
-          <AddressAndPrice address={restaurant.address} dineInPrice={restaurant.dineInPrice} />
-        )}
+        {dineIn && <AddressAndPrice address={data.address} dineInPrice={data.dineInPrice} />}
       </View>
     </Clickable>
   );
@@ -133,4 +132,4 @@ const AddressAndPrice = ({ address, dineInPrice }: { address: string; dineInPric
   );
 };
 
-export default RestaurantCard;
+export default Restaurant;

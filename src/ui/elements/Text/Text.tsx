@@ -7,15 +7,14 @@ interface TextProps extends RnTextProps {
   variant?: keyof Theme['typeFaces'];
   color?: keyof Theme['colors'];
   align?: 'left' | 'center' | 'right';
-  spacing?: keyof Theme['spacing'];
+  letterSpacing?: keyof Theme['spacing'];
 }
 
 const Text: React.FC<TextProps> = ({
   children,
   variant = 'bodyMedium',
   color = 'textPrimary',
-  align = 'left',
-  spacing = 0,
+  letterSpacing = 0,
   style,
   ...rest
 }) => {
@@ -23,18 +22,13 @@ const Text: React.FC<TextProps> = ({
 
   const textStyle: StyleProp<TextStyle> = {
     color: theme.colors[color as keyof typeof theme.colors],
-    textAlign: align,
-    letterSpacing: theme.spacing[spacing] || 0
+    letterSpacing: theme.spacing[letterSpacing] || 0
   };
 
   return (
-    <View>
-      <RnText
-        style={[theme.typeFaces[variant] as StyleProp<TextStyle>, textStyle, style]}
-        {...rest}>
-        {children}
-      </RnText>
-    </View>
+    <RnText style={[theme.typeFaces[variant] as StyleProp<TextStyle>, textStyle, style]} {...rest}>
+      {children}
+    </RnText>
   );
 };
 

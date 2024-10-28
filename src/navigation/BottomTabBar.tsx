@@ -84,7 +84,7 @@ const BottomTabBar = ({ state, navigation }: BottomTabBarProps): ReactElement | 
 const styles = StyleSheet.create({
   tabBarContainer: {
     padding: 8,
-    paddingVertical: 12,
+    paddingVertical: 2,
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',

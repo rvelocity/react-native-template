@@ -1,9 +1,6 @@
 import { createStyleSheet } from 'react-native-unistyles';
 
 const stylesheet = createStyleSheet(theme => ({
-  listContainer: {
-    paddingHorizontal: 16
-  },
   accordionContainer: {
     marginBottom: 16
   },

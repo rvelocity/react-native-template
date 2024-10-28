@@ -42,6 +42,7 @@ export type MartStackParamList = {
 export type DineInStackParamList = {
   DineIn: undefined;
   DineInCategory: undefined;
+  DineInRestaurant: undefined;
 };
 
 export type DineInStackProps<T extends keyof DineInStackParamList> = NativeStackScreenProps<
