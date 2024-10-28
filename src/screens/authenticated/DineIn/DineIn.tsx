@@ -33,7 +33,7 @@ const DineIn: FC<DineInProps> = ({ navigation }) => {
 
   return (
     <Screen
-      preset="auto"
+      preset="scroll"
       safeAreaEdges={['top']}
       background="white"
       contentContainerStyle={styles.screenContent}>

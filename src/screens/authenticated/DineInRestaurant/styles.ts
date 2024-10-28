@@ -2,14 +2,14 @@ import { createStyleSheet } from 'react-native-unistyles';
 
 const stylesheet = createStyleSheet(theme => ({
   screenContent: {
-    gap: 24
+    gap: theme.spacing[6]
   },
   restaurantImage: {
     height: 210,
     width: '100%'
   },
   infoContainer: {
-    gap: 12
+    gap: theme.spacing[4]
   },
   detailsContainer: {
     flexDirection: 'row',
@@ -17,16 +17,22 @@ const stylesheet = createStyleSheet(theme => ({
     justifyContent: 'space-between'
   },
   cuisineContainer: {
-    gap: 4
+    gap: theme.spacing[2]
   },
   ratingContainer: {
     alignItems: 'flex-end',
-    gap: 4
+    gap: theme.spacing[2]
   },
   ratingRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 4
+    gap: theme.spacing[1]
+  },
+  featureContainer: {
+    marginVertical: theme.spacing[4]
+  },
+  actionButtonsContainer: {
+    gap: theme.spacing[2]
   }
 }));
 

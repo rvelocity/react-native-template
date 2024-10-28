@@ -2,7 +2,7 @@
 import Restaurant from '@/ui/components/Restaurant';
 import Text from '@/ui/elements/Text';
 import React, { FC } from 'react';
-import { FlatList, View } from 'react-native';
+import { FlatList, ScrollView, View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
 import ContentSafeView from '@/ui/elements/layout/ContentSafeView';
 import stylesheet from './styles';
@@ -40,29 +40,32 @@ const RestaurantList: FC<RestaurantListProps> = ({
       <ContentSafeView>
         <Text variant="bodyEmphasized">{title}</Text>
       </ContentSafeView>
-
-      {orientation === 'horizontal' ? (
-        <FlatList
-          horizontal={orientation === 'horizontal'}
-          data={data}
-          keyExtractor={item => item.id.toString()}
-          renderItem={renderFunction}
-          ItemSeparatorComponent={() => <Separator orientation={orientation} />}
-          showsHorizontalScrollIndicator={false}
-          ListHeaderComponent={<Separator orientation="horizontal" />}
-          ListFooterComponent={<Separator orientation="horizontal" />}
-        />
-      ) : (
-        <ContentSafeView>
+      <ScrollView horizontal={true}>
+        {orientation === 'horizontal' ? (
           <FlatList
+            nestedScrollEnabled
+            horizontal={orientation === 'horizontal'}
             data={data}
             keyExtractor={item => item.id.toString()}
             renderItem={renderFunction}
             ItemSeparatorComponent={() => <Separator orientation={orientation} />}
             showsHorizontalScrollIndicator={false}
+            ListHeaderComponent={<Separator orientation="horizontal" />}
+            ListFooterComponent={<Separator orientation="horizontal" />}
           />
-        </ContentSafeView>
-      )}
+        ) : (
+          <ContentSafeView>
+            <FlatList
+              nestedScrollEnabled
+              data={data}
+              keyExtractor={item => item.id.toString()}
+              renderItem={renderFunction}
+              ItemSeparatorComponent={() => <Separator orientation={orientation} />}
+              showsHorizontalScrollIndicator={false}
+            />
+          </ContentSafeView>
+        )}
+      </ScrollView>
     </View>
   );
 };

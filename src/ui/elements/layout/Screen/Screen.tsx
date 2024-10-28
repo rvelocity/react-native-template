@@ -141,6 +141,7 @@ const ScreenWithScrolling = (props: ScreenProps): ReactElement => {
 
   return (
     <ScrollView
+      nestedScrollEnabled
       {...{ keyboardShouldPersistTaps, scrollEnabled, ref }}
       {...ScrollViewProps}
       onLayout={e => {
