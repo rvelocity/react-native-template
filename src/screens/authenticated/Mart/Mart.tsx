@@ -1,18 +1,19 @@
-import ContentSafeView from '@/ui/elements/layout/ContentSafeView/ContentSafeView.tsx';
 import Screen from '@/ui/elements/layout/Screen/Screen.tsx';
 import HeaderWithSearchAndAvatar from '@/ui/widgets/HeaderWithSearchAndAvatar/HeaderWithSearchAndAvatar.tsx';
 import React from 'react';
+import { useStyles } from 'react-native-unistyles';
+import stylesheet from './styles';
 
 type MartProps = {
   // Define props here
 };
 
 const Mart: React.FC<MartProps> = props => {
+  const { styles } = useStyles(stylesheet);
+
   return (
-    <Screen preset="auto" safeAreaEdges={['top']}>
-      <ContentSafeView gap={16}>
-        <HeaderWithSearchAndAvatar />
-      </ContentSafeView>
+    <Screen preset="auto" safeAreaEdges={['top']} contentContainerStyle={styles.screenContent}>
+      <HeaderWithSearchAndAvatar />
     </Screen>
   );
 };

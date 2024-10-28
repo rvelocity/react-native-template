@@ -136,6 +136,8 @@ export const Carousel = ({
         decelerationRate={0}
         showsHorizontalScrollIndicator={false}
         renderItem={renderItem}
+        ListHeaderComponent={Separator}
+        ListFooterComponent={Separator}
         ItemSeparatorComponent={Separator}
         // keyExtractor={item => item.id.toString()}
         snapToAlignment="start"

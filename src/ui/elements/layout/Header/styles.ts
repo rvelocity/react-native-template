@@ -6,14 +6,26 @@ const stylesheet = createStyleSheet(theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     height: 60,
-    backgroundColor: theme.colors.background
+    backgroundColor: theme.colors.white
   },
   headerContent: {
     width: '100%',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  },
+  otherContent: {
+    gap: 4,
+    flexDirection: 'row',
     alignItems: 'center'
-  }
+  },
+  actionGroup: {
+    gap: 4,
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  backWrapper: { right: 2 },
+  actionWrapper: { left: 2 }
 }));
 
 export default stylesheet;

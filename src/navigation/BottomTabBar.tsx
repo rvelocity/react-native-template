@@ -1,3 +1,4 @@
+import useNavigationStore from '@/hooks/useNavigationStore';
 import { useSafeAreaInsetsStyle } from '@/hooks/useSafeAreaInsetsStyle';
 import { lightTheme } from '@/theme';
 import IconButton from '@/ui/elements/media-icons/IconButton';
@@ -6,11 +7,12 @@ import { IconKeys } from '@/utils';
 import { type BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import React, { type ReactElement } from 'react';
 import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
+import { SHOW_TAB_BAR_ROUTES_NAMES } from './navigationUtils';
 
 const TITLE_ICON_MAPPING = {
   HomeStack: { type: 'octicon', icon: 'home', title: 'Home' },
   FoodStack: { type: 'ionicon', icon: 'fast-food-outline', title: 'Food' },
-  MartStack: { type: 'material', icon: 'local-grocery-store', title: 'Mart' },
+  MartStack: { type: 'materialCommunity', icon: 'cart-outline', title: 'Mart' },
   DineInStack: { type: 'fa5', icon: 'concierge-bell', title: 'Dine In' },
   CourierStack: { type: 'materialCommunity', icon: 'truck-outline', title: 'Courier' }
 };
@@ -30,57 +32,73 @@ const BottomTabIcon = ({ focused, route }: { route: string; focused: boolean }):
   );
 };
 
-const BottomTabBar = ({ state, navigation }: BottomTabBarProps): ReactElement => {
+const BottomTabBar = ({ state, navigation }: BottomTabBarProps): ReactElement | null => {
   const bottomPadding = useSafeAreaInsetsStyle(['bottom']);
+  const { currentRouteInfo } = useNavigationStore();
 
-  return (
-    <View style={[bottomPadding]}>
-      <View style={styles.tabBarContainer}>
-        {state.routes.map((route, index) => {
-          const isFocused = state.index === index;
-          const routeName = route.name;
+  if (SHOW_TAB_BAR_ROUTES_NAMES.includes(currentRouteInfo as string)) {
+    return (
+      <View style={[bottomPadding]}>
+        <View style={styles.tabBarContainer}>
+          {state.routes.map((route, index) => {
+            const isFocused = state.index === index;
+            const routeName = route.name;
 
-          const onPress = (): void => {
-            const event = navigation.emit({
-              type: 'tabPress',
-              target: route.key,
-              canPreventDefault: true
-            });
+            const onPress = (): void => {
+              const event = navigation.emit({
+                type: 'tabPress',
+                target: route.key,
+                canPreventDefault: true
+              });
 
-            if (!isFocused && !event.defaultPrevented) {
-              navigation.navigate(route.name);
-            }
-          };
+              if (!isFocused && !event.defaultPrevented) {
+                navigation.navigate(route.name);
+              }
+            };
 
-          return (
-            <TouchableWithoutFeedback
-              key={route.key}
-              onPress={onPress}
-              accessibilityRole="button"
-              accessibilityState={isFocused ? { selected: true } : {}}>
-              <View style={styles.tabBarItem}>
-                <BottomTabIcon focused={isFocused} route={route.name} />
-                <Text
-                  variant="captionSmall"
-                  style={[styles.tabLabel, isFocused && styles.focusedTabLabel]}>
-                  {TITLE_ICON_MAPPING[routeName as keyof typeof TITLE_ICON_MAPPING].title}
-                </Text>
-              </View>
-            </TouchableWithoutFeedback>
-          );
-        })}
+            return (
+              <TouchableWithoutFeedback
+                key={route.key}
+                onPress={onPress}
+                accessibilityRole="button"
+                accessibilityState={isFocused ? { selected: true } : {}}>
+                <View style={styles.tabBarItem}>
+                  <BottomTabIcon focused={isFocused} route={route.name} />
+                  <Text
+                    variant="captionSmall"
+                    style={[styles.tabLabel, isFocused && styles.focusedTabLabel]}>
+                    {TITLE_ICON_MAPPING[routeName as keyof typeof TITLE_ICON_MAPPING].title}
+                  </Text>
+                </View>
+              </TouchableWithoutFeedback>
+            );
+          })}
+        </View>
       </View>
-    </View>
-  );
+    );
+  }
+
+  return null;
 };
 
 const styles = StyleSheet.create({
   tabBarContainer: {
     padding: 8,
+    paddingVertical: 2,
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: lightTheme.colors.secondary
+    backgroundColor: lightTheme.colors.white,
+    // Shadow for iOS
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: -5 // Increased height for a larger shadow spread
+    },
+    shadowOpacity: 0.2, // Slightly darker shadow
+    shadowRadius: 6, // Increased radius for more blur/spread
+    // Shadow for Android
+    elevation: 8 // Increased elevation for more spread
   },
   tabBarItem: {
     flex: 1,

@@ -1,35 +1,23 @@
 import { createStyleSheet } from 'react-native-unistyles';
 
 const stylesheet = createStyleSheet(theme => ({
-  container: {
+  base: {
     paddingHorizontal: 8,
-    borderRadius: 8,
+    paddingVertical: 6,
+    borderRadius: 16,
     alignSelf: 'flex-start',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    gap: 6
+  },
+  contained: {
+    backgroundColor: theme.colors.secondary
   },
   outlined: {
     backgroundColor: 'transparent',
-    borderWidth: 1
-  },
-  hStack: {
-    flexDirection: 'row',
-    alignItems: 'center'
-  },
-  text: {
-    fontSize: 14,
-    fontWeight: '600',
-    marginLeft: 4
-  },
-  // Variants
-  primary: {
-    backgroundColor: theme.colors.primary,
-    borderColor: theme.colors.primary
-  },
-  secondary: {
-    backgroundColor: theme.colors.secondary,
-    borderColor: theme.colors.secondary
+    borderWidth: 1,
+    borderColor: theme.colors.gray
   }
 }));
 

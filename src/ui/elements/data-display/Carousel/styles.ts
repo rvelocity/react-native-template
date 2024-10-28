@@ -5,7 +5,7 @@ const stylesheet = createStyleSheet(theme => ({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginVertical: 8
+    marginVertical: 4
   },
   dot: {
     alignItems: 'center',
@@ -21,14 +21,14 @@ const stylesheet = createStyleSheet(theme => ({
     overflow: 'hidden',
     backgroundColor: theme.colors.secondary,
     borderRadius: 9999,
-    marginVertical: 8
+    marginVertical: 4
   },
   lineIndicator: {
     borderRadius: 4,
     height: 5
   },
   itemContainer: {
-    marginVertical: 8
+    marginVertical: 4
   },
   separator: { width: 12 }
 }));

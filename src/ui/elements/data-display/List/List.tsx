@@ -1,17 +1,16 @@
 import React, { type PropsWithChildren, type ReactElement, type ReactNode, useState } from 'react';
-import { LayoutAnimation, StyleProp, Text, TextStyle, View } from 'react-native';
+import { LayoutAnimation, StyleProp, TextStyle, View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
+import Clickable from '../../Clickable';
 import Divider from '../../layout/Divider';
 import Icon, { IconProps } from '../../media-icons/Icon';
+import Text from '../../Text';
 import stylesheet from './styles';
-import Clickable from '../../Clickable';
 
 type ListProps = PropsWithChildren;
 
 const List = ({ children }: ListProps): ReactElement => {
-  const { styles } = useStyles(stylesheet);
-
-  return <View style={styles.listContainer}>{children}</View>;
+  return <View>{children}</View>;
 };
 
 type ListAccordionProps = PropsWithChildren & {
@@ -126,7 +125,7 @@ const ListSubHeader = ({ title }: ListSubHeaderProps): ReactElement => {
 
   return (
     <View style={styles.listSubHeader}>
-      <Text>{title}</Text>
+      <Text variant="bodyEmphasized">{title}</Text>
     </View>
   );
 };
