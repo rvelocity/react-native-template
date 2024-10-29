@@ -53,7 +53,13 @@ export type DineInStackProps<T extends keyof DineInStackParamList> = NativeStack
 
 export type CourierStackParamList = {
   Courier: undefined;
+  CourierCart: undefined;
 };
+
+export type CourierStackProps<T extends keyof CourierStackParamList> = NativeStackScreenProps<
+  CourierStackParamList,
+  T
+>;
 
 export type ProfileStackParamList = {
   Profile: undefined;

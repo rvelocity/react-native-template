@@ -31,6 +31,8 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ title, data }) => {
       </ContentSafeView>
 
       <FlatList
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
         horizontal
         data={data}
         keyExtractor={item => item.id.toString()}

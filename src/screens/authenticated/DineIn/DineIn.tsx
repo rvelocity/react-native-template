@@ -8,9 +8,9 @@ import Carousel from '@/ui/elements/data-display/Carousel';
 import Screen from '@/ui/elements/layout/Screen/Screen';
 import ImageBanner from '@/ui/elements/media-icons/ImageBanner';
 import CategoryList from '@/ui/widgets/CategoryList';
-import HeaderWithSearchAndAvatar from '@/ui/widgets/HeaderWithSearchAndAvatar/HeaderWithSearchAndAvatar.tsx';
+import HeaderSearchBar from '@/ui/widgets/HeaderSearchBar';
+import HeaderUserAddress from '@/ui/widgets/HeaderUserAddress';
 import RestaurantList from '@/ui/widgets/RestaurantList';
-
 import stylesheet from './styles';
 
 const imageUrls = [
@@ -38,8 +38,12 @@ const DineIn: FC<DineInProps> = ({ navigation }) => {
       preset="scroll"
       safeAreaEdges={['top']}
       background="white"
-      contentContainerStyle={styles.screenContent}>
-      <HeaderWithSearchAndAvatar />
+      contentContainerStyle={styles.screenContent}
+      ScrollViewProps={{
+        stickyHeaderIndices: [1]
+      }}>
+      <HeaderUserAddress />
+      <HeaderSearchBar />
       <CategoryList data={mockData.categories} onPress={navigateToCategory} />
       <Carousel pagingEnabled>
         {imageUrls.map((url, index) => (

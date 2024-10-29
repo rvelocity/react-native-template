@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unstable-nested-components */
 import React, { FC } from 'react';
 import { FlatList, ScrollView, View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
@@ -25,49 +24,51 @@ const RestaurantList: FC<RestaurantListProps> = ({
   dineIn = false
 }) => {
   const { styles } = useStyles(stylesheet);
+  const isHorizontal = orientation === 'horizontal';
 
-  const renderFunction = ({ item }) => {
-    return (
-      <Restaurant
-        variant={orientation === 'horizontal' ? 'small' : 'large'}
-        dineIn={dineIn}
-        data={item}
-        onPress={onPress}
-      />
-    );
-  };
+  const renderItem = ({ item }) => (
+    <Restaurant
+      variant={isHorizontal ? 'small' : 'large'}
+      dineIn={dineIn}
+      data={item}
+      onPress={onPress}
+    />
+  );
 
   return (
     <View style={styles.container}>
       <ContentSafeView>
         <Text variant="bodyEmphasized">{title}</Text>
       </ContentSafeView>
-      <ScrollView horizontal={true}>
-        {orientation === 'horizontal' ? (
-          <FlatList
-            nestedScrollEnabled
-            horizontal={orientation === 'horizontal'}
-            data={data}
-            keyExtractor={item => item.id.toString()}
-            renderItem={renderFunction}
-            ItemSeparatorComponent={() => <Separator orientation={orientation} />}
-            showsHorizontalScrollIndicator={false}
-            ListHeaderComponent={<Separator orientation="horizontal" />}
-            ListFooterComponent={<Separator orientation="horizontal" />}
-          />
-        ) : (
+
+      {isHorizontal ? (
+        <FlatList
+          nestedScrollEnabled
+          horizontal
+          data={data}
+          keyExtractor={item => item.id.toString()}
+          renderItem={renderItem}
+          ItemSeparatorComponent={() => <Separator orientation="horizontal" />}
+          showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}
+          ListHeaderComponent={<Separator orientation="horizontal" />}
+          ListFooterComponent={<Separator orientation="horizontal" />}
+        />
+      ) : (
+        <ScrollView horizontal>
           <ContentSafeView>
             <FlatList
               nestedScrollEnabled
               data={data}
               keyExtractor={item => item.id.toString()}
-              renderItem={renderFunction}
-              ItemSeparatorComponent={() => <Separator orientation={orientation} />}
+              renderItem={renderItem}
+              ItemSeparatorComponent={() => <Separator orientation="vertical" />}
+              showsVerticalScrollIndicator={false}
               showsHorizontalScrollIndicator={false}
             />
           </ContentSafeView>
-        )}
-      </ScrollView>
+        </ScrollView>
+      )}
     </View>
   );
 };
@@ -76,10 +77,8 @@ export default RestaurantList;
 
 function Separator({ orientation }: { orientation: 'horizontal' | 'vertical' }) {
   const { styles } = useStyles(stylesheet);
+  const separatorStyle =
+    orientation === 'horizontal' ? styles.separatorHorizontal : styles.separatorVertical;
 
-  return (
-    <View
-      style={orientation === 'horizontal' ? styles.separatorHorizontal : styles.separatorVertical}
-    />
-  );
+  return <View style={separatorStyle} />;
 }
