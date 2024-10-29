@@ -5,7 +5,7 @@ const stylesheet = createStyleSheet(theme => ({
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    height: 60,
+    paddingVertical: 16,
     backgroundColor: theme.colors.white
   },
   headerContent: {
@@ -14,8 +14,8 @@ const stylesheet = createStyleSheet(theme => ({
     alignItems: 'center',
     justifyContent: 'space-between'
   },
-  otherContent: {
-    gap: 4,
+  backAndContent: {
+    gap: 16,
     flexDirection: 'row',
     alignItems: 'center'
   },
@@ -24,8 +24,12 @@ const stylesheet = createStyleSheet(theme => ({
     flexDirection: 'row',
     alignItems: 'center'
   },
-  backWrapper: { right: 2 },
-  actionWrapper: { left: 2 }
+  backWrapper: {
+    right: 2
+  },
+  actionWrapper: {
+    left: 2
+  }
 }));
 
 export default stylesheet;

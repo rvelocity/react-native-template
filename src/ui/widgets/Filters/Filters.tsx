@@ -13,7 +13,10 @@ type FiltersProps = {
 
 const Filters: FC<FiltersProps> = props => {
   return (
-    <ScrollView horizontal contentContainerStyle={{ paddingHorizontal: 14 }}>
+    <ScrollView
+      horizontal
+      contentContainerStyle={{ paddingHorizontal: 14 }}
+      showsHorizontalScrollIndicator={false}>
       <View style={styles.container}>
         <Chip
           variant="outlined"

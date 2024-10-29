@@ -51,6 +51,7 @@ const RestaurantList: FC<RestaurantListProps> = ({
             keyExtractor={item => item.id.toString()}
             renderItem={renderFunction}
             ItemSeparatorComponent={() => <Separator orientation={orientation} />}
+            showsVerticalScrollIndicator={false}
             showsHorizontalScrollIndicator={false}
             ListHeaderComponent={<Separator orientation="horizontal" />}
             ListFooterComponent={<Separator orientation="horizontal" />}
@@ -63,6 +64,7 @@ const RestaurantList: FC<RestaurantListProps> = ({
               keyExtractor={item => item.id.toString()}
               renderItem={renderFunction}
               ItemSeparatorComponent={() => <Separator orientation={orientation} />}
+              showsVerticalScrollIndicator={false}
               showsHorizontalScrollIndicator={false}
             />
           </ContentSafeView>

@@ -135,6 +135,7 @@ export function Carousel({
         onScroll={indicator === IndicatorType.DOT ? onScrollDot : onScrollLine}
         bounces={false}
         decelerationRate={0}
+        showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
         renderItem={renderItem}
         ListHeaderComponent={Separator}

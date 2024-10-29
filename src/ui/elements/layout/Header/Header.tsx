@@ -1,4 +1,12 @@
-import React, { type PropsWithChildren, type ReactElement, Children, isValidElement } from 'react';
+import React, {
+  type PropsWithChildren,
+  type ReactElement,
+  Children,
+  createContext,
+  isValidElement,
+  useContext,
+  useMemo
+} from 'react';
 import { View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
 import { useNavigation } from '@react-navigation/native';
@@ -12,39 +20,50 @@ import ContentSafeView from '../ContentSafeView';
 
 import stylesheet from './styles';
 
-// Set displayName for Header.Action to identify it
-function Action(props: { icon: string; onPress?: () => void } & IconButtonProps): ReactElement {
-  const { styles } = useStyles(stylesheet);
+type HeaderContextType = {
+  variant: 'default' | 'large';
+};
 
-  return (
-    <View style={styles.actionWrapper}>
-      <IconButton size={24} {...props} />
-    </View>
-  );
-}
-Action.displayName = 'HeaderAction';
+const HeaderContext = createContext<HeaderContextType>({ variant: 'default' });
 
-export function Header({ children }: PropsWithChildren): ReactElement {
+const useHeaderContext = () => useContext(HeaderContext);
+
+export function Header({
+  children,
+  variant
+}: PropsWithChildren & { variant: 'default' | 'large' }): ReactElement {
   const { styles } = useStyles(stylesheet);
   const containerInsets = useSafeAreaInsetsStyle(['top'], 'margin');
 
-  // Separate Header.Action components from other children
+  const contextValue = useMemo(() => ({ variant }), [variant]);
+
   const actionElements = Children.toArray(children).filter(
     child => isValidElement(child) && (child.type as any).displayName === 'HeaderAction'
   );
-  const otherElements = Children.toArray(children).filter(
-    child => !(isValidElement(child) && (child.type as any).displayName === 'HeaderAction')
+  const contentElements = Children.toArray(children).filter(
+    child => isValidElement(child) && (child.type as any).displayName === 'HeaderContent'
+  );
+  const backElement = Children.toArray(children).filter(
+    child => isValidElement(child) && (child.type as any).displayName === 'HeaderBackAction'
   );
 
   return (
-    <View style={[styles.headerContainer, containerInsets]}>
-      <ContentSafeView>
-        <View style={styles.headerContent}>
-          <View style={styles.otherContent}>{otherElements}</View>
-          <View style={styles.actionGroup}>{actionElements}</View>
-        </View>
-      </ContentSafeView>
-    </View>
+    <HeaderContext.Provider value={contextValue}>
+      <View style={[styles.headerContainer, containerInsets]}>
+        <ContentSafeView gap={16}>
+          {backElement.length !== 0 || actionElements.length !== 0 ? (
+            <View style={styles.headerContent}>
+              <View style={styles.backAndContent}>
+                {backElement}
+                {variant === 'default' && contentElements}
+              </View>
+              <View style={styles.actionGroup}>{actionElements}</View>
+            </View>
+          ) : null}
+          {variant === 'large' && <View>{contentElements}</View>}
+        </ContentSafeView>
+      </View>
+    </HeaderContext.Provider>
   );
 }
 
@@ -71,15 +90,14 @@ function BackAction({ onPress }: { onPress?: () => void }): ReactElement {
 }
 BackAction.displayName = 'HeaderBackAction';
 
-type ContentProps = {
-  title: string;
-  subTitle?: string;
-};
+function Content({ title, subTitle }: { title: string; subTitle?: string }): ReactElement {
+  const { variant } = useHeaderContext();
 
-function Content({ title, subTitle }: ContentProps): ReactElement {
+  const titleVariant = variant === 'large' ? 'titleExtraLarge' : 'titleMedium';
+
   return (
     <View>
-      <Text variant="titleMedium">{title}</Text>
+      <Text variant={titleVariant}>{title}</Text>
       {subTitle && (
         <Text variant="bodySmall" color="darkGray">
           {subTitle}
@@ -90,7 +108,17 @@ function Content({ title, subTitle }: ContentProps): ReactElement {
 }
 Content.displayName = 'HeaderContent';
 
-// Attach displayName to each component for filtering
+function Action(props: { icon: string; onPress?: () => void } & IconButtonProps): ReactElement {
+  const { styles } = useStyles(stylesheet);
+
+  return (
+    <View style={styles.actionWrapper}>
+      <IconButton size={24} {...props} />
+    </View>
+  );
+}
+Action.displayName = 'HeaderAction';
+
 Header.BackAction = BackAction;
 Header.Content = Content;
 Header.Action = Action;
