@@ -23,12 +23,12 @@ const avatarText = {
   xs: 'bodySmall',
   sm: 'bodyMedium',
   md: 'bodyLarge',
-  lg: 'bodyLarge',
-  xl: 'bodyLarge',
-  '2xl': 'bodyLarge'
+  lg: 'headlineLarge',
+  xl: 'headlineLarge',
+  '2xl': 'headlineLarge'
 };
 
-type AvatarType = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+type AvatarType = undefined | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 type AvatarGroupProps = {
   children: ReactElement[];
   max: number;
@@ -48,7 +48,7 @@ type AvatarProps = {
 // };
 
 const AvatarContext = createContext<AvatarContextType>({
-  variant: 'md'
+  variant: undefined
 });
 
 const { Provider } = AvatarContext;
@@ -85,7 +85,7 @@ const getAvatarGroupChildren = (
   return [avatars, plusAvatarComponent];
 };
 
-function AvatarGroup({ children, max, variant = 'md' }: AvatarGroupProps): ReactElement {
+function AvatarGroup({ children, max, variant }: AvatarGroupProps): ReactElement {
   const memorizedValue = useMemo(() => ({ variant }), [variant]);
   const { styles } = useStyles(stylesheet);
   const [avatars, plusAvatarComponent] = getAvatarGroupChildren(children, max, variant, styles);
@@ -149,9 +149,9 @@ function AvatarFallback({ children }: AvatarFallbackProps): ReactElement {
 //   return <View/>;
 // };
 
-function Avatar({ children, variant = 'md' }: AvatarProps): ReactElement {
+function Avatar({ children, variant }: AvatarProps): ReactElement {
   const { variant: groupVariant } = useContext(AvatarContext);
-
+  console.log(groupVariant, variant);
   const memorizedValue = useMemo(
     () => ({ variant: groupVariant || variant }),
     [groupVariant, variant]

@@ -1,5 +1,5 @@
 import React, { type PropsWithChildren, type ReactElement, type ReactNode, useState } from 'react';
-import { LayoutAnimation, StyleProp, TextStyle, View } from 'react-native';
+import { LayoutAnimation, View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
 
 import Clickable from '../../Clickable';
@@ -7,6 +7,7 @@ import Divider from '../../layout/Divider';
 import Icon, { IconProps } from '../../media-icons/Icon';
 import Text from '../../Text';
 
+import { Theme } from '@/theme';
 import stylesheet from './styles';
 
 type ListProps = PropsWithChildren;
@@ -42,8 +43,8 @@ function ListAccordion({ title, subTitle, children, left }: ListAccordionProps):
           {left ? left() : null}
           <View style={styles.accordionContent}>
             <View>
-              <Text style={styles.accordionTitle}>{title}</Text>
-              {subTitle ? <Text style={styles.accordionSubtitle}>{subTitle}</Text> : null}
+              <Text variant="bodyEmphasized">{title}</Text>
+              {subTitle ? <Text variant="titleSmall">{subTitle}</Text> : null}
             </View>
             <Icon
               variant="vector"
@@ -63,8 +64,8 @@ function ListAccordion({ title, subTitle, children, left }: ListAccordionProps):
 type ListItemProps = {
   title?: string;
   description?: string;
-  titleVariant?: StyleProp<TextStyle>;
-  descriptionVariant?: StyleProp<TextStyle>;
+  titleVariant?: keyof Theme['typeFaces'];
+  descriptionVariant?: keyof Theme['typeFaces'];
   titleColor?: string;
   descriptionColor?: string;
   divider?: boolean;
@@ -79,6 +80,8 @@ function ListItem({
   right,
   titleColor = 'black',
   descriptionColor = 'gray',
+  titleVariant = 'titleMedium',
+  descriptionVariant = 'bodyMedium',
   divider = false
 }: ListItemProps): ReactElement {
   const { styles } = useStyles(stylesheet);
@@ -90,10 +93,15 @@ function ListItem({
         <View style={styles.listItemTextContainer}>
           <View>
             {title ? (
-              <Text style={[styles.listItemTitle, { color: titleColor }]}>{title}</Text>
+              <Text variant={titleVariant} style={{ color: titleColor }}>
+                {title}
+              </Text>
             ) : null}
             {description ? (
-              <Text style={[styles.listItemDescription, { color: descriptionColor }]}>
+              <Text
+                variant={descriptionVariant}
+                color="darkGray"
+                style={{ color: descriptionColor }}>
                 {description}
               </Text>
             ) : null}

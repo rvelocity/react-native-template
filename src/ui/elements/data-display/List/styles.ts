@@ -14,14 +14,6 @@ const stylesheet = createStyleSheet(theme => ({
     flexDirection: 'row',
     alignItems: 'center'
   },
-  accordionTitle: {
-    fontSize: 16,
-    fontWeight: 'bold'
-  },
-  accordionSubtitle: {
-    fontSize: 14,
-    color: theme.colors.darkGray
-  },
   accordionBody: {
     marginTop: 10
   },
@@ -39,18 +31,8 @@ const stylesheet = createStyleSheet(theme => ({
     justifyContent: 'space-between',
     alignItems: 'center'
   },
-  listItemTitle: {
-    fontSize: 16,
-    fontWeight: '600'
-  },
-  listItemDescription: {
-    fontSize: 14,
-    color: theme.colors.darkGray
-  },
   divider: {
-    marginTop: 8,
-    borderBottomWidth: 0.5,
-    borderBottomColor: theme.colors.secondary
+    marginTop: 8
   },
   listSection: {
     marginVertical: 8
