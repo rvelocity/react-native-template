@@ -1,0 +1,42 @@
+[
+  {
+    "title": "My Account",
+    "icon": "face-man-outline",
+    "iconType": "materialCommunity"
+  },
+  {
+    "title": "My Orders",
+    "icon": "playlist-check",
+    "iconType": "materialCommunity"
+  },
+  {
+    "title": "Payments",
+    "icon": "credit-card",
+    "iconType": "materialCommunity"
+  },
+  {
+    "title": "Addresses",
+    "icon": "map-marker",
+    "iconType": "materialCommunity"
+  },
+  {
+    "title": "Favourites",
+    "icon": "heart",
+    "iconType": "materialCommunity"
+  },
+  {
+    "title": "Promocodes",
+    "icon": "ticket-percent-outline",
+    "iconType": "materialCommunity"
+  },
+  {
+    "title": "Settings",
+    "icon": "cog",
+    "iconType": "materialCommunity"
+  },
+  {
+    "title": "Help",
+    "icon": "help-circle-outline",
+    "iconType": "materialCommunity"
+  }
+]
