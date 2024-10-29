@@ -5,7 +5,6 @@ import useHeader from '@/hooks/useHeader';
 import { CourierStackProps } from '@/types/navigation';
 import List from '@/ui/elements/data-display/List';
 import Button from '@/ui/elements/forms/Button';
-import TextField from '@/ui/elements/forms/TextField';
 import Divider from '@/ui/elements/layout/Divider';
 import Header from '@/ui/elements/layout/Header';
 import Screen from '@/ui/elements/layout/Screen/Screen.tsx';
@@ -18,14 +17,14 @@ type CourierProps = CourierStackProps<'Courier'>;
 
 const CourierCartHeader: React.FC = () => (
   <Header variant="large">
-    <Header.Content title="Parcel Delivery" />
+    <Header.BackAction />
+    <Header.Content title="Cart" />
   </Header>
 );
 
 const Courier: FC<CourierProps> = ({ navigation }) => {
   const { styles } = useStyles(stylesheet);
   useHeader(CourierCartHeader);
-
   const { navigate } = navigation;
 
   const navigateToCourierCart = () => {
@@ -35,11 +34,6 @@ const Courier: FC<CourierProps> = ({ navigation }) => {
   return (
     <Screen preset="scroll" background="white" contentContainerStyle={styles.screenContent}>
       <ContentSafeView>
-        <TextField size="md" placeholder="Enter pickup location" />
-        <TextField size="md" placeholder="Delivery location" />
-        <TextField size="md" placeholder="Parcel type" />
-        <TextField size="md" placeholder="Any instruction for parcel (optional)" />
-        <Divider />
         <List>
           <List.SubHeader title="Note:" />
           <List.Item
@@ -61,8 +55,9 @@ const Courier: FC<CourierProps> = ({ navigation }) => {
             )}
           />
         </List>
+        <Divider />
         <Button variant="primary" type="contained" onPress={navigateToCourierCart}>
-          <Button.Text title="Continue" />
+          <Button.Text title="Make Payment" />
         </Button>
       </ContentSafeView>
     </Screen>
