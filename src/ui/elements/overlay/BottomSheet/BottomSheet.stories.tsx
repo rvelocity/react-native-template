@@ -7,7 +7,7 @@ import ContentSafeView from '../../layout/ContentSafeView';
 
 import BottomSheet from './BottomSheet';
 
-import { decorators } from '@.storybook/decorators.tsx';
+import { decorators } from '@.storybook/decorators';
 
 const meta = {
   title: 'Elements/Overlay/BottomSheet',

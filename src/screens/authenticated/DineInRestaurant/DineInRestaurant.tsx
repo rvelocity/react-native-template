@@ -12,7 +12,7 @@ import Button from '@/ui/elements/forms/Button';
 import ContentSafeView from '@/ui/elements/layout/ContentSafeView';
 import Divider from '@/ui/elements/layout/Divider';
 import Header from '@/ui/elements/layout/Header';
-import Screen from '@/ui/elements/layout/Screen/Screen.tsx';
+import Screen from '@/ui/elements/layout/Screen/Screen';
 import Icon from '@/ui/elements/media-icons/Icon';
 import Image from '@/ui/elements/media-icons/Image';
 import Text from '@/ui/elements/Text';

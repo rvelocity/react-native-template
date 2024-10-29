@@ -2,9 +2,9 @@ import React from 'react';
 import { View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
 
-import TextField, { TextFieldProps } from '@/ui/elements/forms/TextField/TextField.tsx';
+import TextField, { TextFieldProps } from '@/ui/elements/forms/TextField/TextField';
 import Divider from '@/ui/elements/layout/Divider';
-import IconButton from '@/ui/elements/media-icons/IconButton/IconButton.tsx';
+import IconButton from '@/ui/elements/media-icons/IconButton/IconButton';
 
 import stylesheet from './styles';
 

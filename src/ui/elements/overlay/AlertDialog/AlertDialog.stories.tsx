@@ -5,7 +5,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import AlertDialog from './AlertDialog';
 
-import { decorators } from '@.storybook/decorators.tsx';
+import { decorators } from '@.storybook/decorators';
 
 const meta = {
   title: 'Elements/Overlay/AlertDialog',

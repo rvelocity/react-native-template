@@ -3,7 +3,7 @@ import { useStyles } from 'react-native-unistyles';
 
 import mockData from '@/mockData';
 import Carousel from '@/ui/elements/data-display/Carousel';
-import Screen from '@/ui/elements/layout/Screen/Screen.tsx';
+import Screen from '@/ui/elements/layout/Screen/Screen';
 import ImageBanner from '@/ui/elements/media-icons/ImageBanner';
 import CategoryList from '@/ui/widgets/CategoryList';
 import HeaderWithSearchAndAvatar from '@/ui/widgets/HeaderWithSearchAndAvatar/HeaderWithSearchAndAvatar.tsx';
