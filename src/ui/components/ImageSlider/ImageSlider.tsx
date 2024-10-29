@@ -2,9 +2,9 @@ import React from 'react';
 import { FlatList, View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
 
-import ContentSafeView from '@/ui/elements/layout/ContentSafeView/ContentSafeView.tsx';
+import ContentSafeView from '@/ui/elements/layout/ContentSafeView/ContentSafeView';
 import Image from '@/ui/elements/media-icons/Image';
-import Text from '@/ui/elements/Text/Text.tsx';
+import Text from '@/ui/elements/Text/Text';
 
 import stylesheet from './styles';
 

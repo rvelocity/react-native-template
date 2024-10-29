@@ -1,10 +1,10 @@
-// import Text from '@/ui/elements/Text/Text.tsx';
+// import Text from '@/ui/elements/Text/Text';
 import React from 'react';
 import { View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
 
-import Clickable from '@/ui/elements/Clickable/Clickable.tsx';
-import Image from '@/ui/elements/media-icons/Image/Image.tsx';
+import Clickable from '@/ui/elements/Clickable/Clickable';
+import Image from '@/ui/elements/media-icons/Image/Image';
 
 import stylesheet from './styles';
 

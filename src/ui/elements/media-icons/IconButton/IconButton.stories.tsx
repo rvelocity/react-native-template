@@ -1,11 +1,11 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import IconMeta from '../Icon/Icon.stories.tsx';
+import IconMeta from '../Icon/Icon.stories';
 
-import IconButton from './IconButton.tsx';
+import IconButton from './IconButton';
 
-import { decorators } from '@.storybook/decorators.tsx';
+import { decorators } from '@.storybook/decorators';
 
 const meta = {
   title: 'Elements/Media Icons/IconButton',

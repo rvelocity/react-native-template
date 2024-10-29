@@ -3,9 +3,9 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import Icon from '../../media-icons/Icon';
 
-import Chip from './Chip.tsx';
+import Chip from './Chip';
 
-import { decorators } from '@.storybook/decorators.tsx';
+import { decorators } from '@.storybook/decorators';
 
 const meta = {
   title: 'Elements/Data Display/Chip',

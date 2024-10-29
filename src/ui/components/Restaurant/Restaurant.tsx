@@ -2,11 +2,11 @@ import React from 'react';
 import { View } from 'react-native';
 import { useStyles } from 'react-native-unistyles';
 
-import Clickable from '@/ui/elements/Clickable/Clickable.tsx';
-import Icon from '@/ui/elements/media-icons/Icon/Icon.tsx';
-import IconButton from '@/ui/elements/media-icons/IconButton/IconButton.tsx';
-import Image from '@/ui/elements/media-icons/Image/Image.tsx';
-import Text from '@/ui/elements/Text/Text.tsx';
+import Clickable from '@/ui/elements/Clickable/Clickable';
+import Icon from '@/ui/elements/media-icons/Icon/Icon';
+import IconButton from '@/ui/elements/media-icons/IconButton/IconButton';
+import Image from '@/ui/elements/media-icons/Image/Image';
+import Text from '@/ui/elements/Text/Text';
 
 import stylesheet from './styles';
 

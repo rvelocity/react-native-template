@@ -2,8 +2,8 @@
 import React, { FC } from 'react';
 import { ScrollView, View } from 'react-native';
 
-import Chip from '@/ui/elements/data-display/Chip/Chip.tsx';
-import Icon from '@/ui/elements/media-icons/Icon/Icon.tsx';
+import Chip from '@/ui/elements/data-display/Chip/Chip';
+import Icon from '@/ui/elements/media-icons/Icon/Icon';
 
 import styles from './styles';
 

@@ -5,7 +5,7 @@ import mockData from '@/mockData';
 import { DineInStackProps } from '@/types/navigation';
 import ImageSlider from '@/ui/components/ImageSlider';
 import Carousel from '@/ui/elements/data-display/Carousel';
-import Screen from '@/ui/elements/layout/Screen/Screen.tsx';
+import Screen from '@/ui/elements/layout/Screen/Screen';
 import ImageBanner from '@/ui/elements/media-icons/ImageBanner';
 import CategoryList from '@/ui/widgets/CategoryList';
 import HeaderSearchBar from '@/ui/widgets/HeaderSearchBar';
