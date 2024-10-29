@@ -4,9 +4,14 @@ const stylesheet = createStyleSheet(theme => ({
   headerContainer: {
     gap: 24
   },
-  headerTopRow: {
+  headerRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center'
+  },
+  locationRow: {
+    gap: 8,
+    flexDirection: 'row',
     alignItems: 'center'
   },
   locationContainer: {
@@ -15,7 +20,7 @@ const stylesheet = createStyleSheet(theme => ({
     gap: 8
   },
   locationText: {
-    fontWeight: 900,
+    fontWeight: 'bold',
     color: theme.colors.primary
   }
 }));

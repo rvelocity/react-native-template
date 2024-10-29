@@ -4,7 +4,8 @@ import { useStyles } from 'react-native-unistyles';
 import { HomeStackProps } from '@/types/navigation';
 import ContentSafeView from '@/ui/elements/layout/ContentSafeView/ContentSafeView.tsx';
 import Screen from '@/ui/elements/layout/Screen/Screen.tsx';
-import HeaderWithSearchAndAvatar from '@/ui/widgets/HeaderWithSearchAndAvatar';
+import HeaderSearchBar from '@/ui/widgets/HeaderSearchBar';
+import HeaderUserAddress from '@/ui/widgets/HeaderUserAddress';
 import ServiceCategoryGrid from '@/ui/widgets/ServiceCategoryGrid';
 
 import stylesheet from './styles';
@@ -19,8 +20,12 @@ const Home: React.FC<HomeProps> = props => {
       preset="auto"
       safeAreaEdges={['top']}
       background="white"
-      contentContainerStyle={styles.screenContent}>
-      <HeaderWithSearchAndAvatar />
+      contentContainerStyle={styles.screenContent}
+      ScrollViewProps={{
+        stickyHeaderIndices: [1]
+      }}>
+      <HeaderUserAddress />
+      <HeaderSearchBar />
       <ContentSafeView>
         <ServiceCategoryGrid />
       </ContentSafeView>
